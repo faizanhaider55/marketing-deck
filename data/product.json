@@ -1,0 +1,600 @@
+{
+  "id": "product-based-brand-product-marketing-masterplan",
+  "title": "Product-Based Brand + Product Marketing Masterplan (DTC/Ecommerce, Consumer Apps, Retail/Omni)",
+  "intro": "Plan2 covers product marketing end-to-end: planning, execution (including ASO & CRO), and reporting. Use this as a living blueprint and adapt per category.",
+  "stages": [
+    {
+      "id": "stage-1-planning",
+      "title": "STAGE 1 — PLANNING",
+      "description": "Align product, market, and marketing strategy before any campaign spend. Product marketing merges with marketing ops here.",
+      "steps": [
+        {
+          "id": "audience-market-research",
+          "title": "1. Audience & Market Research",
+          "goal": "Understand who to target, the jobs they need done, where they spend time, and willingness to pay.",
+          "how": [
+            "Internal Data Review: GA4 (demographics, tech usage, behavior flow), CRM/Ecommerce (AOV, repeat rate, LTV), App analytics (activation, retention, churn), Social analytics (Meta/TikTok/YouTube).",
+            "Qualitative Discovery: JTBD interviews covering triggers, prior solutions, decision criteria, anxieties; review mining (Amazon, Walmart, Trustpilot, App Store, Google Play).",
+            "Quantitative Validation: Surveys (n ≥ 200) for usage patterns, value drivers, price sensitivity (Van Westendorp, Gabor-Granger), feature preference (MaxDiff).",
+            "Segmentation: Behavioral (RFM), need-based (jobs/pains), media-based (channels used).",
+            "Persona Building: name/photo, triggers, goals, objections, platforms, example ad hooks."
+          ],
+          "deliverables": [],
+          "kpis": [],
+          "toolbox": [
+            {
+              "name": "GA4",
+              "url": "https://analytics.google.com"
+            },
+            {
+              "name": "Mixpanel",
+              "url": "https://mixpanel.com"
+            },
+            {
+              "name": "Amplitude",
+              "url": "https://amplitude.com"
+            },
+            {
+              "name": "Hotjar",
+              "url": "https://www.hotjar.com"
+            },
+            {
+              "name": "Microsoft Clarity",
+              "url": "https://clarity.microsoft.com"
+            },
+            {
+              "name": "Typeform",
+              "url": "https://www.typeform.com"
+            },
+            {
+              "name": "Wynter",
+              "url": "https://wynter.com"
+            },
+            {
+              "name": "Dovetail",
+              "url": "https://dovetail.com"
+            },
+            {
+              "name": "Similarweb",
+              "url": "https://www.similarweb.com"
+            },
+            {
+              "name": "Statista",
+              "url": "https://www.statista.com"
+            },
+            {
+              "name": "GWI",
+              "url": "https://www.gwi.com"
+            },
+            {
+              "name": "AnswerThePublic",
+              "url": "https://answerthepublic.com"
+            },
+            {
+              "name": "Appbot",
+              "url": "https://appbot.co"
+            }
+          ]
+        },
+        {
+          "id": "competitive-channel-gap-analysis",
+          "title": "2. Competitive & Channel Gap Analysis",
+          "goal": "Find whitespace opportunities and channel strengths/weaknesses.",
+          "how": [
+            "Identify direct & indirect competitors.",
+            "SEO Gap: SEMrush/Ahrefs keyword & content gaps.",
+            "Backlink Gap: Ahrefs Link Intersect.",
+            "Creative Gap: Meta/TikTok/Pinterest Ad Libraries.",
+            "PPC Gap: SpyFu, Adbeat, Shopping feed analysis.",
+            "Affiliate Gap: network presence, partner volume.",
+            "Offer Gap: pricing, bundles, warranties.",
+            "Channel Scoring: rate fit, cost, speed, complexity."
+          ],
+          "deliverables": [
+            "Gap matrix",
+            "Quick wins list",
+            "Channel priorities"
+          ],
+          "kpis": [],
+          "toolbox": [
+            {
+              "name": "Semrush",
+              "url": "https://www.semrush.com"
+            },
+            {
+              "name": "Ahrefs",
+              "url": "https://ahrefs.com"
+            },
+            {
+              "name": "Meta Ad Library",
+              "url": "https://www.facebook.com/ads/library"
+            },
+            {
+              "name": "TikTok Creative Center",
+              "url": "https://ads.tiktok.com/business/creativecenter/"
+            },
+            {
+              "name": "Pinterest Ads Transparency",
+              "url": "https://ads.pinterest.com/transparency/"
+            },
+            {
+              "name": "SpyFu",
+              "url": "https://www.spyfu.com"
+            },
+            {
+              "name": "Adbeat",
+              "url": "https://www.adbeat.com"
+            }
+          ]
+        },
+        {
+          "id": "product-gap-analysis-frameworks",
+          "title": "3. Product Gap Analysis & Framework Selection",
+          "goal": "Identify where the product underperforms or misses opportunity and select prioritization frameworks.",
+          "how": [
+            "Customer Needs vs Product using Kano Model: must-have, performance, delighters.",
+            "Competitor Feature Matrix: parity, advantage, disadvantage.",
+            "Opportunity Scoring: Impact/Effort matrix.",
+            "Framework Choice: Kano, MoSCoW, RICE, Opportunity Solution Tree.",
+            "Roadmap Prioritization: target high impact/low effort for early release."
+          ],
+          "deliverables": [],
+          "kpis": [],
+          "toolbox": [
+            {
+              "name": "Miro",
+              "url": "https://miro.com"
+            },
+            {
+              "name": "Productboard",
+              "url": "https://www.productboard.com"
+            },
+            {
+              "name": "Aha!",
+              "url": "https://www.aha.io"
+            },
+            {
+              "name": "Craft",
+              "url": "https://craft.io"
+            },
+            {
+              "name": "Airtable",
+              "url": "https://airtable.com"
+            },
+            {
+              "name": "Dovetail",
+              "url": "https://dovetail.com"
+            }
+          ]
+        },
+        {
+          "id": "positioning-messaging-proof",
+          "title": "4. Positioning, Messaging & Proof",
+          "goal": "",
+          "how": [
+            "Use April Dunford Positioning Canvas: category, target segment, primary benefit, proof points.",
+            "Build a Messaging House: top-level promise → 3–5 benefits → feature-to-proof mapping.",
+            "Create persona-tailored variants."
+          ],
+          "deliverables": [
+            "Positioning doc",
+            "Messaging per persona",
+            "Proof library"
+          ],
+          "kpis": [],
+          "toolbox": []
+        },
+        {
+          "id": "offer-packaging-pricing",
+          "title": "5. Offer, Packaging & Pricing",
+          "goal": "",
+          "how": [
+            "Define tiering, bundles, subscriptions, guarantees.",
+            "Set promo cadence & MAP policy.",
+            "For App/SaaS: decide trial vs freemium and upgrade triggers."
+          ],
+          "deliverables": [
+            "Offer matrix",
+            "Promo calendar",
+            "Policy docs"
+          ],
+          "kpis": [],
+          "toolbox": []
+        },
+        {
+          "id": "brand-system-creative-assets",
+          "title": "6. Brand System & Creative Assets",
+          "goal": "",
+          "how": [
+            "Codify tone of voice, typography, logo variations, color palette.",
+            "Create ad templates for all formats.",
+            "Set PDP & landing page design standards."
+          ],
+          "deliverables": [
+            "Brand book",
+            "Asset library"
+          ],
+          "kpis": [],
+          "toolbox": []
+        },
+        {
+          "id": "funnel-channel-strategy",
+          "title": "7. Funnel & Channel Strategy",
+          "goal": "",
+          "how": [
+            "Map funnel: Awareness → Consideration → Conversion → Retention.",
+            "Assign channels to stages & personas.",
+            "Budget split: 70% proven, 20% emerging, 10% experimental."
+          ],
+          "deliverables": [],
+          "kpis": [],
+          "toolbox": []
+        },
+        {
+          "id": "tracking-attribution-product-analytics",
+          "title": "8. Tracking, Attribution & Product Analytics",
+          "goal": "",
+          "how": [
+            "Define event schema: marketing + product usage.",
+            "Implement GTM + server-side tagging; add SDKs for apps.",
+            "Choose attribution model: MMM and MMP for apps.",
+            "PLG: implement in-app onboarding flows and milestone comms."
+          ],
+          "deliverables": [
+            "Tracking plan",
+            "UTM conventions",
+            "Dashboard structure"
+          ],
+          "kpis": [],
+          "toolbox": []
+        },
+        {
+          "id": "budgeting-forecasting-inventory",
+          "title": "9. Budgeting, Forecasting & Inventory",
+          "goal": "",
+          "how": [
+            "Combine top-down % revenue budget with bottom-up CAC/ROAS model.",
+            "Link marketing pushes to inventory availability."
+          ],
+          "deliverables": [],
+          "kpis": [],
+          "toolbox": []
+        }
+      ]
+    },
+    {
+      "id": "stage-2-execution",
+      "title": "STAGE 2 — EXECUTION",
+      "description": "Strategy meets action: Launch, Channel Playbooks, Product Marketing Activities, ASO, and CRO.",
+      "steps": [
+        {
+          "id": "product-launch-gtm",
+          "title": "1. Product Launch & GTM",
+          "goal": "",
+          "how": [
+            "Pre-Launch: finalize product/packaging/assets; sales/CS enablement (battlecards, objection handling, demo scripts); teasers via social, email waitlists, PR embargoes.",
+            "Launch Week: hero content (launch video, press release), influencer seeding; paid push on top 2–3 channels; collect UGC and incentivize reviews.",
+            "Post-Launch: proof wave (testimonials, case studies); retargeting campaigns."
+          ],
+          "deliverables": [],
+          "kpis": [],
+          "toolbox": [
+            {
+              "name": "Muck Rack",
+              "url": "https://www.muckrack.com"
+            },
+            {
+              "name": "Canva",
+              "url": "https://www.canva.com"
+            },
+            {
+              "name": "CapCut",
+              "url": "https://www.capcut.com"
+            },
+            {
+              "name": "Loom",
+              "url": "https://www.loom.com"
+            },
+            {
+              "name": "Product Hunt",
+              "url": "https://producthunt.com"
+            },
+            {
+              "name": "Unbounce",
+              "url": "https://unbounce.com"
+            }
+          ],
+          "why": ""
+        },
+        {
+          "id": "seo-execution",
+          "title": "2. Channel Execution SOPs — SEO",
+          "goal": "",
+          "how": [
+            "Technical: audit with Screaming Frog; fix Core Web Vitals; implement schema markup.",
+            "Content: keyword research, PDP/PLP copy, blogs, comparisons, FAQs.",
+            "Authority: digital PR, link-building, HARO/Connectively outreach.",
+            "Cadence: monthly technical audits; weekly content publishing."
+          ],
+          "deliverables": [],
+          "kpis": [],
+          "toolbox": [
+            {
+              "name": "Ahrefs",
+              "url": "https://ahrefs.com"
+            },
+            {
+              "name": "Semrush",
+              "url": "https://www.semrush.com"
+            },
+            {
+              "name": "Google Search Console",
+              "url": "https://search.google.com/search-console/about"
+            },
+            {
+              "name": "Surfer SEO",
+              "url": "https://surferseo.com"
+            },
+            {
+              "name": "Screaming Frog",
+              "url": "https://www.screamingfrog.co.uk/seo-spider/"
+            }
+          ],
+          "why": ""
+        },
+        {
+          "id": "paid-search-shopping",
+          "title": "3. Channel Execution SOPs — Paid Search & Shopping",
+          "goal": "",
+          "how": [
+            "Structure: brand, non-brand, competitor, Shopping, Performance Max.",
+            "Feed Optimization: titles, GTIN, attributes, review feed quality.",
+            "Bidding: use CPA/ROAS-based strategies.",
+            "Cadence: weekly query review; monthly creative refresh."
+          ],
+          "deliverables": [],
+          "kpis": [],
+          "toolbox": [
+            {
+              "name": "Google Ads",
+              "url": "https://ads.google.com"
+            },
+            {
+              "name": "Merchant Center",
+              "url": "https://merchants.google.com"
+            },
+            {
+              "name": "Feedonomics",
+              "url": "https://feedonomics.com"
+            }
+          ],
+          "why": ""
+        },
+        {
+          "id": "paid-social-influencers",
+          "title": "4. Channel Execution SOPs — Paid Social & Influencers",
+          "goal": "",
+          "how": [
+            "Audience Mix: broad, lookalikes, interests, retargeting stacks.",
+            "Creative: UGC, demos, social proof, offer-driven ads.",
+            "Testing: 3–5 net new ads per week with structured kill thresholds."
+          ],
+          "deliverables": [],
+          "kpis": [],
+          "toolbox": [
+            {
+              "name": "Meta Ads",
+              "url": "https://www.facebook.com/business/ads"
+            },
+            {
+              "name": "TikTok Ads",
+              "url": "https://ads.tiktok.com"
+            },
+            {
+              "name": "Aspire",
+              "url": "https://www.aspire.io"
+            },
+            {
+              "name": "Billo",
+              "url": "https://billo.app"
+            }
+          ],
+          "why": ""
+        },
+        {
+          "id": "email-sms-push",
+          "title": "5. Channel Execution SOPs — Email, SMS, Push",
+          "goal": "",
+          "how": [
+            "Flows: welcome, abandon (browse/cart), post-purchase, win-back.",
+            "Campaigns: promo calendar and seasonal pushes aligned to inventory.",
+            "App Push: onboarding, milestone, reactivation journeys."
+          ],
+          "deliverables": [],
+          "kpis": [],
+          "toolbox": [
+            {
+              "name": "Klaviyo",
+              "url": "https://www.klaviyo.com"
+            },
+            {
+              "name": "Postscript",
+              "url": "https://postscript.io"
+            },
+            {
+              "name": "Attentive",
+              "url": "https://www.attentive.com"
+            },
+            {
+              "name": "OneSignal",
+              "url": "https://onesignal.com"
+            }
+          ],
+          "why": ""
+        },
+        {
+          "id": "affiliate-partnerships",
+          "title": "6. Channel Execution SOPs — Affiliate & Partnerships",
+          "goal": "",
+          "how": [
+            "Select networks (Awin, CJ, Impact) aligned to niche and geo.",
+            "Recruit via outbound and inbound sign-ups; seed products and assets.",
+            "Manage with monthly partner performance reviews and pruning."
+          ],
+          "deliverables": [],
+          "kpis": [],
+          "toolbox": [
+            {
+              "name": "Awin",
+              "url": "https://www.awin.com"
+            },
+            {
+              "name": "CJ",
+              "url": "https://www.cj.com"
+            },
+            {
+              "name": "Impact",
+              "url": "https://impact.com"
+            }
+          ],
+          "why": ""
+        },
+        {
+          "id": "retail-media",
+          "title": "",
+          "goal": "",
+          "how": [],
+          "deliverables": [],
+          "kpis": [],
+          "toolbox": [],
+          "why": ""
+        },
+        {
+          "id": "aso",
+          "title": "7. ASO (App Store Optimization)",
+          "goal": "",
+          "how": [
+            "Keyword research with AppTweak/Sensor Tower.",
+            "Optimize metadata: keyword-rich title, subtitle, description.",
+            "Creative: icon, screenshots, preview video; test variants.",
+            "Ratings & Reviews: prompt in-app after positive moments.",
+            "A/B Testing: Google Play experiments, iOS PPO.",
+            "Apple Search Ads: brand defense and competitor conquest."
+          ],
+          "deliverables": [],
+          "kpis": [],
+          "toolbox": [
+            {
+              "name": "AppTweak",
+              "url": "https://www.apptweak.com"
+            },
+            {
+              "name": "Sensor Tower",
+              "url": "https://sensortower.com"
+            },
+            {
+              "name": "Apple Search Ads",
+              "url": "https://searchads.apple.com"
+            }
+          ],
+          "why": ""
+        },
+        {
+          "id": "cro",
+          "title": "8. CRO (Conversion Rate Optimization)",
+          "goal": "",
+          "how": [
+            "Research: analytics, heatmaps, voice of customer.",
+            "Prioritize with PIE/ICE scoring.",
+            "Test Types: Web (headlines, CTAs, offer framing, checkout simplification); App (onboarding sequence, feature placement, upsell timing).",
+            "Analyze uplift and impact on LTV; maintain a test log."
+          ],
+          "deliverables": [],
+          "kpis": [],
+          "toolbox": [
+            {
+              "name": "VWO",
+              "url": "https://vwo.com"
+            },
+            {
+              "name": "Optimizely",
+              "url": "https://www.optimizely.com"
+            },
+            {
+              "name": "Hotjar",
+              "url": "https://www.hotjar.com"
+            },
+            {
+              "name": "Dynamic Yield",
+              "url": "https://www.dynamicyield.com"
+            }
+          ],
+          "why": ""
+        },
+        {
+          "id": "product-marketing-ongoing",
+          "title": "9. Product Marketing Ongoing Activities",
+          "goal": "",
+          "how": [
+            "Adoption Campaigns: onboarding emails and in-app tooltips.",
+            "Feature Launches: run mini-GTM for each update.",
+            "Retention Programs: loyalty and VIP access.",
+            "Upsell/Cross-Sell: target based on purchase history."
+          ],
+          "deliverables": [],
+          "kpis": [],
+          "toolbox": [],
+          "why": ""
+        }
+      ]
+    },
+    {
+      "id": "stage-3-reporting",
+      "title": "STAGE 3 — REPORTING",
+      "description": "",
+      "steps": [
+        {
+          "id": "kpi-tree",
+          "title": "1. KPI Tree",
+          "goal": "",
+          "how": [],
+          "deliverables": [],
+          "kpis": [
+            "Business: revenue, gross margin, MER, CAC, LTV.",
+            "Marketing: ROAS, CPA, new-to-brand %.",
+            "Product: activation rate, feature adoption, churn.",
+            "CRO: CVR by step, RPV, AOV, test win rate.",
+            "ASO: keyword rank, store CTR, listing CVR."
+          ],
+          "toolbox": []
+        },
+        {
+          "id": "dashboard-architecture",
+          "title": "2. Dashboard Architecture (Power BI / GDS)",
+          "goal": "",
+          "how": [
+            "Sources: GA4, GSC, Ads, CRM, Email/SMS, Mixpanel, MMP, affiliate, marketplaces.",
+            "Structure: Exec Overview (KPIs, trends), Channel Deep Dives, Product Adoption, CRO Impact, ASO Performance."
+          ],
+          "deliverables": [],
+          "kpis": [],
+          "toolbox": []
+        },
+        {
+          "id": "cadence",
+          "title": "3. Cadence",
+          "goal": "",
+          "how": [
+            "Daily: spend pacing and anomaly checks.",
+            "Weekly: channel reports and CRO updates.",
+            "Monthly: budget reallocation and roadmap updates.",
+            "Quarterly: strategic review and MMM updates."
+          ],
+          "deliverables": [],
+          "kpis": [],
+          "toolbox": []
+        }
+      ]
+    }
+  ]
+}

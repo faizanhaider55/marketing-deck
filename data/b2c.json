@@ -1,0 +1,1364 @@
+{
+  "id": "b2c",
+  "title": "B2C Marketing Masterplan (Ecommerce | Software | Retail)",
+  "blurb": "How to use this playbook\n• Work top-to-bottom. Don’t start paid media until Planning is complete.\n• Produce the deliverables listed in each step (personas, messaging, budgets, tracking plan, etc.).\n• Use the category fit notes for Ecommerce, Software, and Retail.\n• Keep a living log: decisions, dates, owners, links to assets.",
+  "stages": [
+    {
+      "id": "planning",
+      "title": "STAGE 1 — PLANNING",
+      "description": "Build the blueprint before spending",
+      "steps": [
+        {
+          "id": "b2c-planning-1",
+          "title": "1) Market & Audience Research (Personas, JTBD, Segments)",
+          "goal": "Precisely define who you’re targeting, what jobs they hire your product to do, and how to segment them for targeting and messaging.",
+          "why": "Accurate segmentation drives higher CTR/CVR, lower CAC, and smarter channel choices.",
+          "how": [
+            "How (SOP)",
+            "1. Collect internal data (2–5 days)",
+            "o GA4: Demographics, Interests, Paths (Explore), Conversions.",
+            "o Ecommerce/CRM: AOV, repeat rate, products per order, cohort retention.",
+            "o Social: Instagram/TikTok/YouTube audience insights.",
+            "o App (if Software): App Store Console / Google Play Console acquisition & retention.",
+            "2. Market intel (2–7 days)",
+            "o Category size, growth, seasonality, pricing norms, competitors.",
+            "o Identify direct, indirect, and substitute competitors.",
+            "3. Qualitative research (5–10 interviews, 10–15 mins each)",
+            "o Jobs-to-Be-Done interviews: pains, desired outcomes, previous solutions, purchase triggers, anxieties.",
+            "4. Quantitative survey (n≥200)",
+            "o Validate pains, barriers, motivations, willingness to pay, preferred channels.",
+            "5. Build personas (3–5)",
+            "o Include: photo/name, demo/psycho, goals, pains, triggers, objections, preferred channels, sample copy.",
+            "6. Segment into targetable groups",
+            "o Map to platform targeting (interests, lookalikes, keywords, geos).",
+            "7. Output & sign-off",
+            "o Personas PDF, JTBD summary, targetable segments list, channel fit per persona."
+          ],
+          "deliverables": [
+            "Research summary deck (10–20 slides)",
+            "Persona one-pagers (3–5)",
+            "JTBD write-ups (1 per persona)",
+            "Segment table (platform → audience → targeting string)"
+          ],
+          "toolbox": [
+            {
+              "name": "Google Analytics 4 (GA4)",
+              "url": "https://marketingplatform.google.com/about/analytics/"
+            },
+            {
+              "name": "FullStory",
+              "url": "https://www.fullstory.com"
+            },
+            {
+              "name": "Heap",
+              "url": "https://www.heap.io"
+            },
+            {
+              "name": "Mixpanel",
+              "url": "https://mixpanel.com"
+            },
+            {
+              "name": "SparkToro",
+              "url": "https://sparktoro.com"
+            },
+            {
+              "name": "Typeform",
+              "url": "https://www.typeform.com"
+            },
+            {
+              "name": "SurveyMonkey",
+              "url": "https://www.surveymonkey.com"
+            },
+            {
+              "name": "Sprig",
+              "url": "https://sprig.com"
+            },
+            {
+              "name": "Wynter",
+              "url": "https://wynter.com"
+            },
+            {
+              "name": "UserTesting",
+              "url": "https://www.usertesting.com"
+            },
+            {
+              "name": "Lookback",
+              "url": "https://lookback.io"
+            },
+            {
+              "name": "Google Trends",
+              "url": "https://trends.google.com"
+            },
+            {
+              "name": "Similarweb",
+              "url": "https://www.similarweb.com"
+            },
+            {
+              "name": "Statista",
+              "url": "https://www.statista.com"
+            },
+            {
+              "name": "GWI (GlobalWebIndex)",
+              "url": "https://www.gwi.com"
+            },
+            {
+              "name": "Think with Google",
+              "url": "https://www.thinkwithgoogle.com"
+            },
+            {
+              "name": "Data.ai (App Annie)",
+              "url": "https://www.data.ai"
+            }
+          ],
+          "notes": "Category fit\n• Ecommerce: heavy use of GA4 + Hotjar + Meta/TikTok insights.\n• Software: add Mixpanel, App Store/Play data, LinkedIn insights.\n• Retail: GA4 + GBP (Google Business Profile) insights + store footfall data (Placense, Cubiq).",
+          "kpis": []
+        },
+        {
+          "id": "b2c-planning-2",
+          "title": "2) Competitive & Channel Gap Analysis",
+          "goal": "Find SEO, backlink, PPC, creative, affiliate, and pricing gaps you can exploit.",
+          "how": [
+            "How (SOP)",
+            "1. Identify 5–10 top competitors (direct and substitute).",
+            "2. SEO gap",
+            "o Keyword gap, content gap, SERP features, schema usage.",
+            "3. Backlink gap",
+            "o Sites linking to competitors but not to you; PR angles; digital PR targets.",
+            "4. Paid search & Shopping",
+            "o Brand vs non-brand coverage, ad copy angles, extensions, Shopping feed quality.",
+            "5. Paid social & creative",
+            "o Hooks, formats, UGC, creator styles, offer positioning.",
+            "6. Affiliate/Influencer",
+            "o Networks used, top partners, coupon sites, creator types.",
+            "7. Pricing & offer",
+            "o Discounting cadence, bundles, subscriptions, BNPL, guarantees.",
+            "8. Channel priority score",
+            "o Score channels 1–5 on audience fit, cost, CPC/CPM, intent, speed, complexity."
+          ],
+          "deliverables": [
+            "Gap analysis grid (channel x competitor)",
+            "Priority channel plan w/ rationale",
+            "Quick-win list (next 30–60 days)"
+          ],
+          "toolbox": [
+            {
+              "name": "Ahrefs",
+              "url": "https://ahrefs.com"
+            },
+            {
+              "name": "Semrush",
+              "url": "https://www.semrush.com"
+            },
+            {
+              "name": "Moz",
+              "url": "https://moz.com"
+            },
+            {
+              "name": "Google Search Console",
+              "url": "https://search.google.com/search-console"
+            },
+            {
+              "name": "AlsoAsked",
+              "url": "https://alsoasked.com"
+            },
+            {
+              "name": "AnswerThePublic",
+              "url": "https://answerthepublic.com"
+            },
+            {
+              "name": "BuzzSumo",
+              "url": "https://buzzsumo.com"
+            },
+            {
+              "name": "Muck Rack",
+              "url": "https://www.muckrack.com"
+            },
+            {
+              "name": "Prowly",
+              "url": "https://prowly.com"
+            },
+            {
+              "name": "Google Ads Transparency Center",
+              "url": "https://adstransparency.google.com"
+            },
+            {
+              "name": "SpyFu",
+              "url": "https://www.spyfu.com"
+            },
+            {
+              "name": "Adbeat",
+              "url": "https://www.adbeat.com"
+            },
+            {
+              "name": "Similarweb Ads",
+              "url": "https://www.similarweb.com"
+            },
+            {
+              "name": "Meta Ad Library",
+              "url": "https://www.facebook.com/ads/library"
+            },
+            {
+              "name": "TikTok Creative Center",
+              "url": "https://ads.tiktok.com/business/creativecenter"
+            },
+            {
+              "name": "Pinterest Ad Library",
+              "url": "https://ads.pinterest.com"
+            },
+            {
+              "name": "Moat (Oracle)",
+              "url": "https://moat.com"
+            },
+            {
+              "name": "Prisync",
+              "url": "https://prisync.com"
+            },
+            {
+              "name": "Price2Spy",
+              "url": "https://www.price2spy.com"
+            },
+            {
+              "name": "CamelCamelCamel",
+              "url": "https://camelcamelcamel.com"
+            }
+          ],
+          "notes": "Category fit\n• Ecommerce: SEO, Shopping, Meta/TikTok creative, affiliate.\n• Software: SEO + Google/YouTube/LinkedIn; less coupon affiliates, more content partners.\n• Retail: Local SEO, Maps ads, Meta ads, price benchmarking."
+        },
+        {
+          "id": "b2c-planning-3",
+          "title": "3) Brand & Messaging System (Positioning, Tone, Visual Identity)",
+          "goal": "Codify who you are and how you communicate.",
+          "how": [
+            "How (SOP)",
+            "1. Positioning statement:",
+            "\"For [audience], [brand] is the [frame of reference] that [benefit], because [proof].\"",
+            "2. Messaging house",
+            "o UVP, 3–5 benefit pillars, supporting proof (stats, social proof, guarantees).",
+            "3. Tone & voice",
+            "o 5 adjectives (e.g., friendly, authoritative, witty, premium, playful).",
+            "o Do/Don’t examples (write 5 examples for emails/ads).",
+            "4. Visual identity",
+            "o Logos, color palette, typography, imagery style, icons, motion rules.",
+            "5. Asset templates",
+            "o Email header/footer, social post templates, ad templates (1:1, 4:5, 9:16, 16:9), landing page blocks.",
+            "6. Centralize in a Brand Kit (shareable, versioned)."
+          ],
+          "deliverables": [
+            "1-page Positioning",
+            "Messaging house (poster format)",
+            "Brand book (10–20 pages)",
+            "Asset template pack (Figma/Canva)"
+          ],
+          "toolbox": [
+            {
+              "name": "Figma",
+              "url": "https://www.figma.com"
+            },
+            {
+              "name": "Canva",
+              "url": "https://www.canva.com"
+            },
+            {
+              "name": "Adobe Creative Cloud",
+              "url": "https://www.adobe.com/creativecloud.html"
+            },
+            {
+              "name": "Looka (Logo)",
+              "url": "https://looka.com"
+            },
+            {
+              "name": "Coolors (Palette)",
+              "url": "https://coolors.co"
+            },
+            {
+              "name": "Brandfolder",
+              "url": "https://brandfolder.com"
+            },
+            {
+              "name": "Bynder",
+              "url": "https://www.bynder.com"
+            },
+            {
+              "name": "Grammarly",
+              "url": "https://www.grammarly.com"
+            },
+            {
+              "name": "Writer",
+              "url": "https://writer.com"
+            },
+            {
+              "name": "LanguageTool",
+              "url": "https://languagetool.org"
+            }
+          ]
+        },
+        {
+          "id": "b2c-planning-4",
+          "title": "4) Funnel & Channel Strategy (Awareness → Conversion → Retention)",
+          "goal": "Match channels to funnel stages and to your category.",
+          "how": [
+            "How (SOP)",
+            "1. Map funnel: Awareness, Consideration, Conversion, Retention, Advocacy.",
+            "2. Assign channels per stage (see table below).",
+            "3. Define role of each channel (e.g., Meta = demand creation; Search = capture intent).",
+            "4. Set testing plan: 70% proven, 20% optimization, 10% experiments.",
+            "Channel-to-Category Priority Matrix",
+            "Channel\tEcommerce\tSoftware (B2C app/consumer SaaS)\tRetail",
+            "SEO (content+PLP/PDP)\t★★★★\t★★★★\t★★★",
+            "Google Search/Shopping\t★★★★★\t★★★★\t★★★★ (Local Inventory Ads)",
+            "Performance Max\t★★★★★\t★★★\t★★★★",
+            "YouTube Ads\t★★★\t★★★★\t★★",
+            "Meta (FB/IG)\t★★★★★\t★★★\t★★★★★",
+            "TikTok Ads\t★★★★★\t★★★\t★★★★",
+            "Pinterest Ads\t★★★★ (lifestyle)\t★★\t★★★",
+            "Snapchat\t★★★\t★★\t★★★",
+            "LinkedIn Ads\t★\t★★ (if prosumers)\t★",
+            "Email\t★★★★★\t★★★★\t★★★★★",
+            "SMS/Push\t★★★★\t★★★\t★★★★",
+            "Influencer/UGC\t★★★★★\t★★★\t★★★★",
+            "Affiliate\t★★★★★\t★★\t★★★",
+            "Marketplaces & Retail Media\t★★★★★\t—\t★★★★",
+            "Local SEO/GBP\t★★\t★\t★★★★★",
+            "PR\t★★★\t★★★\t★★★",
+            "(★ = relevance/priority)"
+          ]
+        },
+        {
+          "id": "b2c-planning-5",
+          "title": "5) Offers, Pricing & Conversion Readiness",
+          "goal": "Define irresistible offers and ensure site/app can convert.",
+          "how": [
+            "How (SOP)",
+            "1. Offer strategy: discounts, bundles, gifts, free shipping threshold, subscriptions, trials, guarantees.",
+            "2. Pricing guardrails: floor price, MAP, promo calendar, stackability rules.",
+            "3. Conversion readiness:",
+            "o Speed & CWV, mobile UX, clear USP above the fold, social proof, reviews, FAQs, risk-reversal (returns/guarantees), payment methods (Apple/Google Pay, BNPL).",
+            "4. Legal & compliance: privacy policy, cookie consent, data retention rules."
+          ],
+          "deliverables": [
+            "Offer matrix + promo calendar",
+            "CRO audit + prioritized fixes",
+            "Policy pages (refund/returns/shipping/privacy)"
+          ],
+          "toolbox": [
+            {
+              "name": "Recharge",
+              "url": "https://rechargepayments.com"
+            },
+            {
+              "name": "Skio",
+              "url": "https://skio.com"
+            },
+            {
+              "name": "Stripe Billing",
+              "url": "https://stripe.com/billing"
+            },
+            {
+              "name": "Paddle",
+              "url": "https://www.paddle.com"
+            },
+            {
+              "name": "LemonSqueezy",
+              "url": "https://www.lemonsqueezy.com"
+            },
+            {
+              "name": "Stripe",
+              "url": "https://stripe.com"
+            },
+            {
+              "name": "Adyen",
+              "url": "https://www.adyen.com"
+            },
+            {
+              "name": "Braintree",
+              "url": "https://www.braintreepayments.com"
+            },
+            {
+              "name": "Klarna",
+              "url": "https://www.klarna.com"
+            },
+            {
+              "name": "Afterpay",
+              "url": "https://www.afterpay.com"
+            },
+            {
+              "name": "Affirm",
+              "url": "https://www.affirm.com"
+            },
+            {
+              "name": "Yotpo",
+              "url": "https://www.yotpo.com"
+            },
+            {
+              "name": "Okendo",
+              "url": "https://www.okendo.io"
+            },
+            {
+              "name": "Judge.me",
+              "url": "https://judge.me"
+            },
+            {
+              "name": "Trustpilot",
+              "url": "https://www.trustpilot.com"
+            },
+            {
+              "name": "Lighthouse",
+              "url": "https://developer.chrome.com/docs/lighthouse/overview/"
+            },
+            {
+              "name": "PageSpeed Insights",
+              "url": "https://pagespeed.web.dev"
+            },
+            {
+              "name": "WebPageTest",
+              "url": "https://www.webpagetest.org"
+            },
+            {
+              "name": "Cloudflare",
+              "url": "https://www.cloudflare.com"
+            },
+            {
+              "name": "NitroPack",
+              "url": "https://nitropack.io"
+            },
+            {
+              "name": "OneTrust",
+              "url": "https://www.onetrust.com"
+            },
+            {
+              "name": "Cookiebot",
+              "url": "https://www.cookiebot.com"
+            }
+          ]
+        },
+        {
+          "id": "b2c-planning-6",
+          "title": "6) Tech Stack, Tracking Plan & Data Governance",
+          "goal": "Implement reliable tracking, data model, and naming conventions before launch.",
+          "how": [
+            "How (SOP)",
+            "1. Tagging: Set up Google Tag Manager; define events (e.g., view_item, add_to_cart, begin_checkout, purchase; sign_up/subscribe for Software).",
+            "2. GA4: Enhanced Ecommerce (Ecommerce), conversions (Software: trial_start, activated_user).",
+            "3. Server-side tagging (recommended): GTM Server-Side (Stape/Google Cloud).",
+            "4. Attribution: ad platform pixels (Meta, TikTok, Google), consent mode v2, CAPI (Meta), Events API (TikTok).",
+            "5. Naming conventions (critical):",
+            "o CHANNEL_OBJ_SEGMENT_AUDIENCE_OFFER_CREATIVE_VARIANT_DATE",
+            "o UTM: utm_source, utm_medium, utm_campaign, utm_content, utm_term with a maintained dictionary.",
+            "6. Data governance: single source of truth, data owner, QA checklist, change log."
+          ],
+          "deliverables": [
+            "Tracking plan spreadsheet (events/properties/locations)",
+            "GTM container (export)",
+            "UTM & naming dictionary (shared doc)"
+          ],
+          "toolbox": [
+            {
+              "name": "Google Tag Manager (GTM)",
+              "url": "https://tagmanager.google.com"
+            },
+            {
+              "name": "Google Analytics 4 (GA4)",
+              "url": "https://analytics.google.com"
+            },
+            {
+              "name": "Google Consent Mode",
+              "url": "https://developers.google.com/analytics/devguides/collection/ga4/consent"
+            },
+            {
+              "name": "Meta Conversions API",
+              "url": "https://developers.facebook.com/docs/marketing-api/conversions-api/"
+            },
+            {
+              "name": "TikTok Events API",
+              "url": "https://ads.tiktok.com/marketing_api/docs?id=1738122732126209"
+            },
+            {
+              "name": "Segment",
+              "url": "https://segment.com"
+            },
+            {
+              "name": "mParticle",
+              "url": "https://www.mparticle.com"
+            },
+            {
+              "name": "RudderStack",
+              "url": "https://www.rudderstack.com"
+            },
+            {
+              "name": "Tag Assistant",
+              "url": "https://tagassistant.google.com"
+            },
+            {
+              "name": "Dataslayer",
+              "url": "https://dataslayer.org"
+            },
+            {
+              "name": "ObservePoint",
+              "url": "https://www.observepoint.com"
+            },
+            {
+              "name": "AppsFlyer",
+              "url": "https://www.appsflyer.com"
+            },
+            {
+              "name": "Adjust",
+              "url": "https://www.adjust.com"
+            },
+            {
+              "name": "Northbeam",
+              "url": "https://www.northbeam.io"
+            },
+            {
+              "name": "Triple Whale",
+              "url": "https://www.triplewhale.com"
+            },
+            {
+              "name": "UTM.io",
+              "url": "https://utm.io"
+            },
+            {
+              "name": "Notion/Wiki",
+              "url": "https://www.notion.so"
+            }
+          ]
+        },
+        {
+          "id": "b2c-planning-7",
+          "title": "7) Budgeting, Forecasting & Prioritization",
+          "goal": "Allocate budget by channel, forecast outcomes, and stage rollouts.",
+          "how": [
+            "How (SOP)",
+            "1. Top-down guardrails: % of revenue (B2C typically 7–12%).",
+            "2. Bottom-up forecast: CPC/CPM, CTR, CVR, AOV, margin → CAC, ROAS, MER.",
+            "3. Phasing: Month 1–3 (validation), Month 4–6 (scale), Month 7+ (optimization/MMM).",
+            "4. Experimentation: 10–15% budget for tests (new channels, creatives, offers).",
+            "5. Pacing & caps: daily/weekly pacing rules, CPA/ROAS guardrails."
+          ],
+          "deliverables": [
+            "Budget sheet (by channel, by month)",
+            "Forecast sheet (modeling scenarios)",
+            "Test plan (hypothesis, KPI, sample size, duration)"
+          ],
+          "toolbox": [
+            {
+              "name": "Plannuh",
+              "url": "https://www.plannuh.com"
+            },
+            {
+              "name": "Pigment",
+              "url": "https://www.gopigment.com"
+            },
+            {
+              "name": "Anaplan",
+              "url": "https://www.anaplan.com"
+            },
+            {
+              "name": "Abacum",
+              "url": "https://www.abacum.io"
+            },
+            {
+              "name": "Google Sheets",
+              "url": "https://sheets.google.com"
+            },
+            {
+              "name": "Robyn (Meta MMM)",
+              "url": "https://github.com/facebookexperimental/Robyn"
+            },
+            {
+              "name": "LightweightMMM (Google)",
+              "url": "https://github.com/google/lightweight_mmm"
+            },
+            {
+              "name": "Recast",
+              "url": "https://www.recast.dev"
+            },
+            {
+              "name": "Evan Miller AB Test Calculator",
+              "url": "https://www.evanmiller.org/ab-testing/sample-size.html"
+            },
+            {
+              "name": "VWO Calculator",
+              "url": "https://vwo.com/tools/ab-test-duration-calculator/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "execution",
+      "title": "STAGE 2 — EXECUTION",
+      "description": "Run the work",
+      "steps": [
+        {
+          "id": "b2c-exec-8",
+          "title": "8) SEO (Technical, Content, Authority)",
+          "goal": "Build compounding organic traffic & revenue.",
+          "how": [
+            "How (SOP)",
+            "A. Technical SEO (weeks 1–4, then ongoing)",
+            "• Crawl with Screaming Frog/Sitebulb; fix 4xx/5xx, redirects, canonicals.",
+            "• Indexation: robots.txt, XML sitemaps, noindex where needed (facets).",
+            "• Core Web Vitals: LCP, INP, CLS fixes (image formats, lazy load, script defers).",
+            "• Structured data: Product, Breadcrumb, Organization, FAQ; validate with Rich Results Test.",
+            "• Ecommerce specifics: faceted navigation, variant handling, pagination (rel=”next/prev” alternatives), internal linking from PLP→PDP.",
+            "• Retail: Local pages per store, NAP consistency, embedded GBP.",
+            "• Software: Docs/knowledge base SEO, comparison pages, “best apps for X”.",
+            "B. Keyword Research & Mapping",
+            "• Gather seed terms, competitor terms; cluster by intent (info → transactional).",
+            "• Map to pages: category (PLP) / product (PDP) / blog / comparison / support.",
+            "• Prioritize by volume, difficulty, business value.",
+            "C. On-Page & Content",
+            "• Title/H1/H2, meta, internal links, schema; content briefs with entities (NLP).",
+            "• Editorial calendar: 2–4 cornerstone guides + 6–12 supporting posts/quarter.",
+            "• Product content: unique descriptions, review markup, UGC Q&A.",
+            "D. Authority (Links & PR)",
+            "• Digital PR campaigns (data stories, trend reports), HARO/Connectively pitches.",
+            "• Partnerships, resource page link building, creator collaborations."
+          ],
+          "notes": "KPIs: Indexed pages, CWV pass rate, rankings by cluster, organic sessions, revenue, assisted conversions, link velocity.",
+          "toolbox": [
+            {
+              "name": "Screaming Frog",
+              "url": "https://www.screamingfrog.co.uk/seo-spider/"
+            },
+            {
+              "name": "Sitebulb",
+              "url": "https://sitebulb.com"
+            },
+            {
+              "name": "Lumar",
+              "url": "https://www.lumar.io"
+            },
+            {
+              "name": "Ahrefs",
+              "url": "https://ahrefs.com"
+            },
+            {
+              "name": "Semrush",
+              "url": "https://www.semrush.com"
+            },
+            {
+              "name": "Google Keyword Planner",
+              "url": "https://ads.google.com/home/tools/keyword-planner/"
+            },
+            {
+              "name": "AlsoAsked",
+              "url": "https://alsoasked.com"
+            },
+            {
+              "name": "AnswerThePublic",
+              "url": "https://answerthepublic.com"
+            },
+            {
+              "name": "Clearscope",
+              "url": "https://www.clearscope.io"
+            },
+            {
+              "name": "SurferSEO",
+              "url": "https://surferseo.com"
+            },
+            {
+              "name": "MarketMuse",
+              "url": "https://www.marketmuse.com"
+            },
+            {
+              "name": "Grammarly",
+              "url": "https://www.grammarly.com"
+            },
+            {
+              "name": "Hemingway",
+              "url": "https://hemingwayapp.com"
+            },
+            {
+              "name": "Schema.dev",
+              "url": "https://schema.dev"
+            },
+            {
+              "name": "Merkle Schema Markup Generator",
+              "url": "https://technicalseo.com/tools/schema-markup-generator/"
+            },
+            {
+              "name": "Google Business Profile (GBP)",
+              "url": "https://www.google.com/business/"
+            },
+            {
+              "name": "Moz Local",
+              "url": "https://moz.com/products/local"
+            },
+            {
+              "name": "Yext",
+              "url": "https://www.yext.com"
+            },
+            {
+              "name": "Whitespark",
+              "url": "https://whitespark.ca"
+            },
+            {
+              "name": "BrightLocal",
+              "url": "https://www.brightlocal.com"
+            },
+            {
+              "name": "BuzzStream",
+              "url": "https://www.buzzstream.com"
+            },
+            {
+              "name": "Pitchbox",
+              "url": "https://pitchbox.com"
+            },
+            {
+              "name": "Prowly",
+              "url": "https://prowly.com"
+            },
+            {
+              "name": "Muck Rack",
+              "url": "https://www.muckrack.com"
+            },
+            {
+              "name": "Connectively (HARO)",
+              "url": "https://www.helpareporter.com"
+            }
+          ]
+        },
+        {
+          "id": "b2c-exec-9",
+          "title": "9) Paid Search, Shopping & PMax",
+          "goal": "Capture demand profitably and scale with automation.",
+          "how": [
+            "How (SOP)",
+            "1. Account structure",
+            "o Campaigns by intent: Brand, Non-Brand High Intent, Competitor, Generic, Shopping, PMax, Local (Retail), App (Software).",
+            "2. Feeds & Shopping (Ecommerce/Retail)",
+            "o Clean titles, GTIN/MPN, rich attributes, image quality, promotions; manage in GMC.",
+            "3. Bidding",
+            "o Start Maximize Conversions (learning) → move to tCPA/tROAS once stable.",
+            "4. Negatives & query sculpting",
+            "o Add negatives weekly; funnel queries to best campaigns.",
+            "5. Ads & assets",
+            "o RSA with pinning for control, sitelinks, callouts, structured snippets, call extensions (Retail).",
+            "6. Performance Max",
+            "o Separate by product margin/tier; feed-only PMax for control; add audience signals; high-quality creatives.",
+            "7. Local & calls (Retail)",
+            "o Local campaigns, Local Inventory Ads, call ads during open hours with call tracking.",
+            "8. Bing/Microsoft Ads",
+            "o Import from Google; run where Bing share ≥5% or older demographics."
+          ],
+          "notes": "KPIs: CPA/ROAS by intent, Search Impression Share, CTR, CVR, MER (blended), new vs returning revenue.",
+          "toolbox": [
+            {
+              "name": "Google Ads",
+              "url": "https://ads.google.com"
+            },
+            {
+              "name": "Google Merchant Center",
+              "url": "https://merchants.google.com"
+            },
+            {
+              "name": "Microsoft Ads",
+              "url": "https://about.ads.microsoft.com"
+            },
+            {
+              "name": "Feedonomics",
+              "url": "https://feedonomics.com"
+            },
+            {
+              "name": "DataFeedWatch",
+              "url": "https://www.datafeedwatch.com"
+            },
+            {
+              "name": "GoDataFeed",
+              "url": "https://www.godatafeed.com"
+            },
+            {
+              "name": "Optmyzr",
+              "url": "https://www.optmyzr.com"
+            },
+            {
+              "name": "Adalysis",
+              "url": "https://adalysis.com"
+            },
+            {
+              "name": "Search Ads 360 (SA360)",
+              "url": "https://marketingplatform.google.com/about/sa360/"
+            },
+            {
+              "name": "CallRail",
+              "url": "https://www.callrail.com"
+            },
+            {
+              "name": "WhatConverts",
+              "url": "https://www.whatconverts.com"
+            },
+            {
+              "name": "Unbounce",
+              "url": "https://unbounce.com"
+            },
+            {
+              "name": "Instapage",
+              "url": "https://instapage.com"
+            },
+            {
+              "name": "Webflow",
+              "url": "https://webflow.com"
+            },
+            {
+              "name": "Replo (Shopify)",
+              "url": "https://www.replo.app"
+            }
+          ]
+        },
+        {
+          "id": "b2c-exec-10",
+          "title": "10) Paid Social (Meta, TikTok, Pinterest, Snap, Reddit, YouTube)",
+          "goal": "Create demand and convert with thumb-stopping creative.",
+          "how": [
+            "How (SOP)",
+            "1. Structure",
+            "o Separate Prospecting vs Retargeting; Advantage+ Shopping (Meta) for Ecommerce; Spark Ads on TikTok.",
+            "2. Audiences",
+            "o Broad + LALs (1–5%) + interests; intent stacks for retargeting (viewed, added to cart, video views).",
+            "3. Creative system",
+            "o UGC hooks: problem-solution, before/after, 3 reasons why, stitch reactions (TikTok).",
+            "o Design specs: 1:1 and 4:5 (Meta), 9:16 (TikTok/Snap).",
+            "o Creative testing loop: 3–5 new ads/week; kill < X CTR or > Y CPA.",
+            "4. Offers",
+            "o Bundle/BOGO, free ship threshold, time-bound promos, risk-reversal.",
+            "5. Measurement",
+            "o Use platform + GA4; run geo-tests or MTA where possible; holdouts if scale."
+          ],
+          "notes": "KPIs: Thumb-stop rate/video watch, CTR, CPC, CAC/ROAS, assisted conversions, creative fatigue time.",
+          "toolbox": [
+            {
+              "name": "Meta Ads Manager",
+              "url": "https://www.facebook.com/business"
+            },
+            {
+              "name": "TikTok Ads Manager",
+              "url": "https://ads.tiktok.com"
+            },
+            {
+              "name": "Pinterest Ads",
+              "url": "https://ads.pinterest.com"
+            },
+            {
+              "name": "Snap Ads",
+              "url": "https://forbusiness.snapchat.com"
+            },
+            {
+              "name": "Reddit Ads",
+              "url": "https://www.redditinc.com/advertising"
+            },
+            {
+              "name": "YouTube (via Google Ads)",
+              "url": "https://ads.google.com/home/campaigns/video-ads/"
+            },
+            {
+              "name": "VidMob",
+              "url": "https://www.vidmob.com"
+            },
+            {
+              "name": "Triple Whale (Ecom)",
+              "url": "https://www.triplewhale.com"
+            },
+            {
+              "name": "Aspire",
+              "url": "https://aspire.io"
+            },
+            {
+              "name": "Grin",
+              "url": "https://grin.co"
+            },
+            {
+              "name": "Upfluence",
+              "url": "https://www.upfluence.com"
+            },
+            {
+              "name": "#paid",
+              "url": "https://hashtagpaid.com"
+            },
+            {
+              "name": "CreatorIQ",
+              "url": "https://www.creatoriq.com"
+            },
+            {
+              "name": "CapCut",
+              "url": "https://www.capcut.com"
+            },
+            {
+              "name": "Descript",
+              "url": "https://www.descript.com"
+            },
+            {
+              "name": "Canva",
+              "url": "https://www.canva.com"
+            },
+            {
+              "name": "Adobe Express",
+              "url": "https://www.adobe.com/express"
+            }
+          ]
+        },
+        {
+          "id": "b2c-exec-11",
+          "title": "11) Email, SMS & Lifecycle Automation",
+          "goal": "Monetize traffic, increase LTV, and reduce CAC via retention.",
+          "how": [
+            "How (SOP)",
+            "1. List growth",
+            "o Pop-ups (10–20% discount), quiz lead magnets, giveaways; capture SMS consent.",
+            "2. Deliverability",
+            "o Authenticate (SPF/DKIM/DMARC/BIMI), warm IP/domain, list hygiene.",
+            "3. Core flows",
+            "o Welcome (3–5 emails): brand story → social proof → first offer.",
+            "o Browse abandonment (2–3): viewed items; soft nudge → social proof.",
+            "o Cart abandonment (2–4): urgency, testimonials, incentive ladder.",
+            "o Post-purchase: order updates → usage tips → review/UCG request → cross-sell.",
+            "o Win-back (90 days idle): new arrivals + incentive.",
+            "4. Campaigns",
+            "o Weekly/bi-weekly, segmented by RFM, category interest, AOV tier.",
+            "5. SMS",
+            "o Short, timely: drop alerts, back-in-stock, shipping updates.",
+            "6. Segmentation",
+            "o RFM tiers, interests, lifecycle stage, purchase frequency, discount sensitivity.",
+            "7. Testing",
+            "o Subject lines, send time, creative, offer; monitor spam signals."
+          ],
+          "notes": "KPIs: List growth, deliverability (inbox, spam), OR, CTR, CTOR, CVR, revenue per send, unsubscribe rate, LTV.",
+          "toolbox": [
+            {
+              "name": "Klaviyo",
+              "url": "https://www.klaviyo.com"
+            },
+            {
+              "name": "Omnisend",
+              "url": "https://www.omnisend.com"
+            },
+            {
+              "name": "Mailchimp",
+              "url": "https://mailchimp.com"
+            },
+            {
+              "name": "Customer.io",
+              "url": "https://customer.io"
+            },
+            {
+              "name": "Iterable",
+              "url": "https://iterable.com"
+            },
+            {
+              "name": "Braze",
+              "url": "https://www.braze.com"
+            },
+            {
+              "name": "Postscript",
+              "url": "https://postscript.io"
+            },
+            {
+              "name": "Attentive",
+              "url": "https://www.attentive.com"
+            },
+            {
+              "name": "SMSBump",
+              "url": "https://smsbump.com"
+            },
+            {
+              "name": "NeverBounce",
+              "url": "https://neverbounce.com"
+            },
+            {
+              "name": "ZeroBounce",
+              "url": "https://www.zerobounce.net"
+            },
+            {
+              "name": "GlockApps",
+              "url": "https://glockapps.com"
+            },
+            {
+              "name": "Mail-Tester",
+              "url": "https://www.mail-tester.com"
+            },
+            {
+              "name": "Gmail Postmaster Tools",
+              "url": "https://postmaster.google.com"
+            },
+            {
+              "name": "Privy",
+              "url": "https://www.privy.com"
+            },
+            {
+              "name": "OptiMonk",
+              "url": "https://www.optimonk.com"
+            },
+            {
+              "name": "Justuno",
+              "url": "https://www.justuno.com"
+            },
+            {
+              "name": "Typeform (Quizzes)",
+              "url": "https://www.typeform.com"
+            }
+          ]
+        },
+        {
+          "id": "b2c-exec-12",
+          "title": "12) Affiliate, Partnerships & Influencers",
+          "goal": "Acquire customers via third-party partners with CPA-aligned economics.",
+          "how": [
+            "How (SOP)",
+            "1. Choose model: % of sale, fixed CPA, tiered CPA, bounties for first purchase.",
+            "2. Network selection: based on niche, geos, publisher mix.",
+            "3. Recruit: top coupon/content sites, niche blogs, creators; give assets, product seeding, custom codes.",
+            "4. Compliance: terms, brand guidelines, FTC disclosures, coupon leakage control.",
+            "5. Optimize: prune low-quality partners, bonus top partners, exclusive drops."
+          ],
+          "notes": "KPIs: EPC, CPA, ROAS, incrementality (use on/off tests), fraud rate.",
+          "toolbox": [
+            {
+              "name": "Impact",
+              "url": "https://impact.com"
+            },
+            {
+              "name": "Awin",
+              "url": "https://www.awin.com"
+            },
+            {
+              "name": "Rakuten Advertising",
+              "url": "https://rakutenadvertising.com"
+            },
+            {
+              "name": "CJ Affiliate",
+              "url": "https://www.cj.com"
+            },
+            {
+              "name": "Partnerize",
+              "url": "https://partnerize.com"
+            },
+            {
+              "name": "ShareASale",
+              "url": "https://www.shareasale.com"
+            },
+            {
+              "name": "TUNE",
+              "url": "https://www.tune.com"
+            },
+            {
+              "name": "Everflow",
+              "url": "https://everflow.io"
+            },
+            {
+              "name": "Refersion",
+              "url": "https://www.refersion.com"
+            },
+            {
+              "name": "Publisher Discovery",
+              "url": "https://publisherdiscovery.com"
+            },
+            {
+              "name": "BrandVerity",
+              "url": "https://www.brandverity.com"
+            },
+            {
+              "name": "LTK / ShopMy",
+              "url": "https://www.shopltk.com"
+            },
+            {
+              "name": "Red Points",
+              "url": "https://www.redpoints.com"
+            }
+          ]
+        },
+        {
+          "id": "b2c-exec-13",
+          "title": "13) Marketplaces & Retail Media (Ecommerce/Retail)",
+          "goal": "Win incremental demand on Amazon/Walmart/Instacart and drive store sales.",
+          "how": [
+            "How (SOP)",
+            "• Catalog & content: SEO’d titles, bullets, A+ Content, videos, reviews.",
+            "• Ads: Sponsored Products/Brands/Display; dayparting and placement bid adjustments.",
+            "• Retail media: Walmart Connect, Instacart Ads, Target Roundel.",
+            "• Ops: stock, Buy Box, pricing parity, FBA/SFP, reviews velocity."
+          ],
+          "notes": "KPIs: Organic rank, ad TACOS, Buy Box %, OOS rate, review rating/velocity.",
+          "toolbox": [
+            {
+              "name": "Helium 10",
+              "url": "https://www.helium10.com"
+            },
+            {
+              "name": "Jungle Scout",
+              "url": "https://www.junglescout.com"
+            },
+            {
+              "name": "DataHawk",
+              "url": "https://datahawk.co"
+            },
+            {
+              "name": "Perpetua",
+              "url": "https://perpetua.io"
+            },
+            {
+              "name": "Teikametrics",
+              "url": "https://www.teikametrics.com"
+            },
+            {
+              "name": "Pacvue",
+              "url": "https://www.pacvue.com"
+            },
+            {
+              "name": "Quartile",
+              "url": "https://www.quartile.com"
+            },
+            {
+              "name": "FeedbackFive",
+              "url": "https://www.ecomengine.com/feedbackfive"
+            },
+            {
+              "name": "Yotpo (Syndication)",
+              "url": "https://www.yotpo.com"
+            }
+          ]
+        },
+        {
+          "id": "b2c-exec-14",
+          "title": "14) CRO & On-Site Personalization",
+          "goal": "Lift conversion rates and AOV systematically.",
+          "how": [
+            "How (SOP)",
+            "1. Research: analytics funnels, heatmaps, session replays, form analytics, VOC.",
+            "2. Hypotheses: prioritize with PIE (Potential, Importance, Ease) or ICE.",
+            "3. Testing: A/B with minimum sample size; pre-register hypotheses.",
+            "4. Personalization: product recommendations, geo banners, lifecycle messaging."
+          ],
+          "notes": "KPIs: CVR, AOV, PDP→Cart rate, Checkout completion, test win rate, incremental revenue.",
+          "toolbox": [
+            {
+              "name": "VWO",
+              "url": "https://vwo.com"
+            },
+            {
+              "name": "Optimizely",
+              "url": "https://www.optimizely.com"
+            },
+            {
+              "name": "Convert.com",
+              "url": "https://www.convert.com"
+            },
+            {
+              "name": "AB Tasty",
+              "url": "https://www.abtasty.com"
+            },
+            {
+              "name": "Hotjar",
+              "url": "https://www.hotjar.com"
+            },
+            {
+              "name": "Microsoft Clarity",
+              "url": "https://clarity.microsoft.com"
+            },
+            {
+              "name": "FullStory",
+              "url": "https://www.fullstory.com"
+            },
+            {
+              "name": "Lucky Orange",
+              "url": "https://www.luckyorange.com"
+            },
+            {
+              "name": "Nosto",
+              "url": "https://www.nosto.com"
+            },
+            {
+              "name": "Dynamic Yield",
+              "url": "https://www.dynamicyield.com"
+            },
+            {
+              "name": "Insider",
+              "url": "https://useinsider.com"
+            },
+            {
+              "name": "Monetate",
+              "url": "https://www.monetate.com"
+            }
+          ]
+        },
+        {
+          "id": "b2c-exec-15",
+          "title": "15) PR, Community & Word of Mouth",
+          "goal": "Earned media and advocacy to reduce blended CAC.",
+          "how": [
+            "How (SOP)",
+            "• PR: seasonal stories, data reports, product launches; pitch journalists with tailored angles.",
+            "• Community: Discord/Facebook Groups; run AMAs, challenges, member-only drops.",
+            "• Referral: double-sided incentives, milestone rewards."
+          ],
+          "notes": "KPIs: Referral rate, earned reach, backlinks, share of voice.",
+          "toolbox": [
+            {
+              "name": "Muck Rack",
+              "url": "https://www.muckrack.com"
+            },
+            {
+              "name": "Prowly",
+              "url": "https://prowly.com"
+            },
+            {
+              "name": "Presspage",
+              "url": "https://www.presspage.com"
+            },
+            {
+              "name": "Circle",
+              "url": "https://circle.so"
+            },
+            {
+              "name": "Geneva",
+              "url": "https://geneva.com"
+            },
+            {
+              "name": "Discord",
+              "url": "https://discord.com"
+            },
+            {
+              "name": "Facebook Groups",
+              "url": "https://www.facebook.com/groups/"
+            },
+            {
+              "name": "ReferralCandy",
+              "url": "https://www.referralcandy.com"
+            },
+            {
+              "name": "Friendbuy",
+              "url": "https://www.friendbuy.com"
+            },
+            {
+              "name": "Viral Loops",
+              "url": "https://viral-loops.com"
+            },
+            {
+              "name": "Talkable",
+              "url": "https://www.talkable.com"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reporting",
+      "title": "STAGE 3 — REPORTING",
+      "description": "Measure, learn, scale",
+      "steps": [
+        {
+          "id": "b2c-report-16",
+          "title": "16) KPIs & Targets (Define success per channel)",
+          "how": [
+            "Executive (blended): Revenue, MER (Rev/Spend), Contribution Margin after ad spend, CAC, LTV, payback period.",
+            "SEO: Non-brand sessions, ranking coverage by cluster, clicks/impressions (GSC), revenue.",
+            "PPC: CPA/ROAS by intent, Impression Share, Search Lost IS (budget), New vs Returning revenue.",
+            "Paid Social: CTR, view-through, CAC/ROAS, creative hold time, new-to-brand %.",
+            "Email/SMS: Deliverability, OR, CTR, Rev/Send, flow vs campaign split, unsubscribe.",
+            "Affiliate: EPC, incremental sales %, fraud rate.",
+            "Marketplace: TACOS, organic rank, Buy Box %, OOS rate.",
+            "CRO: Test velocity, win rate, uplift, AOV, funnel step CVRs.",
+            "Set cadences:",
+            "• Daily health checks; Weekly channel reviews; Monthly strategy; Quarterly planning."
+          ],
+          "goal": "",
+          "why": "",
+          "kpis": [],
+          "deliverables": [],
+          "toolbox": [
+            {
+              "name": "Power BI",
+              "url": "https://www.microsoft.com"
+            }
+          ]
+        },
+        {
+          "id": "b2c-report-17",
+          "title": "17) Data Pipeline & Power BI Architecture",
+          "goal": "One dashboard showing keywords, leads/orders, spend, and revenue.",
+          "how": [
+            "Data sources",
+            "• GA4 (web/app), GSC (SEO), Google Ads/Microsoft Ads, Meta/TikTok/Pinterest, Email (Klaviyo etc.), CRM/ecomm (Shopify, Stripe, Recharge), Affiliate network, Marketplaces, CallRail.",
+            "Ingestion options",
+            "• Connectors: Supermetrics, Funnel.io, Windsor.ai (fast), Fivetran/Stitch (to warehouse).",
+            "• Warehouse (recommended at scale): BigQuery, Snowflake, Redshift.",
+            "• Direct to Power BI: native connectors + scheduled refresh + on-prem gateway (if needed).",
+            "Model (Star schema)",
+            "• Facts: ad_spend, sessions, orders, revenue, email_sends, affiliate_conversions.",
+            "• Dims: date, channel, campaign, adset/audience, creative, product, geo, device, persona.",
+            "• Keys: consistent campaign IDs and UTMs across platforms.",
+            "Power BI build (SOP)",
+            "1. Dataflows for each source (or import from warehouse views).",
+            "2. Transform with Power Query: normalize column names, types, currencies, time zones.",
+            "3. Relationships: link facts to dims on surrogate keys; create a Date table.",
+            "4. DAX measures:",
+            "o ROAS = [Revenue]/[Ad Spend]",
+            "o MER = [Revenue Total]/[Ad Spend Total]",
+            "o Blended CAC = [Ad Spend Total]/[New Customers]",
+            "o LTV 90d/180d/365d (from cohort fact).",
+            "5. Dashboards:",
+            "o Exec Overview (MER, Revenue, Profit, CAC, LTV, ROAS trend).",
+            "o Channel Deep Dives (Search/Social/Email).",
+            "o Creative Board (ad spend by hook/format, performance).",
+            "o SEO Board (rank buckets, clicks, revenue).",
+            "o Cohorts (by acquisition month, by channel).",
+            "6. Refresh: schedule daily; alerting for failures.",
+            "7. QA: reconcile platform vs GA4 vs orders weekly; log variances.",
+            "Governance & QA",
+            "• UTM policy, naming dictionary, access control, PII handling, data retention schedule.",
+            "• Anomaly detection (simple): control charts or thresholds with email alerts."
+          ]
+        },
+        {
+          "id": "b2c-report-18",
+          "title": "18) Reporting SOPs & Meeting Rhythm",
+          "how": [
+            "Daily: spend pacing vs plan, site uptime, OOS, major swings.",
+            "Weekly (60–90m): channel reports, learnings, next tests; share creative insights.",
+            "Monthly: performance vs targets, budget re-allocation, roadmap.",
+            "Quarterly: strategy reset, pricing/offers, new channels, MMM refresh.",
+            "Templates",
+            "• 1-pager per channel (KPIs, wins, losses, actions).",
+            "• Test tracker (hypothesis, design, dates, outcome).",
+            "• Budget vs actuals."
+          ]
+        },
+        {
+          "id": "b2c-appendix",
+          "title": "Appendices (grab-and-go) + Quick Tool Index",
+          "how": [
+            "A) Naming & UTM Convention (example)",
+            "• Campaign: META_CONV_PROSPECTING_LAL1_VISUALS30_OFF_UGC_V1_2025-08",
+            "• UTMs",
+            "o utm_source=facebook utm_medium=paid_social",
+            "o utm_campaign=conv_prospecting_lal1_visuals30_off_ugc_v1",
+            "o utm_content=hook_problem_solution_v2",
+            "o utm_term= (use for search keywords only)",
+            "B) Launch Checklist (abbreviated)",
+            "• Personas, JTBD, segments approved",
+            "• Messaging house & brand book done",
+            "• Tracking plan implemented & QA passed",
+            "• UTM/naming dictionary shared",
+            "• Site speed ≥ CWV pass; key CRO fixes live",
+            "• Budget & forecast approved; tests defined",
+            "• Initial creatives produced (per platform spec)",
+            "• Email flows activated (welcome, browse, cart, post-purchase)",
+            "• Dashboards connected; refresh scheduled",
+            "Quick Tool Index (by area)",
+            "Research & Insights: GA4, Hotjar, Clarity, FullStory, Mixpanel, SparkToro, SurveyMonkey, Typeform, Wynter, UserTesting, Similarweb, Statista, GWI, Trends.",
+            "SEO: Screaming Frog, Sitebulb, Ahrefs, Semrush, Clearscope/Surfer, GSC, Rich Results Test, Moz, BrightLocal, Yext.",
+            "PPC/Shopping: Google Ads, Merchant Center, Microsoft Ads, Optmyzr, Adalysis, SA360, Feedonomics, DataFeedWatch, CallRail.",
+            "Paid Social: Meta/TikTok/Pinterest/Snap/Reddit/YouTube managers; VidMob; Aspire/Grin/CreatorIQ.",
+            "Email/SMS: Klaviyo, Omnisend, Mailchimp, Customer.io, Iterable/Braze, Postscript, Attentive; NeverBounce, GlockApps.",
+            "Affiliate/Influencer: Impact, Awin, Rakuten, CJ, Partnerize, ShareASale, TUNE, Everflow, Refersion, Publisher Discovery, BrandVerity, LTK/ShopMy.",
+            "CRO/Personalization: VWO, Optimizely, Convert.com, AB Tasty, Hotjar, Clarity, FullStory, Nosto, Dynamic Yield.",
+            "Marketplaces: Helium 10, Jungle Scout, Perpetua, Teikametrics, Pacvue, DataHawk.",
+            "Design & Brand: Figma, Canva, Adobe CC, Looka, Coolors, Brandfolder, Bynder.",
+            "Tracking & Attribution: GTM, GA4, Consent Mode, Meta CAPI, TikTok Events API, Segment/mParticle/RudderStack, Northbeam, Triple Whale, AppsFlyer/Adjust.",
+            "Data & BI: Supermetrics, Funnel.io, Windsor.ai, Fivetran, Stitch, BigQuery/Snowflake/Redshift, Power BI.",
+            "Ops: Notion, Asana, Monday, ClickUp, Zapier/Make, Slack."
+          ]
+        }
+      ]
+    }
+  ]
+}
