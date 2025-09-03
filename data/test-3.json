@@ -1,0 +1,21 @@
+{
+  "title": "test 3",
+  "intro": "",
+  "stages": [
+    {
+      "title": "test 4",
+      "steps": [
+        {
+          "title": "",
+          "goal": "",
+          "why": "",
+          "how": [],
+          "kpis": [],
+          "deliverables": [],
+          "toolbox": {}
+        }
+      ],
+      "description": ""
+    }
+  ]
+}
