@@ -40,15 +40,37 @@ def save_plan_to_github(filename, data, commit_msg="Update plan via Streamlit"):
     return r.status_code in [200,201]
 
 def parse_tools(text):
+    """Convert 'name - url' lines into list of {name,url} dicts"""
     tools = []
     for ln in text.splitlines():
-        if not ln.strip(): continue
+        if not ln.strip():
+            continue
         if " - " in ln:
             name, url = ln.split(" - ",1)
         else:
             name, url = ln, ln
         tools.append({"name": name.strip(), "url": url.strip()})
     return tools
+
+def format_tools(tools):
+    """Normalize tools into a list of 'name - url' strings for text_area"""
+    if not tools:
+        return []
+    # old format: list of tools
+    if isinstance(tools, list):
+        normed = tools
+    # new format: dict with high_priority/low_priority
+    elif isinstance(tools, dict):
+        normed = tools.get("high_priority", [])
+    else:
+        return []
+    lines = []
+    for t in normed:
+        if isinstance(t, dict):
+            lines.append(f"{t.get('name','')} - {t.get('url','')}".strip(" -"))
+        elif isinstance(t, str):
+            lines.append(t)
+    return lines
 
 # --- UI ---
 st.set_page_config(page_title="Edit Plans", page_icon="✏️", layout="wide")
@@ -85,8 +107,19 @@ for i, s in enumerate(plan.get("stages", [])):
         step_kpis = st.text_area(f"KPIs", value="\n".join(step.get("kpis",[])), key=f"kpis_{i}_{j}")
         step_deliverables = st.text_area(f"Deliverables", value="\n".join(step.get("deliverables",[])), key=f"deliv_{i}_{j}")
 
-        tb_high = st.text_area("High Priority Tools", value="\n".join([f"{t['name']} - {t['url']}" for t in step.get("toolbox",{}).get("high_priority",[])]), key=f"tb_high_{i}_{j}")
-        tb_low = st.text_area("Low Priority Tools", value="\n".join([f"{t['name']} - {t['url']}" for t in step.get("toolbox",{}).get("low_priority",[])]), key=f"tb_low_{i}_{j}")
+        toolbox = step.get("toolbox", {})
+
+        tb_high = st.text_area(
+            "High Priority Tools",
+            value="\n".join(format_tools(toolbox)),
+            key=f"tb_high_{i}_{j}"
+        )
+
+        tb_low = st.text_area(
+            "Low Priority Tools",
+            value="\n".join(format_tools(toolbox.get("low_priority", []))) if isinstance(toolbox, dict) else "",
+            key=f"tb_low_{i}_{j}"
+        )
 
         steps.append({
             "title": step_title,
