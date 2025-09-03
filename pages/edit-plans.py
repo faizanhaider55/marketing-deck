@@ -156,4 +156,4 @@ if save_clicked:
 # Rerun safely after save
 if st.session_state.get("refresh", False):
     st.session_state["refresh"] = False
-    st.experimental_rerun()
+    st.rerun()  # Changed from st.experimental_rerun() to st.rerun()
