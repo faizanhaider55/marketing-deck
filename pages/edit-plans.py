@@ -40,7 +40,6 @@ def save_plan_to_github(filename, data, commit_msg="Update plan via Streamlit"):
     return r.status_code in [200,201]
 
 def parse_tools(text):
-    """Convert 'name - url' lines into list of {name,url} dicts"""
     tools = []
     for ln in text.splitlines():
         if not ln.strip():
@@ -53,12 +52,11 @@ def parse_tools(text):
     return tools
 
 def format_tools(tools):
-    """Normalize tools into a list of 'name - url' strings for text_area"""
     if not tools:
         return []
-    if isinstance(tools, list):  # old format
+    if isinstance(tools, list):
         normed = tools
-    elif isinstance(tools, dict):  # new format
+    elif isinstance(tools, dict):
         normed = tools.get("high_priority", [])
     else:
         return []
@@ -74,25 +72,20 @@ def format_tools(tools):
 st.set_page_config(page_title="Edit Plans", page_icon="✏️", layout="wide")
 st.title("✏️ Edit Existing Marketing Plans")
 
-# Load available plans and map titles to filenames
-plan_files = list_github_files()
-if not plan_files:
+# Load available plans
+files = list_github_files()
+if not files:
     st.error("No plans found in GitHub.")
     st.stop()
 
-# Build a mapping: title -> filename
-title_to_file = {}
-for f in plan_files:
-    data = load_plan_from_github(f)
-    title = data.get("title", f)
-    title_to_file[title] = f
+# Map filenames to titles for user-friendly selection
+plans = {f: load_plan_from_github(f) for f in files}
+title_to_file = {p.get("title", f): f for f, p in plans.items()}
 
-# Select plan by title
 selected_title = st.selectbox("Select a plan to edit", list(title_to_file.keys()))
 selected_file = title_to_file[selected_title]
+plan = plans[selected_file]
 
-# Load the plan
-plan = load_plan_from_github(selected_file)
 if not plan:
     st.warning("Could not load this plan.")
     st.stop()
@@ -151,5 +144,6 @@ if st.button("💾 Save Changes"):
     success = save_plan_to_github(selected_file, updated_plan, commit_msg=f"Updated {edit_title}")
     if success:
         st.success(f"✅ {edit_title} updated successfully!")
+        st.experimental_rerun()  # reload the page to show updated data
     else:
         st.error("❌ Failed to save plan.")
