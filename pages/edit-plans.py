@@ -85,4 +85,75 @@ for f in files:
     title = plan_data.get("title", f)
     file_title_map[title] = f
 
-select
+selected_title = st.selectbox("Select a plan to edit", list(file_title_map.keys()))
+selected_file = file_title_map[selected_title]
+plan = load_plan_from_github(selected_file)
+
+if not plan:
+    st.warning("Could not load this plan.")
+    st.stop()
+
+# Editable fields
+edit_title = st.text_input("Plan Title", value=plan.get("title",""))
+
+edit_stages = []
+for i, s in enumerate(plan.get("stages", [])):
+    with st.expander(f"📂 Stage {i+1}: {s.get('title','')}", expanded=False):
+        stage_title = st.text_input(f"Stage {i+1} Title", value=s["title"], key=f"stage_{i}")
+
+        step_tabs = st.tabs([f"Step {j+1}" for j in range(len(s.get("steps", [])))])
+
+        steps = []
+        for j, step in enumerate(s.get("steps", [])):
+            with step_tabs[j]:
+                step_title = st.text_input(f"Step {j+1} Title", value=step.get("title",""), key=f"step_title_{i}_{j}")
+                step_goal = st.text_area(f"Goal", value=step.get("goal",""), key=f"goal_{i}_{j}")
+                step_why = st.text_area(f"Why", value=step.get("why",""), key=f"why_{i}_{j}")
+                step_how = st.text_area(f"SOP / How", value="\n".join(step.get("how",[])), key=f"how_{i}_{j}")
+                step_kpis = st.text_area(f"KPIs", value="\n".join(step.get("kpis",[])), key=f"kpis_{i}_{j}")
+                step_deliverables = st.text_area(f"Deliverables", value="\n".join(step.get("deliverables",[])), key=f"deliv_{i}_{j}")
+
+                toolbox = step.get("toolbox", {})
+
+                tb_high = st.text_area(
+                    "High Priority Tools",
+                    value="\n".join(format_tools(toolbox)),
+                    key=f"tb_high_{i}_{j}"
+                )
+
+                tb_low = st.text_area(
+                    "Low Priority Tools",
+                    value="\n".join(format_tools(toolbox.get("low_priority", []))) if isinstance(toolbox, dict) else "",
+                    key=f"tb_low_{i}_{j}"
+                )
+
+                steps.append({
+                    "title": step_title,
+                    "goal": step_goal,
+                    "why": step_why,
+                    "how": [ln.strip() for ln in step_how.splitlines() if ln.strip()],
+                    "kpis": [ln.strip() for ln in step_kpis.splitlines() if ln.strip()],
+                    "deliverables": [ln.strip() for ln in step_deliverables.splitlines() if ln.strip()],
+                    "toolbox": {
+                        "high_priority": parse_tools(tb_high),
+                        "low_priority": parse_tools(tb_low)
+                    }
+                })
+        edit_stages.append({"title": stage_title, "steps": steps})
+
+# --- Save changes ---
+save_clicked = st.button("💾 Save Changes")
+
+if save_clicked:
+    updated_plan = {"title": edit_title, "intro": plan.get("intro",""), "stages": edit_stages}
+    success = save_plan_to_github(selected_file, updated_plan, commit_msg=f"Updated {edit_title}")
+    if success:
+        st.success(f"✅ {edit_title} updated successfully!")
+        st.session_state["refresh"] = True
+    else:
+        st.error("❌ Failed to save plan.")
+
+# Rerun safely after save
+if st.session_state.get("refresh", False):
+    st.session_state["refresh"] = False
+    st.experimental_rerun()
