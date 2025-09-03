@@ -2,6 +2,10 @@ import streamlit as st
 import requests, json, base64
 from slugify import slugify
 
+# --- Initialize session state for memory ---
+if "plans_data" not in st.session_state:
+    st.session_state["plans_data"] = {}
+
 # --- GitHub Settings ---
 GITHUB_REPO = "faizanhaider55/marketing-deck"
 GITHUB_PATH = "data"
@@ -81,13 +85,17 @@ if not files:
 # Map filenames to titles for selection
 file_title_map = {}
 for f in files:
-    plan_data = load_plan_from_github(f)
+    if f in st.session_state["plans_data"]:
+        plan_data = st.session_state["plans_data"][f]
+    else:
+        plan_data = load_plan_from_github(f)
+        st.session_state["plans_data"][f] = plan_data
     title = plan_data.get("title", f)
     file_title_map[title] = f
 
 selected_title = st.selectbox("Select a plan to edit", list(file_title_map.keys()))
 selected_file = file_title_map[selected_title]
-plan = load_plan_from_github(selected_file)
+plan = st.session_state["plans_data"][selected_file]
 
 if not plan:
     st.warning("Could not load this plan.")
@@ -142,18 +150,16 @@ for i, s in enumerate(plan.get("stages", [])):
         edit_stages.append({"title": stage_title, "steps": steps})
 
 # --- Save changes ---
-save_clicked = st.button("💾 Save Changes")
-
-if save_clicked:
+if st.button("💾 Save Changes"):
     updated_plan = {"title": edit_title, "intro": plan.get("intro",""), "stages": edit_stages}
+    
+    # 1️⃣ Update in Streamlit memory first
+    st.session_state["plans_data"][selected_file] = updated_plan
+    st.success(f"✅ {edit_title} updated in app memory!")
+
+    # 2️⃣ Then push to GitHub
     success = save_plan_to_github(selected_file, updated_plan, commit_msg=f"Updated {edit_title}")
     if success:
-        st.success(f"✅ {edit_title} updated successfully!")
-        st.session_state["refresh"] = True
+        st.success(f"✅ {edit_title} also updated on GitHub!")
     else:
-        st.error("❌ Failed to save plan.")
-
-# Rerun safely after save
-if st.session_state.get("refresh", False):
-    st.session_state["refresh"] = False
-    st.rerun()  # Changed from st.experimental_rerun() to st.rerun()
+        st.error("❌ Failed to save plan to GitHub.")
