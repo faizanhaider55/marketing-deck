@@ -1,5 +1,5 @@
 {
-  "title": "Plan 3: B2B Marketing Masterplan (For any niche \u2014 scalable from startup to enterprise)",
+  "title": "B2B Marketing Masterplan (For any niche \u2014 scalable from startup to enterprise)",
   "intro": "A complete B2B plan covering Planning and Execution. Use with your CRM (HubSpot, Salesforce, Ledge) and ABM stack.",
   "stages": [
     {
@@ -7,7 +7,7 @@
       "steps": [
         {
           "title": "1) Market & Audience Research (ICP, Personas, JTBD, Segmentation)",
-          "goal": "Define your Ideal Customer Profiles (ICPs), decision-maker personas, buying committees, and the jobs-to-be-done your solution fulfills.",
+          "goal": "22Define your Ideal Customer Profiles (ICPs), decision-maker personas, buying committees, and the jobs-to-be-done your solution fulfills.",
           "why": "",
           "how": [
             "If you already have CRM data: Pull closed-won vs. closed-lost opportunities from HubSpot, Salesforce, Ledge.",
