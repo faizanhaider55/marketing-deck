@@ -56,11 +56,9 @@ def format_tools(tools):
     """Normalize tools into a list of 'name - url' strings for text_area"""
     if not tools:
         return []
-    # old format: list of tools
-    if isinstance(tools, list):
+    if isinstance(tools, list):  # old format
         normed = tools
-    # new format: dict with high_priority/low_priority
-    elif isinstance(tools, dict):
+    elif isinstance(tools, dict):  # new format
         normed = tools.get("high_priority", [])
     else:
         return []
@@ -94,46 +92,46 @@ edit_title = st.text_input("Plan Title", value=plan.get("title",""))
 
 edit_stages = []
 for i, s in enumerate(plan.get("stages", [])):
-    st.markdown(f"### Stage {i+1}")
-    stage_title = st.text_input(f"Stage {i+1} Title", value=s["title"], key=f"stage_{i}")
+    with st.expander(f"📂 Stage {i+1}: {s.get('title','')}", expanded=False):
+        stage_title = st.text_input(f"Stage {i+1} Title", value=s["title"], key=f"stage_{i}")
 
-    steps = []
-    for j, step in enumerate(s.get("steps", [])):
-        st.markdown(f"#### Step {j+1}")
-        step_title = st.text_input(f"Step {j+1} Title", value=step.get("title",""), key=f"step_title_{i}_{j}")
-        step_goal = st.text_area(f"Goal", value=step.get("goal",""), key=f"goal_{i}_{j}")
-        step_why = st.text_area(f"Why", value=step.get("why",""), key=f"why_{i}_{j}")
-        step_how = st.text_area(f"SOP / How", value="\n".join(step.get("how",[])), key=f"how_{i}_{j}")
-        step_kpis = st.text_area(f"KPIs", value="\n".join(step.get("kpis",[])), key=f"kpis_{i}_{j}")
-        step_deliverables = st.text_area(f"Deliverables", value="\n".join(step.get("deliverables",[])), key=f"deliv_{i}_{j}")
+        steps = []
+        for j, step in enumerate(s.get("steps", [])):
+            with st.expander(f"➡️ Step {j+1}: {step.get('title','')}", expanded=False):
+                step_title = st.text_input(f"Step {j+1} Title", value=step.get("title",""), key=f"step_title_{i}_{j}")
+                step_goal = st.text_area(f"Goal", value=step.get("goal",""), key=f"goal_{i}_{j}")
+                step_why = st.text_area(f"Why", value=step.get("why",""), key=f"why_{i}_{j}")
+                step_how = st.text_area(f"SOP / How", value="\n".join(step.get("how",[])), key=f"how_{i}_{j}")
+                step_kpis = st.text_area(f"KPIs", value="\n".join(step.get("kpis",[])), key=f"kpis_{i}_{j}")
+                step_deliverables = st.text_area(f"Deliverables", value="\n".join(step.get("deliverables",[])), key=f"deliv_{i}_{j}")
 
-        toolbox = step.get("toolbox", {})
+                toolbox = step.get("toolbox", {})
 
-        tb_high = st.text_area(
-            "High Priority Tools",
-            value="\n".join(format_tools(toolbox)),
-            key=f"tb_high_{i}_{j}"
-        )
+                tb_high = st.text_area(
+                    "High Priority Tools",
+                    value="\n".join(format_tools(toolbox)),
+                    key=f"tb_high_{i}_{j}"
+                )
 
-        tb_low = st.text_area(
-            "Low Priority Tools",
-            value="\n".join(format_tools(toolbox.get("low_priority", []))) if isinstance(toolbox, dict) else "",
-            key=f"tb_low_{i}_{j}"
-        )
+                tb_low = st.text_area(
+                    "Low Priority Tools",
+                    value="\n".join(format_tools(toolbox.get("low_priority", []))) if isinstance(toolbox, dict) else "",
+                    key=f"tb_low_{i}_{j}"
+                )
 
-        steps.append({
-            "title": step_title,
-            "goal": step_goal,
-            "why": step_why,
-            "how": [ln.strip() for ln in step_how.splitlines() if ln.strip()],
-            "kpis": [ln.strip() for ln in step_kpis.splitlines() if ln.strip()],
-            "deliverables": [ln.strip() for ln in step_deliverables.splitlines() if ln.strip()],
-            "toolbox": {
-                "high_priority": parse_tools(tb_high),
-                "low_priority": parse_tools(tb_low)
-            }
-        })
-    edit_stages.append({"title": stage_title, "steps": steps})
+                steps.append({
+                    "title": step_title,
+                    "goal": step_goal,
+                    "why": step_why,
+                    "how": [ln.strip() for ln in step_how.splitlines() if ln.strip()],
+                    "kpis": [ln.strip() for ln in step_kpis.splitlines() if ln.strip()],
+                    "deliverables": [ln.strip() for ln in step_deliverables.splitlines() if ln.strip()],
+                    "toolbox": {
+                        "high_priority": parse_tools(tb_high),
+                        "low_priority": parse_tools(tb_low)
+                    }
+                })
+        edit_stages.append({"title": stage_title, "steps": steps})
 
 # Save button
 if st.button("💾 Save Changes"):
