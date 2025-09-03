@@ -1,0 +1,24 @@
+{
+  "title": "test",
+  "intro": "",
+  "stages": [
+    {
+      "title": "test",
+      "steps": [
+        {
+          "title": "test",
+          "goal": "",
+          "why": "",
+          "how": [],
+          "kpis": [],
+          "deliverables": [],
+          "toolbox": {
+            "high_priority": [],
+            "low_priority": []
+          }
+        }
+      ],
+      "description": ""
+    }
+  ]
+}
