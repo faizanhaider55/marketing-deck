@@ -40,6 +40,7 @@ def save_plan_to_github(filename, data, commit_msg="Update plan via Streamlit"):
     return r.status_code in [200,201]
 
 def parse_tools(text):
+    """Convert 'name - url' lines into list of {name,url} dicts"""
     tools = []
     for ln in text.splitlines():
         if not ln.strip():
@@ -52,11 +53,12 @@ def parse_tools(text):
     return tools
 
 def format_tools(tools):
+    """Normalize tools into a list of 'name - url' strings for text_area"""
     if not tools:
         return []
-    if isinstance(tools, list):
+    if isinstance(tools, list):  # old format
         normed = tools
-    elif isinstance(tools, dict):
+    elif isinstance(tools, dict):  # new format
         normed = tools.get("high_priority", [])
     else:
         return []
@@ -78,13 +80,20 @@ if not files:
     st.error("No plans found in GitHub.")
     st.stop()
 
-# Map filenames to titles for user-friendly selection
-plans = {f: load_plan_from_github(f) for f in files}
-title_to_file = {p.get("title", f): f for f, p in plans.items()}
+# Load all plans and map titles to filenames
+plans_map = {}
+for f in files:
+    data = load_plan_from_github(f)
+    if "title" in data:
+        plans_map[data["title"]] = f
 
-selected_title = st.selectbox("Select a plan to edit", list(title_to_file.keys()))
-selected_file = title_to_file[selected_title]
-plan = plans[selected_file]
+if not plans_map:
+    st.error("No valid plans found in GitHub.")
+    st.stop()
+
+selected_title = st.selectbox("Select a plan to edit", list(plans_map.keys()))
+selected_file = plans_map[selected_title]
+plan = load_plan_from_github(selected_file)
 
 if not plan:
     st.warning("Could not load this plan.")
@@ -139,7 +148,9 @@ for i, s in enumerate(plan.get("stages", [])):
         edit_stages.append({"title": stage_title, "steps": steps})
 
 # Save button
-if st.button("💾 Save Changes"):
+save_clicked = st.button("💾 Save Changes")
+
+if save_clicked:
     updated_plan = {"title": edit_title, "intro": plan.get("intro",""), "stages": edit_stages}
     success = save_plan_to_github(selected_file, updated_plan, commit_msg=f"Updated {edit_title}")
     if success:
