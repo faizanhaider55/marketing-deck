@@ -80,20 +80,14 @@ if not files:
     st.error("No plans found in GitHub.")
     st.stop()
 
-# Load all plans and map titles to filenames
-plans_map = {}
-for f in files:
-    data = load_plan_from_github(f)
-    if "title" in data:
-        plans_map[data["title"]] = f
+# Load all plan data to map titles to filenames
+plans_data = {f: load_plan_from_github(f) for f in files}
+plan_titles = [plans_data[f].get("title", f) for f in files]
 
-if not plans_map:
-    st.error("No valid plans found in GitHub.")
-    st.stop()
-
-selected_title = st.selectbox("Select a plan to edit", list(plans_map.keys()))
-selected_file = plans_map[selected_title]
-plan = load_plan_from_github(selected_file)
+# Select plan by title
+selected_title = st.selectbox("Select a plan to edit", plan_titles)
+selected_file = files[plan_titles.index(selected_title)]
+plan = plans_data[selected_file]
 
 if not plan:
     st.warning("Could not load this plan.")
@@ -155,6 +149,11 @@ if save_clicked:
     success = save_plan_to_github(selected_file, updated_plan, commit_msg=f"Updated {edit_title}")
     if success:
         st.success(f"✅ {edit_title} updated successfully!")
-        st.experimental_rerun()  # reload the page to show updated data
+        st.session_state["refresh"] = True  # set flag
     else:
         st.error("❌ Failed to save plan.")
+
+# Safe rerun to reflect updates
+if st.session_state.get("refresh", False):
+    st.session_state["refresh"] = False
+    st.experimental_rerun()
