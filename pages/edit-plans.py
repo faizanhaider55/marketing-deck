@@ -2,10 +2,6 @@ import streamlit as st
 import requests, json, base64
 from slugify import slugify
 
-# --- Initialize session state for memory ---
-if "plans_data" not in st.session_state:
-    st.session_state["plans_data"] = {}
-
 # --- GitHub Settings ---
 GITHUB_REPO = "faizanhaider55/marketing-deck"
 GITHUB_PATH = "data"
@@ -17,7 +13,7 @@ HEADERS = {
     "Accept": "application/vnd.github+json"
 }
 
-# --- GitHub functions ---
+# --- GitHub Functions ---
 def list_github_files():
     url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{GITHUB_PATH}?ref={GITHUB_BRANCH}"
     resp = requests.get(url, headers=HEADERS)
@@ -49,7 +45,7 @@ def parse_tools(text):
         if not ln.strip():
             continue
         if " - " in ln:
-            name, url = ln.split(" - ", 1)
+            name, url = ln.split(" - ",1)
         else:
             name, url = ln, ln
         tools.append({"name": name.strip(), "url": url.strip()})
@@ -72,46 +68,52 @@ def format_tools(tools):
             lines.append(t)
     return lines
 
-# --- UI ---
+# --- Session State Initialization ---
+if "plans_data" not in st.session_state:
+    st.session_state["plans_data"] = {}
+
+def get_plan(filename):
+    if filename in st.session_state["plans_data"]:
+        return st.session_state["plans_data"][filename]
+    plan = load_plan_from_github(filename)
+    st.session_state["plans_data"][filename] = plan
+    return plan
+
+# --- Streamlit UI ---
 st.set_page_config(page_title="Edit Plans", page_icon="✏️", layout="wide")
 st.title("✏️ Edit Existing Marketing Plans")
 
-# Load available plans
 files = list_github_files()
 if not files:
     st.error("No plans found in GitHub.")
     st.stop()
 
-# Map filenames to titles for selection
-file_title_map = {}
+# Select plan by title
+plans_titles = {}
 for f in files:
-    if f in st.session_state["plans_data"]:
-        plan_data = st.session_state["plans_data"][f]
-    else:
-        plan_data = load_plan_from_github(f)
-        st.session_state["plans_data"][f] = plan_data
+    plan_data = get_plan(f)
     title = plan_data.get("title", f)
-    file_title_map[title] = f
+    plans_titles[title] = f
 
-selected_title = st.selectbox("Select a plan to edit", list(file_title_map.keys()))
-selected_file = file_title_map[selected_title]
-plan = st.session_state["plans_data"][selected_file]
+selected_title = st.selectbox("Select a plan to edit", list(plans_titles.keys()))
+selected_file = plans_titles[selected_title]
 
+plan = get_plan(selected_file)
 if not plan:
     st.warning("Could not load this plan.")
     st.stop()
 
 # Editable fields
 edit_title = st.text_input("Plan Title", value=plan.get("title",""))
+st.session_state["plans_data"][selected_file]["title"] = edit_title
 
 edit_stages = []
 for i, s in enumerate(plan.get("stages", [])):
     with st.expander(f"📂 Stage {i+1}: {s.get('title','')}", expanded=False):
         stage_title = st.text_input(f"Stage {i+1} Title", value=s["title"], key=f"stage_{i}")
+        st.session_state["plans_data"][selected_file]["stages"][i]["title"] = stage_title
 
         step_tabs = st.tabs([f"Step {j+1}" for j in range(len(s.get("steps", [])))])
-
-        steps = []
         for j, step in enumerate(s.get("steps", [])):
             with step_tabs[j]:
                 step_title = st.text_input(f"Step {j+1} Title", value=step.get("title",""), key=f"step_title_{i}_{j}")
@@ -122,20 +124,15 @@ for i, s in enumerate(plan.get("stages", [])):
                 step_deliverables = st.text_area(f"Deliverables", value="\n".join(step.get("deliverables",[])), key=f"deliv_{i}_{j}")
 
                 toolbox = step.get("toolbox", {})
-
-                tb_high = st.text_area(
-                    "High Priority Tools",
-                    value="\n".join(format_tools(toolbox)),
-                    key=f"tb_high_{i}_{j}"
-                )
-
+                tb_high = st.text_area("High Priority Tools", value="\n".join(format_tools(toolbox)), key=f"tb_high_{i}_{j}")
                 tb_low = st.text_area(
                     "Low Priority Tools",
                     value="\n".join(format_tools(toolbox.get("low_priority", []))) if isinstance(toolbox, dict) else "",
                     key=f"tb_low_{i}_{j}"
                 )
 
-                steps.append({
+                # Update session state immediately
+                st.session_state["plans_data"][selected_file]["stages"][i]["steps"][j] = {
                     "title": step_title,
                     "goal": step_goal,
                     "why": step_why,
@@ -146,20 +143,13 @@ for i, s in enumerate(plan.get("stages", [])):
                         "high_priority": parse_tools(tb_high),
                         "low_priority": parse_tools(tb_low)
                     }
-                })
-        edit_stages.append({"title": stage_title, "steps": steps})
+                }
 
-# --- Save changes ---
+# Save button
 if st.button("💾 Save Changes"):
-    updated_plan = {"title": edit_title, "intro": plan.get("intro",""), "stages": edit_stages}
-    
-    # 1️⃣ Update in Streamlit memory first
-    st.session_state["plans_data"][selected_file] = updated_plan
-    st.success(f"✅ {edit_title} updated in app memory!")
-
-    # 2️⃣ Then push to GitHub
-    success = save_plan_to_github(selected_file, updated_plan, commit_msg=f"Updated {edit_title}")
+    updated_plan = st.session_state["plans_data"][selected_file]
+    success = save_plan_to_github(selected_file, updated_plan, commit_msg=f"Updated {updated_plan.get('title','')}")
     if success:
-        st.success(f"✅ {edit_title} also updated on GitHub!")
+        st.success(f"✅ {updated_plan.get('title','')} updated successfully on GitHub!")
     else:
-        st.error("❌ Failed to save plan to GitHub.")
+        st.error("❌ Failed to save plan on GitHub.")
