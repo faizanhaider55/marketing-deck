@@ -37,6 +37,7 @@ def load_plan_from_github(filename):
 
 def save_plan_to_github(filename, data, commit_msg="Add new plan via Streamlit"):
     url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{GITHUB_PATH}/{filename}"
+    # Check if file exists
     resp = requests.get(url, headers=HEADERS)
     content = json.dumps(data, indent=2)
     b64_content = base64.b64encode(content.encode()).decode()
@@ -115,69 +116,26 @@ with st.sidebar.expander("Add Your Own Plan"):
     base_plan_choice = st.selectbox("Import from existing plan (optional)", ["None"] + list(plans.keys()))
     
     base_plan_data = plans.get(base_plan_choice) if base_plan_choice != "None" else None
-    num_stages = st.number_input(
-        "Number of Stages", min_value=1, max_value=10,
-        value=len(base_plan_data["stages"]) if base_plan_data else 1, step=1
-    )
+    num_stages = st.number_input("Number of Stages", min_value=1, max_value=10, value=len(base_plan_data["stages"]) if base_plan_data else 1, step=1)
     
     new_plan_stages = []
     for i in range(num_stages):
         st.markdown(f"**Stage {i+1}**")
-        stage_title = st.text_input(
-            f"Stage {i+1} Title",
-            value=(base_plan_data["stages"][i]["title"] if base_plan_data and i < len(base_plan_data["stages"]) else ""),
-            key=f"stage_title_{i}"
-        )
-        num_steps = st.number_input(
-            f"Number of Steps in Stage {i+1}", min_value=1, max_value=10,
-            value=(len(base_plan_data["stages"][i]["steps"]) if base_plan_data and i < len(base_plan_data["stages"]) else 1),
-            key=f"num_steps_{i}"
-        )
+        stage_title = st.text_input(f"Stage {i+1} Title", value=(base_plan_data["stages"][i]["title"] if base_plan_data and i < len(base_plan_data["stages"]) else ""), key=f"stage_title_{i}")
+        num_steps = st.number_input(f"Number of Steps in Stage {i+1}", min_value=1, max_value=10, value=(len(base_plan_data["stages"][i]["steps"]) if base_plan_data and i < len(base_plan_data["stages"]) else 1), key=f"num_steps_{i}")
         
         steps = []
         for j in range(num_steps):
             st.markdown(f"Step {j+1}")
-            step_title = st.text_input(
-                f"Step {j+1} Title",
-                key=f"step_title_{i}_{j}",
-                value=(base_plan_data["stages"][i]["steps"][j]["title"] if base_plan_data and i < len(base_plan_data["stages"]) and j < len(base_plan_data["stages"][i]["steps"]) else "")
-            )
-            step_goal = st.text_area(
-                f"Step {j+1} Goal",
-                key=f"step_goal_{i}_{j}",
-                value=(base_plan_data["stages"][i]["steps"][j]["goal"] if base_plan_data and i < len(base_plan_data["stages"]) and j < len(base_plan_data["stages"][i]["steps"]) else "")
-            )
-            step_why = st.text_area(
-                f"Step {j+1} Why",
-                key=f"step_why_{i}_{j}",
-                value=(base_plan_data["stages"][i]["steps"][j]["why"] if base_plan_data and i < len(base_plan_data["stages"]) and j < len(base_plan_data["stages"][i]["steps"]) else "")
-            )
-            step_how = st.text_area(
-                f"Step {j+1} SOP / How (one per line)",
-                key=f"step_how_{i}_{j}",
-                value="\n".join(base_plan_data["stages"][i]["steps"][j]["how"]) if base_plan_data and i < len(base_plan_data["stages"]) and j < len(base_plan_data["stages"][i]["steps"]) else ""
-            )
-            step_kpis = st.text_area(
-                f"Step {j+1} KPIs (one per line)",
-                key=f"step_kpis_{i}_{j}",
-                value="\n".join(base_plan_data["stages"][i]["steps"][j]["kpis"]) if base_plan_data and i < len(base_plan_data["stages"]) and j < len(base_plan_data["stages"][i]["steps"]) else ""
-            )
-            step_deliverables = st.text_area(
-                f"Step {j+1} Deliverables (one per line)",
-                key=f"step_deliverables_{i}_{j}",
-                value="\n".join(base_plan_data["stages"][i]["steps"][j]["deliverables"]) if base_plan_data and i < len(base_plan_data["stages"]) and j < len(base_plan_data["stages"][i]["steps"]) else ""
-            )
+            step_title = st.text_input(f"Step {j+1} Title", key=f"step_title_{i}_{j}", value=(base_plan_data["stages"][i]["steps"][j]["title"] if base_plan_data and i < len(base_plan_data["stages"]) and j < len(base_plan_data["stages"][i]["steps"]) else ""))
+            step_goal = st.text_area(f"Step {j+1} Goal", key=f"step_goal_{i}_{j}", value=(base_plan_data["stages"][i]["steps"][j]["goal"] if base_plan_data and i < len(base_plan_data["stages"]) and j < len(base_plan_data["stages"][i]["steps"]) else ""))
+            step_why = st.text_area(f"Step {j+1} Why", key=f"step_why_{i}_{j}", value=(base_plan_data["stages"][i]["steps"][j]["why"] if base_plan_data and i < len(base_plan_data["stages"]) and j < len(base_plan_data["stages"][i]["steps"]) else ""))
+            step_how = st.text_area(f"Step {j+1} SOP / How (one per line)", key=f"step_how_{i}_{j}", value="\n".join(base_plan_data["stages"][i]["steps"][j]["how"]) if base_plan_data and i < len(base_plan_data["stages"]) and j < len(base_plan_data["stages"][i]["steps"]) else "")
+            step_kpis = st.text_area(f"Step {j+1} KPIs (one per line)", key=f"step_kpis_{i}_{j}", value="\n".join(base_plan_data["stages"][i]["steps"][j]["kpis"]) if base_plan_data and i < len(base_plan_data["stages"]) and j < len(base_plan_data["stages"][i]["steps"]) else "")
+            step_deliverables = st.text_area(f"Step {j+1} Deliverables (one per line)", key=f"step_deliverables_{i}_{j}", value="\n".join(base_plan_data["stages"][i]["steps"][j]["deliverables"]) if base_plan_data and i < len(base_plan_data["stages"]) and j < len(base_plan_data["stages"][i]["steps"]) else "")
 
-            tb_high = st.text_area(
-                f"High Priority Tools (name - url, one per line)",
-                key=f"tb_high_{i}_{j}",
-                value="\n".join([f"{t['name']} - {t['url']}" for t in base_plan_data["stages"][i]["steps"][j].get("toolbox", {}).get("high_priority", [])]) if base_plan_data and i < len(base_plan_data["stages"]) and j < len(base_plan_data["stages"][i]["steps"]) else ""
-            )
-            tb_low = st.text_area(
-                f"Low Priority Tools (name - url, one per line)",
-                key=f"tb_low_{i}_{j}",
-                value="\n".join([f"{t['name']} - {t['url']}" for t in base_plan_data["stages"][i]["steps"][j].get("toolbox", {}).get("low_priority", [])]) if base_plan_data and i < len(base_plan_data["stages"]) and j < len(base_plan_data["stages"][i]["steps"]) else ""
-            )
+            tb_high = st.text_area(f"High Priority Tools (name - url, one per line)", key=f"tb_high_{i}_{j}", value="\n".join([f"{t['name']} - {t['url']}" for t in base_plan_data["stages"][i]["steps"][j].get("toolbox", {}).get("high_priority", [])]) if base_plan_data and i < len(base_plan_data["stages"]) and j < len(base_plan_data["stages"][i]["steps"]) else "")
+            tb_low = st.text_area(f"Low Priority Tools (name - url, one per line)", key=f"tb_low_{i}_{j}", value="\n".join([f"{t['name']} - {t['url']}" for t in base_plan_data["stages"][i]["steps"][j].get("toolbox", {}).get("low_priority", [])]) if base_plan_data and i < len(base_plan_data["stages"]) and j < len(base_plan_data["stages"][i]["steps"]) else "")
 
             def parse_tools(text):
                 tools = []
@@ -221,31 +179,37 @@ with st.sidebar.expander("Add Your Own Plan"):
             success = save_plan_to_github(filename, new_plan)
             if success:
                 st.success(f"Plan '{new_plan_title}' submitted successfully! Check GitHub.")
-                # --- Reload plans dynamically ---
-                plans[slugify(new_plan_title)] = new_plan
 
 # --- Select existing plan ---
 st.sidebar.markdown("---")
-st.sidebar.title("📚 Marketing Plans")
-plan_key = st.sidebar.selectbox("Choose a Plan", list(plans.keys()))
+st.sidebar.title("📚 Marketing Masterplans")
+plan_key = st.sidebar.selectbox("Plan", list(plans.keys()), index=0)
 plan = plans[plan_key]
 
-# --- Display Plan ---
-st.title(plan.get("title", "Marketing Plan"))
-st.markdown(plan.get("intro",""))
+# --- Stage selection ---
+stage_titles = [s["title"] for s in plan.get("stages", [])]
+if not stage_titles:
+    st.error("No stages found in the plan.")
+    st.stop()
+stage_title = st.selectbox("Select Stage", stage_titles)
+stage = get_stage(plan, stage_title=stage_title)
 
-for stage in plan.get("stages", []):
-    st.header(stage.get("title",""))
-    if stage.get("description"):
-        st.markdown(stage["description"])
-    for step in stage.get("steps", []):
-        st.subheader(step.get("title",""))
-        st.markdown(f"**Goal:** {step.get('goal','')}")
-        st.markdown(f"**Why:** {step.get('why','')}")
-        if step.get("how"):
-            st.markdown("**SOP / How:**\n" + md_list(step["how"]))
-        if step.get("kpis"):
-            st.markdown("**KPIs:**\n" + md_list(step["kpis"]))
-        if step.get("deliverables"):
-            st.markdown("**Deliverables:**\n" + md_list(step["deliverables"]))
-        render_toolbox(step.get("toolbox"))
+# --- Step selection ---
+step_titles = [s["title"] for s in stage.get("steps", [])]
+if not step_titles:
+    st.warning("No steps found in this stage.")
+    st.stop()
+step_title = st.selectbox("Select Step", step_titles)
+step = get_step(stage, step_title=step_title)
+
+# --- Display Step Details ---
+st.markdown(f"## {step.get('title','')}")
+st.markdown(f"**Goal:** {step.get('goal','')}")
+st.markdown(f"**Why:** {step.get('why','')}")
+st.markdown("**SOP / How:**")
+st.markdown(md_list(step.get("how",[])))
+st.markdown("**KPIs:**")
+st.markdown(md_list(step.get("kpis",[])))
+st.markdown("**Deliverables:**")
+st.markdown(md_list(step.get("deliverables",[])))
+render_toolbox(step.get("toolbox"))
