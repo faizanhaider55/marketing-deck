@@ -37,8 +37,9 @@ def save_plan_to_github(filename, data, commit_msg="Update plan via Streamlit"):
     if resp.status_code == 200:
         body["sha"] = resp.json()["sha"]
     r = requests.put(url, headers=HEADERS, json=body)
-    return r.status_code in [200, 201]
+    return r.status_code in [200,201]
 
+# --- Tool helpers ---
 def parse_tools(text):
     tools = []
     for ln in text.splitlines():
@@ -54,9 +55,9 @@ def parse_tools(text):
 def format_tools(tools):
     if not tools:
         return []
-    if isinstance(tools, list):
+    if isinstance(tools, list):  # old format
         normed = tools
-    elif isinstance(tools, dict):
+    elif isinstance(tools, dict):  # new format
         normed = tools.get("high_priority", [])
     else:
         return []
@@ -68,52 +69,40 @@ def format_tools(tools):
             lines.append(t)
     return lines
 
-# --- Session State Initialization ---
-if "plans_data" not in st.session_state:
-    st.session_state["plans_data"] = {}
-
-def get_plan(filename):
-    if filename in st.session_state["plans_data"]:
-        return st.session_state["plans_data"][filename]
-    plan = load_plan_from_github(filename)
-    st.session_state["plans_data"][filename] = plan
-    return plan
-
 # --- Streamlit UI ---
 st.set_page_config(page_title="Edit Plans", page_icon="✏️", layout="wide")
 st.title("✏️ Edit Existing Marketing Plans")
 
+# Initialize session_state
+if "plans_data" not in st.session_state:
+    st.session_state["plans_data"] = {}
+
+# Load plans from GitHub
 files = list_github_files()
 if not files:
     st.error("No plans found in GitHub.")
     st.stop()
 
-# Select plan by title
-plans_titles = {}
+# Load all plans into session_state if not already
 for f in files:
-    plan_data = get_plan(f)
-    title = plan_data.get("title", f)
-    plans_titles[title] = f
+    if f not in st.session_state["plans_data"]:
+        st.session_state["plans_data"][f] = load_plan_from_github(f)
 
-selected_title = st.selectbox("Select a plan to edit", list(plans_titles.keys()))
-selected_file = plans_titles[selected_title]
-
-plan = get_plan(selected_file)
-if not plan:
-    st.warning("Could not load this plan.")
-    st.stop()
+# Select plan by title
+plan_titles = {v["title"]: k for k,v in st.session_state["plans_data"].items()}
+selected_title = st.selectbox("Select a plan to edit", list(plan_titles.keys()))
+selected_file = plan_titles[selected_title]
+plan = st.session_state["plans_data"][selected_file]
 
 # Editable fields
 edit_title = st.text_input("Plan Title", value=plan.get("title",""))
-st.session_state["plans_data"][selected_file]["title"] = edit_title
 
 edit_stages = []
 for i, s in enumerate(plan.get("stages", [])):
     with st.expander(f"📂 Stage {i+1}: {s.get('title','')}", expanded=False):
         stage_title = st.text_input(f"Stage {i+1} Title", value=s["title"], key=f"stage_{i}")
-        st.session_state["plans_data"][selected_file]["stages"][i]["title"] = stage_title
-
         step_tabs = st.tabs([f"Step {j+1}" for j in range(len(s.get("steps", [])))])
+        steps = []
         for j, step in enumerate(s.get("steps", [])):
             with step_tabs[j]:
                 step_title = st.text_input(f"Step {j+1} Title", value=step.get("title",""), key=f"step_title_{i}_{j}")
@@ -124,15 +113,18 @@ for i, s in enumerate(plan.get("stages", [])):
                 step_deliverables = st.text_area(f"Deliverables", value="\n".join(step.get("deliverables",[])), key=f"deliv_{i}_{j}")
 
                 toolbox = step.get("toolbox", {})
-                tb_high = st.text_area("High Priority Tools", value="\n".join(format_tools(toolbox)), key=f"tb_high_{i}_{j}")
+                tb_high = st.text_area(
+                    "High Priority Tools",
+                    value="\n".join(format_tools(toolbox)),
+                    key=f"tb_high_{i}_{j}"
+                )
                 tb_low = st.text_area(
                     "Low Priority Tools",
                     value="\n".join(format_tools(toolbox.get("low_priority", []))) if isinstance(toolbox, dict) else "",
                     key=f"tb_low_{i}_{j}"
                 )
 
-                # Update session state immediately
-                st.session_state["plans_data"][selected_file]["stages"][i]["steps"][j] = {
+                steps.append({
                     "title": step_title,
                     "goal": step_goal,
                     "why": step_why,
@@ -143,13 +135,30 @@ for i, s in enumerate(plan.get("stages", [])):
                         "high_priority": parse_tools(tb_high),
                         "low_priority": parse_tools(tb_low)
                     }
-                }
+                })
+        edit_stages.append({"title": stage_title, "steps": steps})
 
 # Save button
 if st.button("💾 Save Changes"):
-    updated_plan = st.session_state["plans_data"][selected_file]
-    success = save_plan_to_github(selected_file, updated_plan, commit_msg=f"Updated {updated_plan.get('title','')}")
+    # Update session_state first
+    st.session_state["plans_data"][selected_file] = {
+        "title": edit_title,
+        "intro": plan.get("intro",""),
+        "stages": edit_stages
+    }
+
+    # Fetch latest from GitHub
+    latest_plan = load_plan_from_github(selected_file)
+    
+    # Merge session edits
+    latest_plan.update(st.session_state["plans_data"][selected_file])
+    
+    # Save to GitHub
+    success = save_plan_to_github(selected_file, latest_plan, commit_msg=f"Updated {edit_title}")
+    
     if success:
-        st.success(f"✅ {updated_plan.get('title','')} updated successfully on GitHub!")
+        # Update session_state with the merged GitHub version
+        st.session_state["plans_data"][selected_file] = latest_plan
+        st.success(f"✅ {edit_title} updated successfully!")
     else:
-        st.error("❌ Failed to save plan on GitHub.")
+        st.error("❌ Failed to save plan.")
