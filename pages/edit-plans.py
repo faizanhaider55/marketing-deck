@@ -40,9 +40,11 @@ def save_plan_to_github(filename, data, commit_msg="Update plan via Streamlit"):
     return r.status_code in [200,201]
 
 def parse_tools(text):
+    """Convert 'name - url' lines into list of {name,url} dicts"""
     tools = []
     for ln in text.splitlines():
-        if not ln.strip(): continue
+        if not ln.strip():
+            continue
         if " - " in ln:
             name, url = ln.split(" - ",1)
         else:
@@ -50,42 +52,64 @@ def parse_tools(text):
         tools.append({"name": name.strip(), "url": url.strip()})
     return tools
 
+def format_tools(tools):
+    """Normalize tools into a list of 'name - url' strings for text_area"""
+    if not tools:
+        return []
+    if isinstance(tools, list):  # old format
+        normed = tools
+    elif isinstance(tools, dict):  # new format
+        normed = tools.get("high_priority", [])
+    else:
+        return []
+    lines = []
+    for t in normed:
+        if isinstance(t, dict):
+            lines.append(f"{t.get('name','')} - {t.get('url','')}".strip(" -"))
+        elif isinstance(t, str):
+            lines.append(t)
+    return lines
+
 # --- UI ---
 st.set_page_config(page_title="Edit Plans", page_icon="✏️", layout="wide")
 st.title("✏️ Edit Existing Marketing Plans")
 
-# Load all plans
+# Load available plans and map titles to filenames
 plan_files = list_github_files()
 if not plan_files:
     st.error("No plans found in GitHub.")
     st.stop()
 
-plans_data = {}
+# Build a mapping: title -> filename
+title_to_file = {}
 for f in plan_files:
     data = load_plan_from_github(f)
     title = data.get("title", f)
-    plans_data[title] = f
+    title_to_file[title] = f
 
 # Select plan by title
-selected_title = st.selectbox("Select a plan to edit", list(plans_data.keys()))
-selected_file = plans_data[selected_title]
-plan = load_plan_from_github(selected_file)
+selected_title = st.selectbox("Select a plan to edit", list(title_to_file.keys()))
+selected_file = title_to_file[selected_title]
 
+# Load the plan
+plan = load_plan_from_github(selected_file)
 if not plan:
     st.warning("Could not load this plan.")
     st.stop()
 
-# Editable plan title
+# Editable fields
 edit_title = st.text_input("Plan Title", value=plan.get("title",""))
 
 edit_stages = []
 for i, s in enumerate(plan.get("stages", [])):
-    with st.expander(f"➡️ Stage {i+1}: {s.get('title','')}", expanded=False):
-        stage_title = st.text_input(f"Stage {i+1} Title", value=s.get("title",""), key=f"stage_{i}")
+    with st.expander(f"📂 Stage {i+1}: {s.get('title','')}", expanded=False):
+        stage_title = st.text_input(f"Stage {i+1} Title", value=s["title"], key=f"stage_{i}")
 
-        steps_data = []
+        step_tabs = st.tabs([f"Step {j+1}" for j in range(len(s.get("steps", [])))])
+
+        steps = []
         for j, step in enumerate(s.get("steps", [])):
-            with st.expander(f"Step {j+1}: {step.get('title','')}", expanded=False):
+            with step_tabs[j]:
                 step_title = st.text_input(f"Step {j+1} Title", value=step.get("title",""), key=f"step_title_{i}_{j}")
                 step_goal = st.text_area(f"Goal", value=step.get("goal",""), key=f"goal_{i}_{j}")
                 step_why = st.text_area(f"Why", value=step.get("why",""), key=f"why_{i}_{j}")
@@ -93,25 +117,21 @@ for i, s in enumerate(plan.get("stages", [])):
                 step_kpis = st.text_area(f"KPIs", value="\n".join(step.get("kpis",[])), key=f"kpis_{i}_{j}")
                 step_deliverables = st.text_area(f"Deliverables", value="\n".join(step.get("deliverables",[])), key=f"deliv_{i}_{j}")
 
-                # Handle tools: fallback to high_priority if toolbox missing
                 toolbox = step.get("toolbox", {})
-                high_tools = toolbox.get("high_priority", [])
-                if not toolbox and step.get("tools"):
-                    high_tools = [{"name": t, "url": t} for t in step.get("tools", [])]
 
                 tb_high = st.text_area(
                     "High Priority Tools",
-                    value="\n".join([f"{t['name']} - {t['url']}" for t in high_tools]),
+                    value="\n".join(format_tools(toolbox)),
                     key=f"tb_high_{i}_{j}"
                 )
 
                 tb_low = st.text_area(
                     "Low Priority Tools",
-                    value="\n".join([f"{t['name']} - {t['url']}" for t in toolbox.get("low_priority",[])]),
+                    value="\n".join(format_tools(toolbox.get("low_priority", []))) if isinstance(toolbox, dict) else "",
                     key=f"tb_low_{i}_{j}"
                 )
 
-                steps_data.append({
+                steps.append({
                     "title": step_title,
                     "goal": step_goal,
                     "why": step_why,
@@ -123,9 +143,9 @@ for i, s in enumerate(plan.get("stages", [])):
                         "low_priority": parse_tools(tb_low)
                     }
                 })
-        edit_stages.append({"title": stage_title, "steps": steps_data})
+        edit_stages.append({"title": stage_title, "steps": steps})
 
-# Save changes
+# Save button
 if st.button("💾 Save Changes"):
     updated_plan = {"title": edit_title, "intro": plan.get("intro",""), "stages": edit_stages}
     success = save_plan_to_github(selected_file, updated_plan, commit_msg=f"Updated {edit_title}")
