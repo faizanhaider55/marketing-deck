@@ -28,7 +28,7 @@ def load_plan_from_github(filename):
         return resp.json()
     return {}
 
-def save_plan_to_github(filename, data, commit_msg="Add new plan via Streamlit"):
+def save_plan_to_github(filename, data, commit_msg="Update via Streamlit"):
     url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{GITHUB_PATH}/{filename}"
     # Check if file exists
     resp = requests.get(url, headers=HEADERS)
@@ -110,7 +110,11 @@ for file in list_github_files():
     if plan_data.get("title"):
         plans[plan_data["title"]] = plan_data
 
-# --- Sidebar: Add new plan ---
+# --- Sidebar ---
+st.sidebar.title("📚 Marketing Masterplans")
+admin_mode = st.sidebar.checkbox("🛠 Admin Mode (Edit Existing Plan)")
+
+# --- New Plan Submission ---
 st.sidebar.markdown("---")
 st.sidebar.subheader("➕ Submit a New Plan")
 with st.sidebar.expander("Add Your Own Plan"):
@@ -178,14 +182,12 @@ with st.sidebar.expander("Add Your Own Plan"):
                 "intro": "",
                 "stages": new_plan_stages
             }
-            success = save_plan_to_github(filename, new_plan)
+            success = save_plan_to_github(filename, new_plan, commit_msg=f"Add new plan '{new_plan_title}' via Streamlit")
             if success:
                 st.success(f"Plan '{new_plan_title}' submitted successfully! Check GitHub.")
 
 # --- Select existing plan ---
-st.sidebar.markdown("---")
-st.sidebar.title("📚 Marketing Masterplans")
-plan_key = st.sidebar.selectbox("Plan", list(plans.keys()), index=0)
+plan_key = st.sidebar.selectbox("Select Plan", list(plans.keys()), index=0)
 plan = plans[plan_key]
 
 # --- Stage selection ---
@@ -199,13 +201,56 @@ stage = get_stage(plan, stage_title=stage_title)
 # --- Step selection ---
 step_titles = [s["title"] for s in stage.get("steps", [])]
 if not step_titles:
-    st.warning("No steps found in this stage.")
+    st.error("No steps found in this stage.")
     st.stop()
 step_title = st.selectbox("Select Step", step_titles)
 step = get_step(stage, step_title=step_title)
 
-# --- Display Step Details ---
-st.markdown(f"## {step.get('title','')}")
+# --- Admin Mode Editing ---
+if admin_mode:
+    st.subheader(f"🛠 Edit Step: {step['title']}")
+    step_title_edit = st.text_input("Step Title", value=step.get("title",""))
+    step_goal_edit = st.text_area("Goal", value=step.get("goal",""))
+    step_why_edit = st.text_area("Why", value=step.get("why",""))
+    step_how_edit = st.text_area("SOP / How (one per line)", value="\n".join(step.get("how",[])))
+    step_kpis_edit = st.text_area("KPIs (one per line)", value="\n".join(step.get("kpis",[])))
+    step_deliverables_edit = st.text_area("Deliverables (one per line)", value="\n".join(step.get("deliverables",[])))
+
+    tb_high_edit = st.text_area("High Priority Tools (name - url, one per line)", 
+                                value="\n".join([f"{t['name']} - {t['url']}" for t in step.get("toolbox", {}).get("high_priority",[])]))
+    tb_low_edit = st.text_area("Low Priority Tools (name - url, one per line)", 
+                               value="\n".join([f"{t['name']} - {t['url']}" for t in step.get("toolbox", {}).get("low_priority",[])]))
+    
+    if st.button("Update Step on GitHub"):
+        def parse_tools(text):
+            tools = []
+            for ln in text.splitlines():
+                if not ln.strip(): continue
+                if " - " in ln:
+                    name, url = ln.split(" - ",1)
+                else:
+                    name, url = ln, ln
+                tools.append({"name": name.strip(), "url": url.strip()})
+            return tools
+
+        step["title"] = step_title_edit
+        step["goal"] = step_goal_edit
+        step["why"] = step_why_edit
+        step["how"] = [ln.strip() for ln in step_how_edit.splitlines() if ln.strip()]
+        step["kpis"] = [ln.strip() for ln in step_kpis_edit.splitlines() if ln.strip()]
+        step["deliverables"] = [ln.strip() for ln in step_deliverables_edit.splitlines() if ln.strip()]
+        step["toolbox"] = {
+            "high_priority": parse_tools(tb_high_edit),
+            "low_priority": parse_tools(tb_low_edit)
+        }
+
+        filename = slugify(plan["title"]) + ".json"
+        success = save_plan_to_github(filename, plan, commit_msg=f"Update step '{step['title']}' via Streamlit Admin Mode")
+        if success:
+            st.success(f"Step '{step['title']}' updated successfully!")
+
+# --- Render Step Content ---
+st.header(step["title"])
 st.markdown(f"**Goal:** {step.get('goal','')}")
 st.markdown(f"**Why:** {step.get('why','')}")
 st.markdown("**SOP / How:**")
@@ -214,4 +259,5 @@ st.markdown("**KPIs:**")
 st.markdown(md_list(step.get("kpis",[])))
 st.markdown("**Deliverables:**")
 st.markdown(md_list(step.get("deliverables",[])))
+
 render_toolbox(step.get("toolbox"))
