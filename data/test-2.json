@@ -1,24 +1,5 @@
 {
   "title": "test 2",
   "intro": "",
-  "stages": [
-    {
-      "title": "test 2",
-      "steps": [
-        {
-          "title": "test 2",
-          "goal": "",
-          "why": "",
-          "how": [],
-          "kpis": [],
-          "deliverables": [],
-          "toolbox": {
-            "high_priority": [],
-            "low_priority": []
-          }
-        }
-      ],
-      "description": ""
-    }
-  ]
+  "stages": []
 }
