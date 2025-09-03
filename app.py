@@ -1,55 +1,45 @@
-import os, json, requests
+import os
+import json
 from urllib.parse import urlparse
 import streamlit as st
 from slugify import slugify
-import base64
+from github import Github
 
 st.set_page_config(page_title="Marketing Masterplans", page_icon="📚", layout="wide")
 
-# --- GitHub Settings ---
-GITHUB_REPO = "faizanhaider55/marketing-deck"
-GITHUB_PATH = "data"
-GITHUB_BRANCH = "main"
-GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
+# --------------------------
+# CONFIG
+# --------------------------
+DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 
-HEADERS = {
-    "Authorization": f"token {GITHUB_TOKEN}",
-    "Accept": "application/vnd.github+json"
-}
-
-# --- Hardcoded plan filenames ---
-PLAN_FILES = {
+# Hardcoded plans
+HARDCODED_PLANS = {
     "B2C": "b2c.json",
     "Product-Based": "product.json",
     "B2B": "b2b.json",
 }
 
-# --- Utilities ---
-def github_file_url(filename):
-    return f"https://raw.githubusercontent.com/{GITHUB_REPO}/{GITHUB_BRANCH}/{GITHUB_PATH}/{filename}"
+# Load all JSON files dynamically
+def get_all_plans():
+    plans = HARDCODED_PLANS.copy()
+    for f in os.listdir(DATA_DIR):
+        if f.endswith(".json") and f not in plans.values():
+            key = os.path.splitext(f)[0]  # filename without .json
+            plans[key] = f
+    return plans
 
-def load_plan_from_github(filename):
-    url = github_file_url(filename)
-    resp = requests.get(url)
-    if resp.status_code == 200:
-        return resp.json()
-    return {}
+# --------------------------
+# HELPER FUNCTIONS
+# --------------------------
+def load_plan(plan_key):
+    path = os.path.join(DATA_DIR, PLAN_FILES[plan_key])
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
 
-def save_plan_to_github(filename, data, commit_msg="Add new plan via Streamlit"):
-    url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{GITHUB_PATH}/{filename}"
-    # Check if file exists
-    resp = requests.get(url, headers=HEADERS)
-    content = json.dumps(data, indent=2)
-    b64_content = base64.b64encode(content.encode()).decode()
-    body = {"message": commit_msg, "content": b64_content, "branch": GITHUB_BRANCH}
-    if resp.status_code == 200:
-        sha = resp.json()["sha"]
-        body["sha"] = sha
-    r = requests.put(url, headers=HEADERS, json=body)
-    if r.status_code in [200, 201]:
-        return True
-    st.error(f"Error uploading: {r.text}")
-    return False
+def save_plan(plan_key, data):
+    path = os.path.join(DATA_DIR, PLAN_FILES[plan_key])
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
 
 def domain_from_url(url):
     try:
@@ -103,39 +93,39 @@ def get_step(stage, step_id=None, step_title=None):
             return s
     return None
 
-# --- Load existing plans ---
-plans = {}
-for key, file in PLAN_FILES.items():
-    plans[key] = load_plan_from_github(file)
+# --------------------------
+# DYNAMIC PLAN FILES
+# --------------------------
+PLAN_FILES = get_all_plans()
 
-# --- Sidebar: Add new plan ---
+# --------------------------
+# SIDEBAR - Add New Plan
+# --------------------------
 st.sidebar.markdown("---")
 st.sidebar.subheader("➕ Submit a New Plan")
+
 with st.sidebar.expander("Add Your Own Plan"):
     new_plan_title = st.text_input("Plan Title")
-    base_plan_choice = st.selectbox("Import from existing plan (optional)", ["None"] + list(plans.keys()))
-    
-    base_plan_data = plans.get(base_plan_choice) if base_plan_choice != "None" else None
-    num_stages = st.number_input("Number of Stages", min_value=1, max_value=10, value=len(base_plan_data["stages"]) if base_plan_data else 1, step=1)
-    
+    num_stages = st.number_input("Number of Stages", min_value=1, max_value=10, value=1, step=1)
+
     new_plan_stages = []
     for i in range(num_stages):
         st.markdown(f"**Stage {i+1}**")
-        stage_title = st.text_input(f"Stage {i+1} Title", value=(base_plan_data["stages"][i]["title"] if base_plan_data and i < len(base_plan_data["stages"]) else ""), key=f"stage_title_{i}")
-        num_steps = st.number_input(f"Number of Steps in Stage {i+1}", min_value=1, max_value=10, value=(len(base_plan_data["stages"][i]["steps"]) if base_plan_data and i < len(base_plan_data["stages"]) else 1), key=f"num_steps_{i}")
-        
+        stage_title = st.text_input(f"Stage {i+1} Title", key=f"stage_title_{i}")
+        num_steps = st.number_input(f"Number of Steps in Stage {i+1}", min_value=1, max_value=10, value=1, step=1, key=f"num_steps_{i}")
+
         steps = []
         for j in range(num_steps):
             st.markdown(f"Step {j+1}")
-            step_title = st.text_input(f"Step {j+1} Title", key=f"step_title_{i}_{j}", value=(base_plan_data["stages"][i]["steps"][j]["title"] if base_plan_data and i < len(base_plan_data["stages"]) and j < len(base_plan_data["stages"][i]["steps"]) else ""))
-            step_goal = st.text_area(f"Step {j+1} Goal", key=f"step_goal_{i}_{j}", value=(base_plan_data["stages"][i]["steps"][j]["goal"] if base_plan_data and i < len(base_plan_data["stages"]) and j < len(base_plan_data["stages"][i]["steps"]) else ""))
-            step_why = st.text_area(f"Step {j+1} Why", key=f"step_why_{i}_{j}", value=(base_plan_data["stages"][i]["steps"][j]["why"] if base_plan_data and i < len(base_plan_data["stages"]) and j < len(base_plan_data["stages"][i]["steps"]) else ""))
-            step_how = st.text_area(f"Step {j+1} SOP / How (one per line)", key=f"step_how_{i}_{j}", value="\n".join(base_plan_data["stages"][i]["steps"][j]["how"]) if base_plan_data and i < len(base_plan_data["stages"]) and j < len(base_plan_data["stages"][i]["steps"]) else "")
-            step_kpis = st.text_area(f"Step {j+1} KPIs (one per line)", key=f"step_kpis_{i}_{j}", value="\n".join(base_plan_data["stages"][i]["steps"][j]["kpis"]) if base_plan_data and i < len(base_plan_data["stages"]) and j < len(base_plan_data["stages"][i]["steps"]) else "")
-            step_deliverables = st.text_area(f"Step {j+1} Deliverables (one per line)", key=f"step_deliverables_{i}_{j}", value="\n".join(base_plan_data["stages"][i]["steps"][j]["deliverables"]) if base_plan_data and i < len(base_plan_data["stages"]) and j < len(base_plan_data["stages"][i]["steps"]) else "")
+            step_title = st.text_input(f"Step {j+1} Title", key=f"step_title_{i}_{j}")
+            step_goal = st.text_area(f"Step {j+1} Goal", key=f"step_goal_{i}_{j}")
+            step_why = st.text_area(f"Step {j+1} Why", key=f"step_why_{i}_{j}")
+            step_how = st.text_area(f"Step {j+1} SOP / How (one per line)", key=f"step_how_{i}_{j}")
+            step_kpis = st.text_area(f"Step {j+1} KPIs (one per line)", key=f"step_kpis_{i}_{j}")
+            step_deliverables = st.text_area(f"Step {j+1} Deliverables (one per line)", key=f"step_deliverables_{i}_{j}")
 
-            tb_high = st.text_area(f"High Priority Tools (name - url, one per line)", key=f"tb_high_{i}_{j}", value="\n".join([f"{t['name']} - {t['url']}" for t in base_plan_data["stages"][i]["steps"][j].get("toolbox", {}).get("high_priority", [])]) if base_plan_data and i < len(base_plan_data["stages"]) and j < len(base_plan_data["stages"][i]["steps"]) else "")
-            tb_low = st.text_area(f"Low Priority Tools (name - url, one per line)", key=f"tb_low_{i}_{j}", value="\n".join([f"{t['name']} - {t['url']}" for t in base_plan_data["stages"][i]["steps"][j].get("toolbox", {}).get("low_priority", [])]) if base_plan_data and i < len(base_plan_data["stages"]) and j < len(base_plan_data["stages"][i]["steps"]) else "")
+            tb_high = st.text_area(f"High Priority Tools (name - url, one per line)", key=f"tb_high_{i}_{j}")
+            tb_low = st.text_area(f"Low Priority Tools (name - url, one per line)", key=f"tb_low_{i}_{j}")
 
             def parse_tools(text):
                 tools = []
@@ -171,45 +161,84 @@ with st.sidebar.expander("Add Your Own Plan"):
             st.warning("Please enter a plan title")
         else:
             filename = slugify(new_plan_title) + ".json"
-            new_plan = {
-                "title": new_plan_title,
-                "intro": "",
-                "stages": new_plan_stages
-            }
-            success = save_plan_to_github(filename, new_plan)
-            if success:
-                st.success(f"Plan '{new_plan_title}' submitted successfully! Check GitHub.")
+            filepath = os.path.join(DATA_DIR, filename)
+            if os.path.exists(filepath):
+                st.warning("A plan with this title already exists. Choose a different title.")
+            else:
+                new_plan = {
+                    "title": new_plan_title,
+                    "intro": "",
+                    "stages": new_plan_stages
+                }
+                with open(filepath, "w", encoding="utf-8") as f:
+                    json.dump(new_plan, f, indent=2, ensure_ascii=False)
+                st.success(f"Plan '{new_plan_title}' submitted successfully!")
+                st.experimental_rerun()  # Refresh app to show new plan in dropdown
 
-# --- Select existing plan ---
+# --------------------------
+# SIDEBAR - Select Plan
+# --------------------------
 st.sidebar.markdown("---")
 st.sidebar.title("📚 Marketing Masterplans")
-plan_key = st.sidebar.selectbox("Plan", list(plans.keys()), index=0)
-plan = plans[plan_key]
+PLAN_FILES = get_all_plans()  # refresh the list after any new plan
+plan_key = st.sidebar.selectbox("Plan", list(PLAN_FILES.keys()), index=0)
+plan = load_plan(plan_key)
 
-# --- Stage selection ---
+# --------------------------
+# SIDEBAR - Admin / Upload / Export
+# --------------------------
+st.sidebar.markdown("---")
+admin = st.sidebar.toggle("🛠️ Admin Mode", help="Enable editing of the current step")
+st.sidebar.markdown("---")
+st.sidebar.caption("Import/Export JSON")
+colA, colB = st.sidebar.columns(2)
+with colA:
+    if st.button("⬇️ Export", use_container_width=True):
+        st.sidebar.download_button(
+            "Download", 
+            data=json.dumps(plan, indent=2, ensure_ascii=False), 
+            file_name=f"{plan_key.lower()}.json", 
+            mime="application/json",
+            use_container_width=True
+        )
+with colB:
+    uploaded = st.sidebar.file_uploader("Upload JSON", type=["json"], label_visibility="collapsed")
+    if uploaded:
+        try:
+            new_data = json.loads(uploaded.read().decode("utf-8"))
+            save_plan(plan_key, new_data)
+            st.sidebar.success("Plan replaced. Reload the page.")
+        except Exception as e:
+            st.sidebar.error(f"Invalid JSON: {e}")
+
+# --------------------------
+# STAGE & STEP SELECTION
+# --------------------------
 stage_titles = [s["title"] for s in plan.get("stages", [])]
 if not stage_titles:
     st.error("No stages found in the plan.")
     st.stop()
-stage_title = st.selectbox("Select Stage", stage_titles)
+
+stage_title = st.sidebar.selectbox("Stage", stage_titles, index=0)
 stage = get_stage(plan, stage_title=stage_title)
 
-# --- Step selection ---
 step_titles = [s["title"] for s in stage.get("steps", [])]
 if not step_titles:
-    st.warning("No steps found in this stage.")
+    st.error("This stage has no steps.")
     st.stop()
-step_title = st.selectbox("Select Step", step_titles)
+
+step_title = st.sidebar.selectbox("Step", step_titles, index=0)
 step = get_step(stage, step_title=step_title)
 
-# --- Display Step Details ---
-st.markdown(f"## {step.get('title','')}")
-st.markdown(f"**Goal:** {step.get('goal','')}")
-st.markdown(f"**Why:** {step.get('why','')}")
-st.markdown("**SOP / How:**")
-st.markdown(md_list(step.get("how",[])))
-st.markdown("**KPIs:**")
-st.markdown(md_list(step.get("kpis",[])))
-st.markdown("**Deliverables:**")
-st.markdown(md_list(step.get("deliverables",[])))
+# --------------------------
+# MAIN DISPLAY
+# --------------------------
+st.title(f"{plan.get('title','Plan')} - {stage.get('title','Stage')} / {step.get('title','Step')}")
+
+st.markdown(f"### Goal\n{step.get('goal','')}")
+st.markdown(f"### Why\n{step.get('why','')}")
+st.markdown(f"### SOP / How\n{md_list(step.get('how'))}")
+st.markdown(f"### KPIs\n{md_list(step.get('kpis'))}")
+st.markdown(f"### Deliverables\n{md_list(step.get('deliverables'))}")
+
 render_toolbox(step.get("toolbox"))
