@@ -96,6 +96,7 @@ def get_step(stage, step_id=None, step_title=None):
             return s
     return None
 
+# --- Load existing plans dynamically from GitHub ---
 def list_github_files():
     url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{GITHUB_PATH}?ref={GITHUB_BRANCH}"
     resp = requests.get(url, headers=HEADERS)
@@ -103,7 +104,6 @@ def list_github_files():
         return [f["name"] for f in resp.json() if f["name"].endswith(".json")]
     return []
 
-# --- Load existing plans dynamically from GitHub ---
 plans = {}
 for file in list_github_files():
     plan_data = load_plan_from_github(file)
@@ -168,92 +168,50 @@ with st.sidebar.expander("Add Your Own Plan"):
             "description": ""
         })
 
-    if st.button("Submit New Plan"):
-        new_plan_data = {"title": new_plan_title, "stages": new_plan_stages, "intro": ""}
-        filename = slugify(new_plan_title) + ".json"
-        if save_plan_to_github(filename, new_plan_data, commit_msg=f"Add new plan '{new_plan_title}' via Streamlit"):
-            st.success("Plan uploaded successfully!")
+    if st.button("Submit Plan"):
+        if not new_plan_title:
+            st.warning("Please enter a plan title")
+        else:
+            filename = slugify(new_plan_title) + ".json"
+            new_plan = {
+                "title": new_plan_title,
+                "intro": "",
+                "stages": new_plan_stages
+            }
+            success = save_plan_to_github(filename, new_plan)
+            if success:
+                st.success(f"Plan '{new_plan_title}' submitted successfully! Check GitHub.")
 
-# --- Sidebar: Edit existing plan ---
+# --- Select existing plan ---
 st.sidebar.markdown("---")
-st.sidebar.subheader("✏️ Edit Existing Plan")
-if plans:
-    edit_plan_choice = st.sidebar.selectbox("Select plan to edit", list(plans.keys()))
-    edit_plan = plans.get(edit_plan_choice)
-    if edit_plan:
-        st.sidebar.markdown(f"### Editing Plan: {edit_plan_choice}")
-        edited_plan_title = st.sidebar.text_input("Plan Title", value=edit_plan["title"])
-        
-        edited_stages = []
-        for i, stage in enumerate(edit_plan.get("stages", [])):
-            st.markdown(f"**Stage {i+1}: {stage['title']}**")
-            stage_title = st.text_input(f"Stage {i+1} Title", value=stage["title"], key=f"edit_stage_title_{i}")
-            steps = []
-            for j, step in enumerate(stage.get("steps", [])):
-                st.markdown(f"Step {j+1}")
-                step_title = st.text_input(f"Step {j+1} Title", key=f"edit_step_title_{i}_{j}", value=step["title"])
-                step_goal = st.text_area(f"Step {j+1} Goal", key=f"edit_step_goal_{i}_{j}", value=step["goal"])
-                step_why = st.text_area(f"Step {j+1} Why", key=f"edit_step_why_{i}_{j}", value=step["why"])
-                step_how = st.text_area(f"Step {j+1} SOP / How (one per line)", key=f"edit_step_how_{i}_{j}", value="\n".join(step.get("how", [])))
-                step_kpis = st.text_area(f"Step {j+1} KPIs (one per line)", key=f"edit_step_kpis_{i}_{j}", value="\n".join(step.get("kpis", [])))
-                step_deliverables = st.text_area(f"Step {j+1} Deliverables (one per line)", key=f"edit_step_deliverables_{i}_{j}", value="\n".join(step.get("deliverables", [])))
+st.sidebar.title("📚 Marketing Masterplans")
+plan_key = st.sidebar.selectbox("Plan", list(plans.keys()), index=0)
+plan = plans[plan_key]
 
-                tb_high = st.text_area(f"High Priority Tools (name - url, one per line)", key=f"edit_tb_high_{i}_{j}", value="\n".join([f"{t['name']} - {t['url']}" for t in step.get("toolbox", {}).get("high_priority", [])]))
-                tb_low = st.text_area(f"Low Priority Tools (name - url, one per line)", key=f"edit_tb_low_{i}_{j}", value="\n".join([f"{t['name']} - {t['url']}" for t in step.get("toolbox", {}).get("low_priority", [])]))
+# --- Stage selection ---
+stage_titles = [s["title"] for s in plan.get("stages", [])]
+if not stage_titles:
+    st.error("No stages found in the plan.")
+    st.stop()
+stage_title = st.selectbox("Select Stage", stage_titles)
+stage = get_stage(plan, stage_title=stage_title)
 
-                def parse_tools(text):
-                    tools = []
-                    for ln in text.splitlines():
-                        if not ln.strip(): continue
-                        if " - " in ln:
-                            name, url = ln.split(" - ",1)
-                        else:
-                            name, url = ln, ln
-                        tools.append({"name": name.strip(), "url": url.strip()})
-                    return tools
+# --- Step selection ---
+step_titles = [s["title"] for s in stage.get("steps", [])]
+if not step_titles:
+    st.warning("No steps found in this stage.")
+    st.stop()
+step_title = st.selectbox("Select Step", step_titles)
+step = get_step(stage, step_title=step_title)
 
-                steps.append({
-                    "title": step_title,
-                    "goal": step_goal,
-                    "why": step_why,
-                    "how": [ln.strip() for ln in step_how.splitlines() if ln.strip()],
-                    "kpis": [ln.strip() for ln in step_kpis.splitlines() if ln.strip()],
-                    "deliverables": [ln.strip() for ln in step_deliverables.splitlines() if ln.strip()],
-                    "toolbox": {
-                        "high_priority": parse_tools(tb_high),
-                        "low_priority": parse_tools(tb_low)
-                    }
-                })
-            edited_stages.append({
-                "title": stage_title,
-                "steps": steps,
-                "description": stage.get("description","")
-            })
-
-        if st.sidebar.button("Save Changes"):
-            updated_plan = {"title": edited_plan_title, "intro": edit_plan.get("intro", ""), "stages": edited_stages}
-            filename = slugify(edited_plan_title) + ".json"
-            if save_plan_to_github(filename, updated_plan, commit_msg=f"Updated plan '{edited_plan_title}' via Streamlit"):
-                st.success(f"Plan '{edited_plan_title}' updated successfully!")
-
-# --- Display plans in main page ---
-st.title("📚 Marketing Masterplans")
-for plan_name, plan in plans.items():
-    st.header(plan_name)
-    st.markdown(plan.get("intro",""))
-    for stage in plan.get("stages", []):
-        st.subheader(stage["title"])
-        for step in stage.get("steps", []):
-            st.markdown(f"**{step['title']}**")
-            st.markdown(f"- Goal: {step['goal']}")
-            st.markdown(f"- Why: {step['why']}")
-            if step.get("how"):
-                st.markdown("**SOP / How:**")
-                st.markdown(md_list(step["how"]))
-            if step.get("kpis"):
-                st.markdown("**KPIs:**")
-                st.markdown(md_list(step["kpis"]))
-            if step.get("deliverables"):
-                st.markdown("**Deliverables:**")
-                st.markdown(md_list(step["deliverables"]))
-            render_toolbox(step.get("toolbox"))
+# --- Display Step Details ---
+st.markdown(f"## {step.get('title','')}")
+st.markdown(f"**Goal:** {step.get('goal','')}")
+st.markdown(f"**Why:** {step.get('why','')}")
+st.markdown("**SOP / How:**")
+st.markdown(md_list(step.get("how",[])))
+st.markdown("**KPIs:**")
+st.markdown(md_list(step.get("kpis",[])))
+st.markdown("**Deliverables:**")
+st.markdown(md_list(step.get("deliverables",[])))
+render_toolbox(step.get("toolbox"))
