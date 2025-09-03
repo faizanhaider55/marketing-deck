@@ -1,33 +1,33 @@
 {
   "id": "b2c",
   "title": "B2C Marketing Masterplan (Ecommerce | Software | Retail)",
-  "blurb": "How to use this playbook\n• Work top-to-bottom. Don’t start paid media until Planning is complete.\n• Produce the deliverables listed in each step (personas, messaging, budgets, tracking plan, etc.).\n• Use the category fit notes for Ecommerce, Software, and Retail.\n• Keep a living log: decisions, dates, owners, links to assets.",
+  "blurb": "How to use this playbook\n\u2022 Work top-to-bottom. Don\u2019t start paid media until Planning is complete.\n\u2022 Produce the deliverables listed in each step (personas, messaging, budgets, tracking plan, etc.).\n\u2022 Use the category fit notes for Ecommerce, Software, and Retail.\n\u2022 Keep a living log: decisions, dates, owners, links to assets.",
   "stages": [
     {
       "id": "planning",
-      "title": "STAGE 1 — PLANNING",
+      "title": "STAGE 1 \u2014 PLANNING",
       "description": "Build the blueprint before spending",
       "steps": [
         {
           "id": "b2c-planning-1",
           "title": "1) Market & Audience Research (Personas, JTBD, Segments)",
-          "goal": "Precisely define who you’re targeting, what jobs they hire your product to do, and how to segment them for targeting and messaging.",
+          "goal": "precisely define who you\u2019re targeting, what jobs they hire your product to do, and how to segment them for targeting and messaging.",
           "why": "Accurate segmentation drives higher CTR/CVR, lower CAC, and smarter channel choices.",
           "how": [
             "How (SOP)",
-            "1. Collect internal data (2–5 days)",
+            "1. Collect internal data (2\u20135 days)",
             "o GA4: Demographics, Interests, Paths (Explore), Conversions.",
             "o Ecommerce/CRM: AOV, repeat rate, products per order, cohort retention.",
             "o Social: Instagram/TikTok/YouTube audience insights.",
             "o App (if Software): App Store Console / Google Play Console acquisition & retention.",
-            "2. Market intel (2–7 days)",
+            "2. Market intel (2\u20137 days)",
             "o Category size, growth, seasonality, pricing norms, competitors.",
             "o Identify direct, indirect, and substitute competitors.",
-            "3. Qualitative research (5–10 interviews, 10–15 mins each)",
+            "3. Qualitative research (5\u201310 interviews, 10\u201315 mins each)",
             "o Jobs-to-Be-Done interviews: pains, desired outcomes, previous solutions, purchase triggers, anxieties.",
-            "4. Quantitative survey (n≥200)",
+            "4. Quantitative survey (n\u2265200)",
             "o Validate pains, barriers, motivations, willingness to pay, preferred channels.",
-            "5. Build personas (3–5)",
+            "5. Build personas (3\u20135)",
             "o Include: photo/name, demo/psycho, goals, pains, triggers, objections, preferred channels, sample copy.",
             "6. Segment into targetable groups",
             "o Map to platform targeting (interests, lookalikes, keywords, geos).",
@@ -35,10 +35,10 @@
             "o Personas PDF, JTBD summary, targetable segments list, channel fit per persona."
           ],
           "deliverables": [
-            "Research summary deck (10–20 slides)",
-            "Persona one-pagers (3–5)",
+            "Research summary deck (10\u201320 slides)",
+            "Persona one-pagers (3\u20135)",
             "JTBD write-ups (1 per persona)",
-            "Segment table (platform → audience → targeting string)"
+            "Segment table (platform \u2192 audience \u2192 targeting string)"
           ],
           "toolbox": [
             {
@@ -110,7 +110,7 @@
               "url": "https://www.data.ai"
             }
           ],
-          "notes": "Category fit\n• Ecommerce: heavy use of GA4 + Hotjar + Meta/TikTok insights.\n• Software: add Mixpanel, App Store/Play data, LinkedIn insights.\n• Retail: GA4 + GBP (Google Business Profile) insights + store footfall data (Placense, Cubiq).",
+          "notes": "Category fit\n\u2022 Ecommerce: heavy use of GA4 + Hotjar + Meta/TikTok insights.\n\u2022 Software: add Mixpanel, App Store/Play data, LinkedIn insights.\n\u2022 Retail: GA4 + GBP (Google Business Profile) insights + store footfall data (Placense, Cubiq).",
           "kpis": []
         },
         {
@@ -119,7 +119,7 @@
           "goal": "Find SEO, backlink, PPC, creative, affiliate, and pricing gaps you can exploit.",
           "how": [
             "How (SOP)",
-            "1. Identify 5–10 top competitors (direct and substitute).",
+            "1. Identify 5\u201310 top competitors (direct and substitute).",
             "2. SEO gap",
             "o Keyword gap, content gap, SERP features, schema usage.",
             "3. Backlink gap",
@@ -133,12 +133,12 @@
             "7. Pricing & offer",
             "o Discounting cadence, bundles, subscriptions, BNPL, guarantees.",
             "8. Channel priority score",
-            "o Score channels 1–5 on audience fit, cost, CPC/CPM, intent, speed, complexity."
+            "o Score channels 1\u20135 on audience fit, cost, CPC/CPM, intent, speed, complexity."
           ],
           "deliverables": [
             "Gap analysis grid (channel x competitor)",
             "Priority channel plan w/ rationale",
-            "Quick-win list (next 30–60 days)"
+            "Quick-win list (next 30\u201360 days)"
           ],
           "toolbox": [
             {
@@ -222,7 +222,7 @@
               "url": "https://camelcamelcamel.com"
             }
           ],
-          "notes": "Category fit\n• Ecommerce: SEO, Shopping, Meta/TikTok creative, affiliate.\n• Software: SEO + Google/YouTube/LinkedIn; less coupon affiliates, more content partners.\n• Retail: Local SEO, Maps ads, Meta ads, price benchmarking."
+          "notes": "Category fit\n\u2022 Ecommerce: SEO, Shopping, Meta/TikTok creative, affiliate.\n\u2022 Software: SEO + Google/YouTube/LinkedIn; less coupon affiliates, more content partners.\n\u2022 Retail: Local SEO, Maps ads, Meta ads, price benchmarking."
         },
         {
           "id": "b2c-planning-3",
@@ -233,10 +233,10 @@
             "1. Positioning statement:",
             "\"For [audience], [brand] is the [frame of reference] that [benefit], because [proof].\"",
             "2. Messaging house",
-            "o UVP, 3–5 benefit pillars, supporting proof (stats, social proof, guarantees).",
+            "o UVP, 3\u20135 benefit pillars, supporting proof (stats, social proof, guarantees).",
             "3. Tone & voice",
             "o 5 adjectives (e.g., friendly, authoritative, witty, premium, playful).",
-            "o Do/Don’t examples (write 5 examples for emails/ads).",
+            "o Do/Don\u2019t examples (write 5 examples for emails/ads).",
             "4. Visual identity",
             "o Logos, color palette, typography, imagery style, icons, motion rules.",
             "5. Asset templates",
@@ -246,7 +246,7 @@
           "deliverables": [
             "1-page Positioning",
             "Messaging house (poster format)",
-            "Brand book (10–20 pages)",
+            "Brand book (10\u201320 pages)",
             "Asset template pack (Figma/Canva)"
           ],
           "toolbox": [
@@ -294,7 +294,7 @@
         },
         {
           "id": "b2c-planning-4",
-          "title": "4) Funnel & Channel Strategy (Awareness → Conversion → Retention)",
+          "title": "4) Funnel & Channel Strategy (Awareness \u2192 Conversion \u2192 Retention)",
           "goal": "Match channels to funnel stages and to your category.",
           "how": [
             "How (SOP)",
@@ -304,23 +304,23 @@
             "4. Set testing plan: 70% proven, 20% optimization, 10% experiments.",
             "Channel-to-Category Priority Matrix",
             "Channel\tEcommerce\tSoftware (B2C app/consumer SaaS)\tRetail",
-            "SEO (content+PLP/PDP)\t★★★★\t★★★★\t★★★",
-            "Google Search/Shopping\t★★★★★\t★★★★\t★★★★ (Local Inventory Ads)",
-            "Performance Max\t★★★★★\t★★★\t★★★★",
-            "YouTube Ads\t★★★\t★★★★\t★★",
-            "Meta (FB/IG)\t★★★★★\t★★★\t★★★★★",
-            "TikTok Ads\t★★★★★\t★★★\t★★★★",
-            "Pinterest Ads\t★★★★ (lifestyle)\t★★\t★★★",
-            "Snapchat\t★★★\t★★\t★★★",
-            "LinkedIn Ads\t★\t★★ (if prosumers)\t★",
-            "Email\t★★★★★\t★★★★\t★★★★★",
-            "SMS/Push\t★★★★\t★★★\t★★★★",
-            "Influencer/UGC\t★★★★★\t★★★\t★★★★",
-            "Affiliate\t★★★★★\t★★\t★★★",
-            "Marketplaces & Retail Media\t★★★★★\t—\t★★★★",
-            "Local SEO/GBP\t★★\t★\t★★★★★",
-            "PR\t★★★\t★★★\t★★★",
-            "(★ = relevance/priority)"
+            "SEO (content+PLP/PDP)\t\u2605\u2605\u2605\u2605\t\u2605\u2605\u2605\u2605\t\u2605\u2605\u2605",
+            "Google Search/Shopping\t\u2605\u2605\u2605\u2605\u2605\t\u2605\u2605\u2605\u2605\t\u2605\u2605\u2605\u2605 (Local Inventory Ads)",
+            "Performance Max\t\u2605\u2605\u2605\u2605\u2605\t\u2605\u2605\u2605\t\u2605\u2605\u2605\u2605",
+            "YouTube Ads\t\u2605\u2605\u2605\t\u2605\u2605\u2605\u2605\t\u2605\u2605",
+            "Meta (FB/IG)\t\u2605\u2605\u2605\u2605\u2605\t\u2605\u2605\u2605\t\u2605\u2605\u2605\u2605\u2605",
+            "TikTok Ads\t\u2605\u2605\u2605\u2605\u2605\t\u2605\u2605\u2605\t\u2605\u2605\u2605\u2605",
+            "Pinterest Ads\t\u2605\u2605\u2605\u2605 (lifestyle)\t\u2605\u2605\t\u2605\u2605\u2605",
+            "Snapchat\t\u2605\u2605\u2605\t\u2605\u2605\t\u2605\u2605\u2605",
+            "LinkedIn Ads\t\u2605\t\u2605\u2605 (if prosumers)\t\u2605",
+            "Email\t\u2605\u2605\u2605\u2605\u2605\t\u2605\u2605\u2605\u2605\t\u2605\u2605\u2605\u2605\u2605",
+            "SMS/Push\t\u2605\u2605\u2605\u2605\t\u2605\u2605\u2605\t\u2605\u2605\u2605\u2605",
+            "Influencer/UGC\t\u2605\u2605\u2605\u2605\u2605\t\u2605\u2605\u2605\t\u2605\u2605\u2605\u2605",
+            "Affiliate\t\u2605\u2605\u2605\u2605\u2605\t\u2605\u2605\t\u2605\u2605\u2605",
+            "Marketplaces & Retail Media\t\u2605\u2605\u2605\u2605\u2605\t\u2014\t\u2605\u2605\u2605\u2605",
+            "Local SEO/GBP\t\u2605\u2605\t\u2605\t\u2605\u2605\u2605\u2605\u2605",
+            "PR\t\u2605\u2605\u2605\t\u2605\u2605\u2605\t\u2605\u2605\u2605",
+            "(\u2605 = relevance/priority)"
           ]
         },
         {
@@ -528,10 +528,10 @@
           "goal": "Allocate budget by channel, forecast outcomes, and stage rollouts.",
           "how": [
             "How (SOP)",
-            "1. Top-down guardrails: % of revenue (B2C typically 7–12%).",
-            "2. Bottom-up forecast: CPC/CPM, CTR, CVR, AOV, margin → CAC, ROAS, MER.",
-            "3. Phasing: Month 1–3 (validation), Month 4–6 (scale), Month 7+ (optimization/MMM).",
-            "4. Experimentation: 10–15% budget for tests (new channels, creatives, offers).",
+            "1. Top-down guardrails: % of revenue (B2C typically 7\u201312%).",
+            "2. Bottom-up forecast: CPC/CPM, CTR, CVR, AOV, margin \u2192 CAC, ROAS, MER.",
+            "3. Phasing: Month 1\u20133 (validation), Month 4\u20136 (scale), Month 7+ (optimization/MMM).",
+            "4. Experimentation: 10\u201315% budget for tests (new channels, creatives, offers).",
             "5. Pacing & caps: daily/weekly pacing rules, CPA/ROAS guardrails."
           ],
           "deliverables": [
@@ -586,7 +586,7 @@
     },
     {
       "id": "execution",
-      "title": "STAGE 2 — EXECUTION",
+      "title": "STAGE 2 \u2014 EXECUTION",
       "description": "Run the work",
       "steps": [
         {
@@ -595,25 +595,25 @@
           "goal": "Build compounding organic traffic & revenue.",
           "how": [
             "How (SOP)",
-            "A. Technical SEO (weeks 1–4, then ongoing)",
-            "• Crawl with Screaming Frog/Sitebulb; fix 4xx/5xx, redirects, canonicals.",
-            "• Indexation: robots.txt, XML sitemaps, noindex where needed (facets).",
-            "• Core Web Vitals: LCP, INP, CLS fixes (image formats, lazy load, script defers).",
-            "• Structured data: Product, Breadcrumb, Organization, FAQ; validate with Rich Results Test.",
-            "• Ecommerce specifics: faceted navigation, variant handling, pagination (rel=”next/prev” alternatives), internal linking from PLP→PDP.",
-            "• Retail: Local pages per store, NAP consistency, embedded GBP.",
-            "• Software: Docs/knowledge base SEO, comparison pages, “best apps for X”.",
+            "A. Technical SEO (weeks 1\u20134, then ongoing)",
+            "\u2022 Crawl with Screaming Frog/Sitebulb; fix 4xx/5xx, redirects, canonicals.",
+            "\u2022 Indexation: robots.txt, XML sitemaps, noindex where needed (facets).",
+            "\u2022 Core Web Vitals: LCP, INP, CLS fixes (image formats, lazy load, script defers).",
+            "\u2022 Structured data: Product, Breadcrumb, Organization, FAQ; validate with Rich Results Test.",
+            "\u2022 Ecommerce specifics: faceted navigation, variant handling, pagination (rel=\u201dnext/prev\u201d alternatives), internal linking from PLP\u2192PDP.",
+            "\u2022 Retail: Local pages per store, NAP consistency, embedded GBP.",
+            "\u2022 Software: Docs/knowledge base SEO, comparison pages, \u201cbest apps for X\u201d.",
             "B. Keyword Research & Mapping",
-            "• Gather seed terms, competitor terms; cluster by intent (info → transactional).",
-            "• Map to pages: category (PLP) / product (PDP) / blog / comparison / support.",
-            "• Prioritize by volume, difficulty, business value.",
+            "\u2022 Gather seed terms, competitor terms; cluster by intent (info \u2192 transactional).",
+            "\u2022 Map to pages: category (PLP) / product (PDP) / blog / comparison / support.",
+            "\u2022 Prioritize by volume, difficulty, business value.",
             "C. On-Page & Content",
-            "• Title/H1/H2, meta, internal links, schema; content briefs with entities (NLP).",
-            "• Editorial calendar: 2–4 cornerstone guides + 6–12 supporting posts/quarter.",
-            "• Product content: unique descriptions, review markup, UGC Q&A.",
+            "\u2022 Title/H1/H2, meta, internal links, schema; content briefs with entities (NLP).",
+            "\u2022 Editorial calendar: 2\u20134 cornerstone guides + 6\u201312 supporting posts/quarter.",
+            "\u2022 Product content: unique descriptions, review markup, UGC Q&A.",
             "D. Authority (Links & PR)",
-            "• Digital PR campaigns (data stories, trend reports), HARO/Connectively pitches.",
-            "• Partnerships, resource page link building, creator collaborations."
+            "\u2022 Digital PR campaigns (data stories, trend reports), HARO/Connectively pitches.",
+            "\u2022 Partnerships, resource page link building, creator collaborations."
           ],
           "notes": "KPIs: Indexed pages, CWV pass rate, rankings by cluster, organic sessions, revenue, assisted conversions, link velocity.",
           "toolbox": [
@@ -730,7 +730,7 @@
             "2. Feeds & Shopping (Ecommerce/Retail)",
             "o Clean titles, GTIN/MPN, rich attributes, image quality, promotions; manage in GMC.",
             "3. Bidding",
-            "o Start Maximize Conversions (learning) → move to tCPA/tROAS once stable.",
+            "o Start Maximize Conversions (learning) \u2192 move to tCPA/tROAS once stable.",
             "4. Negatives & query sculpting",
             "o Add negatives weekly; funnel queries to best campaigns.",
             "5. Ads & assets",
@@ -740,7 +740,7 @@
             "7. Local & calls (Retail)",
             "o Local campaigns, Local Inventory Ads, call ads during open hours with call tracking.",
             "8. Bing/Microsoft Ads",
-            "o Import from Google; run where Bing share ≥5% or older demographics."
+            "o Import from Google; run where Bing share \u22655% or older demographics."
           ],
           "notes": "KPIs: CPA/ROAS by intent, Search Impression Share, CTR, CVR, MER (blended), new vs returning revenue.",
           "toolbox": [
@@ -815,11 +815,11 @@
             "1. Structure",
             "o Separate Prospecting vs Retargeting; Advantage+ Shopping (Meta) for Ecommerce; Spark Ads on TikTok.",
             "2. Audiences",
-            "o Broad + LALs (1–5%) + interests; intent stacks for retargeting (viewed, added to cart, video views).",
+            "o Broad + LALs (1\u20135%) + interests; intent stacks for retargeting (viewed, added to cart, video views).",
             "3. Creative system",
             "o UGC hooks: problem-solution, before/after, 3 reasons why, stitch reactions (TikTok).",
             "o Design specs: 1:1 and 4:5 (Meta), 9:16 (TikTok/Snap).",
-            "o Creative testing loop: 3–5 new ads/week; kill < X CTR or > Y CPA.",
+            "o Creative testing loop: 3\u20135 new ads/week; kill < X CTR or > Y CPA.",
             "4. Offers",
             "o Bundle/BOGO, free ship threshold, time-bound promos, risk-reversal.",
             "5. Measurement",
@@ -904,14 +904,14 @@
           "how": [
             "How (SOP)",
             "1. List growth",
-            "o Pop-ups (10–20% discount), quiz lead magnets, giveaways; capture SMS consent.",
+            "o Pop-ups (10\u201320% discount), quiz lead magnets, giveaways; capture SMS consent.",
             "2. Deliverability",
             "o Authenticate (SPF/DKIM/DMARC/BIMI), warm IP/domain, list hygiene.",
             "3. Core flows",
-            "o Welcome (3–5 emails): brand story → social proof → first offer.",
-            "o Browse abandonment (2–3): viewed items; soft nudge → social proof.",
-            "o Cart abandonment (2–4): urgency, testimonials, incentive ladder.",
-            "o Post-purchase: order updates → usage tips → review/UCG request → cross-sell.",
+            "o Welcome (3\u20135 emails): brand story \u2192 social proof \u2192 first offer.",
+            "o Browse abandonment (2\u20133): viewed items; soft nudge \u2192 social proof.",
+            "o Cart abandonment (2\u20134): urgency, testimonials, incentive ladder.",
+            "o Post-purchase: order updates \u2192 usage tips \u2192 review/UCG request \u2192 cross-sell.",
             "o Win-back (90 days idle): new arrivals + incentive.",
             "4. Campaigns",
             "o Weekly/bi-weekly, segmented by RFM, category interest, AOV tier.",
@@ -1072,10 +1072,10 @@
           "goal": "Win incremental demand on Amazon/Walmart/Instacart and drive store sales.",
           "how": [
             "How (SOP)",
-            "• Catalog & content: SEO’d titles, bullets, A+ Content, videos, reviews.",
-            "• Ads: Sponsored Products/Brands/Display; dayparting and placement bid adjustments.",
-            "• Retail media: Walmart Connect, Instacart Ads, Target Roundel.",
-            "• Ops: stock, Buy Box, pricing parity, FBA/SFP, reviews velocity."
+            "\u2022 Catalog & content: SEO\u2019d titles, bullets, A+ Content, videos, reviews.",
+            "\u2022 Ads: Sponsored Products/Brands/Display; dayparting and placement bid adjustments.",
+            "\u2022 Retail media: Walmart Connect, Instacart Ads, Target Roundel.",
+            "\u2022 Ops: stock, Buy Box, pricing parity, FBA/SFP, reviews velocity."
           ],
           "notes": "KPIs: Organic rank, ad TACOS, Buy Box %, OOS rate, review rating/velocity.",
           "toolbox": [
@@ -1128,7 +1128,7 @@
             "3. Testing: A/B with minimum sample size; pre-register hypotheses.",
             "4. Personalization: product recommendations, geo banners, lifecycle messaging."
           ],
-          "notes": "KPIs: CVR, AOV, PDP→Cart rate, Checkout completion, test win rate, incremental revenue.",
+          "notes": "KPIs: CVR, AOV, PDP\u2192Cart rate, Checkout completion, test win rate, incremental revenue.",
           "toolbox": [
             {
               "name": "VWO",
@@ -1186,9 +1186,9 @@
           "goal": "Earned media and advocacy to reduce blended CAC.",
           "how": [
             "How (SOP)",
-            "• PR: seasonal stories, data reports, product launches; pitch journalists with tailored angles.",
-            "• Community: Discord/Facebook Groups; run AMAs, challenges, member-only drops.",
-            "• Referral: double-sided incentives, milestone rewards."
+            "\u2022 PR: seasonal stories, data reports, product launches; pitch journalists with tailored angles.",
+            "\u2022 Community: Discord/Facebook Groups; run AMAs, challenges, member-only drops.",
+            "\u2022 Referral: double-sided incentives, milestone rewards."
           ],
           "notes": "KPIs: Referral rate, earned reach, backlinks, share of voice.",
           "toolbox": [
@@ -1242,7 +1242,7 @@
     },
     {
       "id": "reporting",
-      "title": "STAGE 3 — REPORTING",
+      "title": "STAGE 3 \u2014 REPORTING",
       "description": "Measure, learn, scale",
       "steps": [
         {
@@ -1258,7 +1258,7 @@
             "Marketplace: TACOS, organic rank, Buy Box %, OOS rate.",
             "CRO: Test velocity, win rate, uplift, AOV, funnel step CVRs.",
             "Set cadences:",
-            "• Daily health checks; Weekly channel reviews; Monthly strategy; Quarterly planning."
+            "\u2022 Daily health checks; Weekly channel reviews; Monthly strategy; Quarterly planning."
           ],
           "goal": "",
           "why": "",
@@ -1277,15 +1277,15 @@
           "goal": "One dashboard showing keywords, leads/orders, spend, and revenue.",
           "how": [
             "Data sources",
-            "• GA4 (web/app), GSC (SEO), Google Ads/Microsoft Ads, Meta/TikTok/Pinterest, Email (Klaviyo etc.), CRM/ecomm (Shopify, Stripe, Recharge), Affiliate network, Marketplaces, CallRail.",
+            "\u2022 GA4 (web/app), GSC (SEO), Google Ads/Microsoft Ads, Meta/TikTok/Pinterest, Email (Klaviyo etc.), CRM/ecomm (Shopify, Stripe, Recharge), Affiliate network, Marketplaces, CallRail.",
             "Ingestion options",
-            "• Connectors: Supermetrics, Funnel.io, Windsor.ai (fast), Fivetran/Stitch (to warehouse).",
-            "• Warehouse (recommended at scale): BigQuery, Snowflake, Redshift.",
-            "• Direct to Power BI: native connectors + scheduled refresh + on-prem gateway (if needed).",
+            "\u2022 Connectors: Supermetrics, Funnel.io, Windsor.ai (fast), Fivetran/Stitch (to warehouse).",
+            "\u2022 Warehouse (recommended at scale): BigQuery, Snowflake, Redshift.",
+            "\u2022 Direct to Power BI: native connectors + scheduled refresh + on-prem gateway (if needed).",
             "Model (Star schema)",
-            "• Facts: ad_spend, sessions, orders, revenue, email_sends, affiliate_conversions.",
-            "• Dims: date, channel, campaign, adset/audience, creative, product, geo, device, persona.",
-            "• Keys: consistent campaign IDs and UTMs across platforms.",
+            "\u2022 Facts: ad_spend, sessions, orders, revenue, email_sends, affiliate_conversions.",
+            "\u2022 Dims: date, channel, campaign, adset/audience, creative, product, geo, device, persona.",
+            "\u2022 Keys: consistent campaign IDs and UTMs across platforms.",
             "Power BI build (SOP)",
             "1. Dataflows for each source (or import from warehouse views).",
             "2. Transform with Power Query: normalize column names, types, currencies, time zones.",
@@ -1304,8 +1304,8 @@
             "6. Refresh: schedule daily; alerting for failures.",
             "7. QA: reconcile platform vs GA4 vs orders weekly; log variances.",
             "Governance & QA",
-            "• UTM policy, naming dictionary, access control, PII handling, data retention schedule.",
-            "• Anomaly detection (simple): control charts or thresholds with email alerts."
+            "\u2022 UTM policy, naming dictionary, access control, PII handling, data retention schedule.",
+            "\u2022 Anomaly detection (simple): control charts or thresholds with email alerts."
           ]
         },
         {
@@ -1313,13 +1313,13 @@
           "title": "18) Reporting SOPs & Meeting Rhythm",
           "how": [
             "Daily: spend pacing vs plan, site uptime, OOS, major swings.",
-            "Weekly (60–90m): channel reports, learnings, next tests; share creative insights.",
+            "Weekly (60\u201390m): channel reports, learnings, next tests; share creative insights.",
             "Monthly: performance vs targets, budget re-allocation, roadmap.",
             "Quarterly: strategy reset, pricing/offers, new channels, MMM refresh.",
             "Templates",
-            "• 1-pager per channel (KPIs, wins, losses, actions).",
-            "• Test tracker (hypothesis, design, dates, outcome).",
-            "• Budget vs actuals."
+            "\u2022 1-pager per channel (KPIs, wins, losses, actions).",
+            "\u2022 Test tracker (hypothesis, design, dates, outcome).",
+            "\u2022 Budget vs actuals."
           ]
         },
         {
@@ -1327,22 +1327,22 @@
           "title": "Appendices (grab-and-go) + Quick Tool Index",
           "how": [
             "A) Naming & UTM Convention (example)",
-            "• Campaign: META_CONV_PROSPECTING_LAL1_VISUALS30_OFF_UGC_V1_2025-08",
-            "• UTMs",
+            "\u2022 Campaign: META_CONV_PROSPECTING_LAL1_VISUALS30_OFF_UGC_V1_2025-08",
+            "\u2022 UTMs",
             "o utm_source=facebook utm_medium=paid_social",
             "o utm_campaign=conv_prospecting_lal1_visuals30_off_ugc_v1",
             "o utm_content=hook_problem_solution_v2",
             "o utm_term= (use for search keywords only)",
             "B) Launch Checklist (abbreviated)",
-            "• Personas, JTBD, segments approved",
-            "• Messaging house & brand book done",
-            "• Tracking plan implemented & QA passed",
-            "• UTM/naming dictionary shared",
-            "• Site speed ≥ CWV pass; key CRO fixes live",
-            "• Budget & forecast approved; tests defined",
-            "• Initial creatives produced (per platform spec)",
-            "• Email flows activated (welcome, browse, cart, post-purchase)",
-            "• Dashboards connected; refresh scheduled",
+            "\u2022 Personas, JTBD, segments approved",
+            "\u2022 Messaging house & brand book done",
+            "\u2022 Tracking plan implemented & QA passed",
+            "\u2022 UTM/naming dictionary shared",
+            "\u2022 Site speed \u2265 CWV pass; key CRO fixes live",
+            "\u2022 Budget & forecast approved; tests defined",
+            "\u2022 Initial creatives produced (per platform spec)",
+            "\u2022 Email flows activated (welcome, browse, cart, post-purchase)",
+            "\u2022 Dashboards connected; refresh scheduled",
             "Quick Tool Index (by area)",
             "Research & Insights: GA4, Hotjar, Clarity, FullStory, Mixpanel, SparkToro, SurveyMonkey, Typeform, Wynter, UserTesting, Similarweb, Statista, GWI, Trends.",
             "SEO: Screaming Frog, Sitebulb, Ahrefs, Semrush, Clearscope/Surfer, GSC, Rich Results Test, Moz, BrightLocal, Yext.",
