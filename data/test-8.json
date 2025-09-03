@@ -1,0 +1,35 @@
+{
+  "title": "test 8",
+  "intro": "",
+  "stages": [
+    {
+      "title": "test 8",
+      "steps": [
+        {
+          "title": "setets",
+          "goal": "set",
+          "why": "setest",
+          "how": [
+            "set"
+          ],
+          "kpis": [
+            "setset"
+          ],
+          "deliverables": [
+            "test"
+          ],
+          "toolbox": {
+            "high_priority": [
+              {
+                "name": "tese",
+                "url": "tese"
+              }
+            ],
+            "low_priority": []
+          }
+        }
+      ],
+      "description": ""
+    }
+  ]
+}
