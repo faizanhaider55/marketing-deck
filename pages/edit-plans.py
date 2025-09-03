@@ -95,9 +95,11 @@ for i, s in enumerate(plan.get("stages", [])):
     with st.expander(f"📂 Stage {i+1}: {s.get('title','')}", expanded=False):
         stage_title = st.text_input(f"Stage {i+1} Title", value=s["title"], key=f"stage_{i}")
 
+        step_tabs = st.tabs([f"Step {j+1}" for j in range(len(s.get("steps", [])))])
+
         steps = []
         for j, step in enumerate(s.get("steps", [])):
-            with st.expander(f"➡️ Step {j+1}: {step.get('title','')}", expanded=False):
+            with step_tabs[j]:
                 step_title = st.text_input(f"Step {j+1} Title", value=step.get("title",""), key=f"step_title_{i}_{j}")
                 step_goal = st.text_area(f"Goal", value=step.get("goal",""), key=f"goal_{i}_{j}")
                 step_why = st.text_area(f"Why", value=step.get("why",""), key=f"why_{i}_{j}")
