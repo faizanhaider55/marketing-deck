@@ -1,404 +1,420 @@
 {
-  "id": "b2b-marketing-masterplan",
-  "title": "Plan 3: B2B Marketing Masterplan (For any niche — scalable from startup to enterprise)",
+  "title": "Plan 3: B2B Marketing Masterplan (For any niche \u2014 scalable from startup to enterprise)",
   "intro": "A complete B2B plan covering Planning and Execution. Use with your CRM (HubSpot, Salesforce, Ledge) and ABM stack.",
   "stages": [
     {
-      "id": "stage-1-planning",
-      "title": "STAGE 1 — PLANNING (Build the blueprint before spending)",
-      "description": "Define ICPs, personas, offers, channels, tech, and budgets before launching campaigns.",
+      "title": "STAGE 1 \u2014 PLANNING (Build the blueprint before spending)",
       "steps": [
         {
-          "id": "market-audience-research",
           "title": "1) Market & Audience Research (ICP, Personas, JTBD, Segmentation)",
-          "goal": "Define your Ideal Customer Profiles (ICPs), decision-maker personas, buying committees, and the jobs-to-be-done your solution fulfills.",
+          "goal": "2Define your Ideal Customer Profiles (ICPs), decision-maker personas, buying committees, and the jobs-to-be-done your solution fulfills.",
+          "why": "",
           "how": [
             "If you already have CRM data: Pull closed-won vs. closed-lost opportunities from HubSpot, Salesforce, Ledge.",
             "Segment by industry, company size, ACV, buying timeline, and lead source; analyze win/loss reasons and high-LTV attributes.",
             "If starting fresh: Build a Target Account List (TAL) with LinkedIn Sales Navigator by industry, company size, region, revenue, decision-maker titles; export CSV for outreach.",
             "Use intent data: Free (Google Alerts, G2 category keyword alerts, LinkedIn keyword search); Paid (Bombora, ZoomInfo Intent, 6sense, Slintel).",
             "Competitive customer mining: Identify competitor clients via case studies, G2 reviews, LinkedIn employee matches and add to TAL.",
-            "Primary research: Run surveys (Typeform, SurveyMonkey) to ICP audiences via LinkedIn Ads; conduct 5–10 buyer interviews on pains, triggers, decision processes.",
+            "Primary research: Run surveys (Typeform, SurveyMonkey) to ICP audiences via LinkedIn Ads; conduct 5\u201310 buyer interviews on pains, triggers, decision processes.",
             "Enrich contact data with Apollo.io, Hunter.io, Lusha, LeadIQ for verified emails and phones.",
             "Build Personas & Segments: ICP (industry, revenue, employee count, tech stack, location); Personas (CEO, CTO, CMO, CFO, Procurement) with goals, KPIs, objections, channels.",
             "Map personas to funnel stages and to targeting in LinkedIn, Google, and ABM tools."
           ],
+          "kpis": [],
           "deliverables": [
             "ICP document (PDF)",
-            "Persona sheets (3–5 roles)",
+            "Persona sheets (3\u20135 roles)",
             "JTBD summaries",
             "Target account list uploaded to CRM"
           ],
-          "kpis": [],
-          "toolbox": [
-            {
-              "name": "HubSpot",
-              "url": "https://www.hubspot.com"
-            },
-            {
-              "name": "Salesforce",
-              "url": "https://www.salesforce.com"
-            },
-            {
-              "name": "Ledge",
-              "url": "https://www.ledge.com"
-            },
-            {
-              "name": "LinkedIn Sales Navigator",
-              "url": "https://www.linkedin.com/sales"
-            },
-            {
-              "name": "ZoomInfo",
-              "url": "https://www.zoominfo.com"
-            },
-            {
-              "name": "Clearbit",
-              "url": "https://clearbit.com"
-            },
-            {
-              "name": "BuiltWith",
-              "url": "https://builtwith.com"
-            },
-            {
-              "name": "Slintel",
-              "url": "https://www.slintel.com"
-            },
-            {
-              "name": "Typeform",
-              "url": "https://www.typeform.com"
-            },
-            {
-              "name": "SurveyMonkey",
-              "url": "https://www.surveymonkey.com"
-            },
-            {
-              "name": "Wynter",
-              "url": "https://wynter.com"
-            },
-            {
-              "name": "UserTesting",
-              "url": "https://www.usertesting.com"
-            },
-            {
-              "name": "Gartner",
-              "url": "https://www.gartner.com"
-            },
-            {
-              "name": "Forrester",
-              "url": "https://www.forrester.com"
-            },
-            {
-              "name": "Statista",
-              "url": "https://www.statista.com"
-            },
-            {
-              "name": "GWI",
-              "url": "https://www.gwi.com"
-            },
-            {
-              "name": "Similarweb",
-              "url": "https://www.similarweb.com"
-            },
-            {
-              "name": "Bombora",
-              "url": "https://bombora.com"
-            },
-            {
-              "name": "6sense",
-              "url": "https://6sense.com"
-            },
-            {
-              "name": "Apollo.io",
-              "url": "https://www.apollo.io"
-            },
-            {
-              "name": "Hunter.io",
-              "url": "https://hunter.io"
-            },
-            {
-              "name": "Lusha",
-              "url": "https://www.lusha.com"
-            },
-            {
-              "name": "LeadIQ",
-              "url": "https://leadiq.com"
-            }
-          ]
+          "toolbox": {
+            "high_priority": [
+              {
+                "name": "HubSpot",
+                "url": "https://www.hubspot.com"
+              },
+              {
+                "name": "Salesforce",
+                "url": "https://www.salesforce.com"
+              },
+              {
+                "name": "Ledge",
+                "url": "https://www.ledge.com"
+              },
+              {
+                "name": "LinkedIn Sales Navigator",
+                "url": "https://www.linkedin.com/sales"
+              },
+              {
+                "name": "ZoomInfo",
+                "url": "https://www.zoominfo.com"
+              },
+              {
+                "name": "Clearbit",
+                "url": "https://clearbit.com"
+              },
+              {
+                "name": "BuiltWith",
+                "url": "https://builtwith.com"
+              },
+              {
+                "name": "Slintel",
+                "url": "https://www.slintel.com"
+              },
+              {
+                "name": "Typeform",
+                "url": "https://www.typeform.com"
+              },
+              {
+                "name": "SurveyMonkey",
+                "url": "https://www.surveymonkey.com"
+              },
+              {
+                "name": "Wynter",
+                "url": "https://wynter.com"
+              },
+              {
+                "name": "UserTesting",
+                "url": "https://www.usertesting.com"
+              },
+              {
+                "name": "Gartner",
+                "url": "https://www.gartner.com"
+              },
+              {
+                "name": "Forrester",
+                "url": "https://www.forrester.com"
+              },
+              {
+                "name": "Statista",
+                "url": "https://www.statista.com"
+              },
+              {
+                "name": "GWI",
+                "url": "https://www.gwi.com"
+              },
+              {
+                "name": "Similarweb",
+                "url": "https://www.similarweb.com"
+              },
+              {
+                "name": "Bombora",
+                "url": "https://bombora.com"
+              },
+              {
+                "name": "6sense",
+                "url": "https://6sense.com"
+              },
+              {
+                "name": "Apollo.io",
+                "url": "https://www.apollo.io"
+              },
+              {
+                "name": "Hunter.io",
+                "url": "https://hunter.io"
+              },
+              {
+                "name": "Lusha",
+                "url": "https://www.lusha.com"
+              },
+              {
+                "name": "LeadIQ",
+                "url": "https://leadiq.com"
+              }
+            ],
+            "low_priority": []
+          }
         },
         {
-          "id": "competitive-channel-gap",
           "title": "2) Competitive & Channel Gap Analysis",
           "goal": "Find opportunities across SEO, content, paid, ABM, and partnerships.",
+          "why": "",
           "how": [
-            "Identify 5–10 direct and indirect competitors.",
+            "Identify 5\u201310 direct and indirect competitors.",
             "SEO gap: keyword coverage, technical SEO quality, content depth.",
             "Content gap: missing formats like webinars, case studies, ROI calculators.",
             "Paid gap: ad copy angles, keyword targeting, LinkedIn ad presence.",
             "Event gap: industry trade shows, webinars, sponsorships competitors attend.",
-            "Channel priority scoring: rate channels 1–5 for audience fit, cost, intent, scalability."
+            "Channel priority scoring: rate channels 1\u20135 for audience fit, cost, intent, scalability."
           ],
+          "kpis": [],
           "deliverables": [
             "Gap analysis matrix",
             "Priority channel plan",
-            "Quick-win list (30–60 days)"
+            "Quick-win list (30\u201360 days)"
           ],
-          "kpis": [],
-          "toolbox": [
-            {
-              "name": "Ahrefs",
-              "url": "https://ahrefs.com"
-            },
-            {
-              "name": "Semrush",
-              "url": "https://www.semrush.com"
-            },
-            {
-              "name": "Moz",
-              "url": "https://moz.com"
-            },
-            {
-              "name": "Google Ads Transparency Center",
-              "url": "https://adstransparency.google.com"
-            },
-            {
-              "name": "SpyFu",
-              "url": "https://www.spyfu.com"
-            },
-            {
-              "name": "Adbeat",
-              "url": "https://www.adbeat.com"
-            },
-            {
-              "name": "BuzzSumo",
-              "url": "https://buzzsumo.com"
-            },
-            {
-              "name": "Similarweb",
-              "url": "https://www.similarweb.com"
-            },
-            {
-              "name": "10Times",
-              "url": "https://10times.com"
-            },
-            {
-              "name": "Eventbrite",
-              "url": "https://www.eventbrite.com"
-            },
-            {
-              "name": "LinkedIn Events",
-              "url": "https://www.linkedin.com/events/"
-            }
-          ]
+          "toolbox": {
+            "high_priority": [
+              {
+                "name": "Ahrefs",
+                "url": "https://ahrefs.com"
+              },
+              {
+                "name": "Semrush",
+                "url": "https://www.semrush.com"
+              },
+              {
+                "name": "Moz",
+                "url": "https://moz.com"
+              },
+              {
+                "name": "Google Ads Transparency Center",
+                "url": "https://adstransparency.google.com"
+              },
+              {
+                "name": "SpyFu",
+                "url": "https://www.spyfu.com"
+              },
+              {
+                "name": "Adbeat",
+                "url": "https://www.adbeat.com"
+              },
+              {
+                "name": "BuzzSumo",
+                "url": "https://buzzsumo.com"
+              },
+              {
+                "name": "Similarweb",
+                "url": "https://www.similarweb.com"
+              },
+              {
+                "name": "10Times",
+                "url": "https://10times.com"
+              },
+              {
+                "name": "Eventbrite",
+                "url": "https://www.eventbrite.com"
+              },
+              {
+                "name": "LinkedIn Events",
+                "url": "https://www.linkedin.com/events/"
+              }
+            ],
+            "low_priority": []
+          }
         },
         {
-          "id": "brand-messaging-system",
           "title": "3) Brand & Messaging System",
           "goal": "Codify positioning, tone, and visual identity for consistent outreach.",
+          "why": "",
           "how": [
-            "Positioning statement: “For [ICP], [Brand] is the [category] that [benefit], because [proof].”",
-            "Messaging House: UVP, 3–5 key benefits, supporting proof points.",
+            "Positioning statement: \u201cFor [ICP], [Brand] is the [category] that [benefit], because [proof].\u201d",
+            "Messaging House: UVP, 3\u20135 key benefits, supporting proof points.",
             "Tone & Voice: Define 5 adjectives and examples for each.",
             "Visual Identity: Logo, colors, fonts, imagery style.",
             "Templates: Sales decks, case studies, webinar slides, ad creative frames."
           ],
+          "kpis": [],
           "deliverables": [
-            "Brand book (10–20 pages)",
+            "Brand book (10\u201320 pages)",
             "Messaging house poster",
             "Template kit in Figma/Canva"
           ],
-          "kpis": [],
-          "toolbox": [
-            {
-              "name": "Figma",
-              "url": "https://www.figma.com"
-            },
-            {
-              "name": "Canva",
-              "url": "https://www.canva.com"
-            },
-            {
-              "name": "Adobe Creative Cloud",
-              "url": "https://www.adobe.com/creativecloud.html"
-            },
-            {
-              "name": "Brandfolder",
-              "url": "https://brandfolder.com"
-            },
-            {
-              "name": "Bynder",
-              "url": "https://www.bynder.com"
-            }
-          ]
+          "toolbox": {
+            "high_priority": [
+              {
+                "name": "Figma",
+                "url": "https://www.figma.com"
+              },
+              {
+                "name": "Canva",
+                "url": "https://www.canva.com"
+              },
+              {
+                "name": "Adobe Creative Cloud",
+                "url": "https://www.adobe.com/creativecloud.html"
+              },
+              {
+                "name": "Brandfolder",
+                "url": "https://brandfolder.com"
+              },
+              {
+                "name": "Bynder",
+                "url": "https://www.bynder.com"
+              }
+            ],
+            "low_priority": []
+          }
         },
         {
-          "id": "funnel-channel-strategy",
           "title": "4) Funnel & Channel Strategy",
-          "goal": "Match channels to funnel stages (Awareness → Consideration → Decision → Expansion).",
+          "goal": "Match channels to funnel stages (Awareness \u2192 Consideration \u2192 Decision \u2192 Expansion).",
+          "why": "",
           "how": [
             "Map funnel stages to KPIs: Awareness (Reach, Engagement, CTR), Consideration (MQLs, webinar signups, whitepaper downloads), Decision (SQLs, demo requests, proposals), Expansion (upsell revenue, referrals).",
             "Assign channels per stage: Awareness (LinkedIn Ads, thought leadership, PR, industry reports); Consideration (SEO, retargeting, ABM sequences, webinars); Decision (case studies, ROI tools, free trials, sales enablement); Expansion (customer marketing, advocacy, ABM upsell).",
             "Budget split: 70% proven channels, 20% optimization, 10% experimental."
           ],
+          "kpis": [],
           "deliverables": [
             "Funnel map diagram",
-            "Channel–stage priority chart"
+            "Channel\u2013stage priority chart"
           ],
-          "kpis": [],
-          "toolbox": [
-            {
-              "name": "LinkedIn Campaign Manager",
-              "url": "https://www.linkedin.com/campaignmanager"
-            },
-            {
-              "name": "Google Ads",
-              "url": "https://ads.google.com"
-            },
-            {
-              "name": "HubSpot",
-              "url": "https://www.hubspot.com"
-            },
-            {
-              "name": "Salesforce Pardot",
-              "url": "https://www.salesforce.com/products/marketing-cloud/account-engagement/"
-            }
-          ]
+          "toolbox": {
+            "high_priority": [
+              {
+                "name": "LinkedIn Campaign Manager",
+                "url": "https://www.linkedin.com/campaignmanager"
+              },
+              {
+                "name": "Google Ads",
+                "url": "https://ads.google.com"
+              },
+              {
+                "name": "HubSpot",
+                "url": "https://www.hubspot.com"
+              },
+              {
+                "name": "Salesforce Pardot",
+                "url": "https://www.salesforce.com/products/marketing-cloud/account-engagement/"
+              }
+            ],
+            "low_priority": []
+          }
         },
         {
-          "id": "offers-pricing-cro",
           "title": "5) Offers, Pricing & Conversion Readiness",
           "goal": "Craft B2B-specific offers that drive action and ensure the site converts.",
+          "why": "",
           "how": [
             "Core offers: free trial, ROI assessment, consultation, pilot project, proof of concept.",
-            "CRO: fast site, concise forms (≤5 fields), clear CTA, social proof (logos, testimonials, case studies).",
+            "CRO: fast site, concise forms (\u22645 fields), clear CTA, social proof (logos, testimonials, case studies).",
             "Risk reversal: guarantees, opt-out clauses, references."
           ],
+          "kpis": [],
           "deliverables": [
             "Offer matrix",
             "CRO fix list"
           ],
-          "kpis": [],
-          "toolbox": [
-            {
-              "name": "Hotjar",
-              "url": "https://www.hotjar.com"
-            },
-            {
-              "name": "Microsoft Clarity",
-              "url": "https://clarity.microsoft.com"
-            },
-            {
-              "name": "VWO",
-              "url": "https://vwo.com"
-            },
-            {
-              "name": "Optimizely",
-              "url": "https://www.optimizely.com"
-            },
-            {
-              "name": "Typeform",
-              "url": "https://www.typeform.com"
-            },
-            {
-              "name": "HubSpot Forms",
-              "url": "https://www.hubspot.com/products/marketing/forms"
-            },
-            {
-              "name": "Marketo",
-              "url": "https://www.marketo.com"
-            }
-          ]
+          "toolbox": {
+            "high_priority": [
+              {
+                "name": "Hotjar",
+                "url": "https://www.hotjar.com"
+              },
+              {
+                "name": "Microsoft Clarity",
+                "url": "https://clarity.microsoft.com"
+              },
+              {
+                "name": "VWO",
+                "url": "https://vwo.com"
+              },
+              {
+                "name": "Optimizely",
+                "url": "https://www.optimizely.com"
+              },
+              {
+                "name": "Typeform",
+                "url": "https://www.typeform.com"
+              },
+              {
+                "name": "HubSpot Forms",
+                "url": "https://www.hubspot.com/products/marketing/forms"
+              },
+              {
+                "name": "Marketo",
+                "url": "https://www.marketo.com"
+              }
+            ],
+            "low_priority": []
+          }
         },
         {
-          "id": "tech-tracking-governance",
           "title": "6) Tech Stack, Tracking & Governance",
           "goal": "Get CRM, analytics, and attribution ready before launch.",
+          "why": "",
           "how": [
             "CRM setup: pipeline stages, lead scoring, lifecycle definitions in HubSpot/Salesforce/Ledge.",
             "Tracking: GTM, GA4, ad platform pixels, LinkedIn Insight Tag.",
             "Attribution: start with first/last touch; evolve to multi-touch with Bizible or Dreamdata.",
             "Governance: UTM standards, naming conventions, data owner assignment."
           ],
+          "kpis": [],
           "deliverables": [
             "Tracking plan spreadsheet",
             "GTM container export",
             "UTM dictionary doc"
           ],
-          "kpis": [],
-          "toolbox": [
-            {
-              "name": "Google Tag Manager",
-              "url": "https://marketingplatform.google.com/about/tag-manager/"
-            },
-            {
-              "name": "GA4",
-              "url": "https://analytics.google.com"
-            },
-            {
-              "name": "HubSpot",
-              "url": "https://www.hubspot.com"
-            },
-            {
-              "name": "Salesforce",
-              "url": "https://www.salesforce.com"
-            },
-            {
-              "name": "Ledge",
-              "url": "https://www.ledge.com"
-            },
-            {
-              "name": "Segment",
-              "url": "https://segment.com"
-            },
-            {
-              "name": "Bizible",
-              "url": "https://www.marketo.com/bizible/"
-            },
-            {
-              "name": "Dreamdata",
-              "url": "https://dreamdata.io"
-            }
-          ]
+          "toolbox": {
+            "high_priority": [
+              {
+                "name": "Google Tag Manager",
+                "url": "https://marketingplatform.google.com/about/tag-manager/"
+              },
+              {
+                "name": "GA4",
+                "url": "https://analytics.google.com"
+              },
+              {
+                "name": "HubSpot",
+                "url": "https://www.hubspot.com"
+              },
+              {
+                "name": "Salesforce",
+                "url": "https://www.salesforce.com"
+              },
+              {
+                "name": "Ledge",
+                "url": "https://www.ledge.com"
+              },
+              {
+                "name": "Segment",
+                "url": "https://segment.com"
+              },
+              {
+                "name": "Bizible",
+                "url": "https://www.marketo.com/bizible/"
+              },
+              {
+                "name": "Dreamdata",
+                "url": "https://dreamdata.io"
+              }
+            ],
+            "low_priority": []
+          }
         },
         {
-          "id": "budgeting-forecasting",
           "title": "7) Budgeting & Forecasting",
           "goal": "Allocate spend and predict pipeline outcomes.",
+          "why": "",
           "how": [
-            "Top-down: % of target revenue (B2B: 5–10%).",
-            "Bottom-up: CPC, CTR, CVR → CPL → CAC → ROI.",
-            "Stage rollout: Pilot (month 1–2) → Optimize (month 3–4) → Scale (month 5+)."
+            "Top-down: % of target revenue (B2B: 5\u201310%).",
+            "Bottom-up: CPC, CTR, CVR \u2192 CPL \u2192 CAC \u2192 ROI.",
+            "Stage rollout: Pilot (month 1\u20132) \u2192 Optimize (month 3\u20134) \u2192 Scale (month 5+)."
           ],
+          "kpis": [],
           "deliverables": [
             "Budget spreadsheet",
             "Forecast model"
           ],
-          "kpis": [],
-          "toolbox": [
-            {
-              "name": "Google Sheets",
-              "url": "https://www.google.com/sheets/about/"
-            },
-            {
-              "name": "Pigment",
-              "url": "https://www.pigment.com"
-            },
-            {
-              "name": "Plannuh",
-              "url": "https://www.plannuh.com"
-            }
-          ]
+          "toolbox": {
+            "high_priority": [
+              {
+                "name": "Google Sheets",
+                "url": "https://www.google.com/sheets/about/"
+              },
+              {
+                "name": "Pigment",
+                "url": "https://www.pigment.com"
+              },
+              {
+                "name": "Plannuh",
+                "url": "https://www.plannuh.com"
+              }
+            ],
+            "low_priority": []
+          }
         }
       ]
     },
     {
-      "id": "stage-2-execution",
-      "title": "STAGE 2 — EXECUTION (Run the work)",
-      "description": "Launch and scale across SEO, paid, social, nurture, ABM, and events, while optimizing conversion.",
+      "title": "STAGE 2 \u2014 EXECUTION (Run the work)",
       "steps": [
         {
-          "id": "seo-b2b",
           "title": "8) SEO (Technical, Content, Authority)",
           "goal": "Capture high-intent B2B demand and build authority.",
+          "why": "",
           "how": [
             "Audit with Screaming Frog or Sitebulb.",
             "Keyword research focused on pain points & industry terms.",
@@ -406,230 +422,250 @@
             "Internal linking between thought leadership and product pages.",
             "Link building via guest posts, podcast appearances, industry PR."
           ],
+          "kpis": [],
           "deliverables": [
             "SEO content calendar",
             "Technical fix list",
             "Link prospect list"
           ],
-          "kpis": [],
-          "toolbox": [
-            {
-              "name": "Ahrefs",
-              "url": "https://ahrefs.com"
-            },
-            {
-              "name": "Semrush",
-              "url": "https://www.semrush.com"
-            },
-            {
-              "name": "Clearscope",
-              "url": "https://www.clearscope.io"
-            },
-            {
-              "name": "MarketMuse",
-              "url": "https://www.marketmuse.com"
-            },
-            {
-              "name": "BuzzStream",
-              "url": "https://www.buzzstream.com"
-            }
-          ]
+          "toolbox": {
+            "high_priority": [
+              {
+                "name": "Ahrefs",
+                "url": "https://ahrefs.com"
+              },
+              {
+                "name": "Semrush",
+                "url": "https://www.semrush.com"
+              },
+              {
+                "name": "Clearscope",
+                "url": "https://www.clearscope.io"
+              },
+              {
+                "name": "MarketMuse",
+                "url": "https://www.marketmuse.com"
+              },
+              {
+                "name": "BuzzStream",
+                "url": "https://www.buzzstream.com"
+              }
+            ],
+            "low_priority": []
+          }
         },
         {
-          "id": "paid-search-display",
           "title": "9) Paid Search & Display",
           "goal": "Drive qualified traffic and pipeline from high-intent queries and retargeting.",
+          "why": "",
           "how": [
             "Structure campaigns by intent: brand, competitor, high-intent non-brand.",
             "Use LinkedIn retargeting with display/YouTube for consideration.",
             "Maintain negative keyword lists to block unqualified clicks."
           ],
+          "kpis": [],
           "deliverables": [
             "Campaign structure doc",
             "Ad copy variants",
             "Keyword maps"
           ],
-          "kpis": [],
-          "toolbox": [
-            {
-              "name": "Google Ads",
-              "url": "https://ads.google.com"
-            },
-            {
-              "name": "Microsoft Ads",
-              "url": "https://about.ads.microsoft.com"
-            },
-            {
-              "name": "LinkedIn Campaign Manager",
-              "url": "https://www.linkedin.com/campaignmanager"
-            },
-            {
-              "name": "SpyFu",
-              "url": "https://www.spyfu.com"
-            }
-          ]
+          "toolbox": {
+            "high_priority": [
+              {
+                "name": "Google Ads",
+                "url": "https://ads.google.com"
+              },
+              {
+                "name": "Microsoft Ads",
+                "url": "https://about.ads.microsoft.com"
+              },
+              {
+                "name": "LinkedIn Campaign Manager",
+                "url": "https://www.linkedin.com/campaignmanager"
+              },
+              {
+                "name": "SpyFu",
+                "url": "https://www.spyfu.com"
+              }
+            ],
+            "low_priority": []
+          }
         },
         {
-          "id": "paid-social",
           "title": "10) Paid Social (LinkedIn, Meta, Twitter/X)",
           "goal": "Reach decision-makers and influence buying committees.",
+          "why": "",
           "how": [
             "LinkedIn: target by role, industry, company size; use Conversation Ads, Document Ads, and carousels for thought leadership.",
             "Meta: broad retargeting and lookalikes from CRM uploads."
           ],
+          "kpis": [],
           "deliverables": [
             "Ad creative batch",
             "Audience lists"
           ],
-          "kpis": [],
-          "toolbox": [
-            {
-              "name": "LinkedIn Campaign Manager",
-              "url": "https://www.linkedin.com/campaignmanager"
-            },
-            {
-              "name": "Meta Ads Manager",
-              "url": "https://www.facebook.com/business/ads"
-            },
-            {
-              "name": "Canva",
-              "url": "https://www.canva.com"
-            },
-            {
-              "name": "Figma",
-              "url": "https://www.figma.com"
-            }
-          ]
+          "toolbox": {
+            "high_priority": [
+              {
+                "name": "LinkedIn Campaign Manager",
+                "url": "https://www.linkedin.com/campaignmanager"
+              },
+              {
+                "name": "Meta Ads Manager",
+                "url": "https://www.facebook.com/business/ads"
+              },
+              {
+                "name": "Canva",
+                "url": "https://www.canva.com"
+              },
+              {
+                "name": "Figma",
+                "url": "https://www.figma.com"
+              }
+            ],
+            "low_priority": []
+          }
         },
         {
-          "id": "email-nurture",
           "title": "11) Email & Nurture",
           "goal": "Educate and progress leads through the funnel.",
+          "why": "",
           "how": [
             "Segment by funnel stage in CRM.",
             "Build flows: welcome, lead nurture, reactivation, upsell.",
             "Content: case studies, webinar invites, ROI tools."
           ],
+          "kpis": [],
           "deliverables": [
             "Email sequence maps",
             "Automation workflows"
           ],
-          "kpis": [],
-          "toolbox": [
-            {
-              "name": "HubSpot",
-              "url": "https://www.hubspot.com"
-            },
-            {
-              "name": "SalesForce",
-              "url": "https://www.salesforce.com/products/marketing-cloud/account-engagement/"
-            },
-            {
-              "name": "Marketo",
-              "url": "https://www.marketo.com"
-            },
-            {
-              "name": "Lemlist",
-              "url": "https://lemlist.com"
-            }
-          ],
-          "why": ""
+          "toolbox": {
+            "high_priority": [
+              {
+                "name": "HubSpot",
+                "url": "https://www.hubspot.com"
+              },
+              {
+                "name": "SalesForce",
+                "url": "https://www.salesforce.com/products/marketing-cloud/account-engagement/"
+              },
+              {
+                "name": "Marketo",
+                "url": "https://www.marketo.com"
+              },
+              {
+                "name": "Lemlist",
+                "url": "https://lemlist.com"
+              }
+            ],
+            "low_priority": []
+          }
         },
         {
-          "id": "abm",
           "title": "12) ABM (Account-Based Marketing)",
           "goal": "Coordinate 1:1 and 1:few outreach across ads, email, and sales.",
+          "why": "",
           "how": [
             "Upload TAL to LinkedIn Ads and run personalized creative.",
             "Coordinate marketing emails with sales outreach in HubSpot/Salesforce sequences.",
             "Send custom landing pages per account segment."
           ],
+          "kpis": [],
           "deliverables": [
             "ABM campaign plan",
             "Personalized assets"
           ],
-          "kpis": [],
-          "toolbox": [
-            {
-              "name": "Demandbase",
-              "url": "https://www.demandbase.com"
-            },
-            {
-              "name": "Terminus",
-              "url": "https://terminus.com"
-            },
-            {
-              "name": "RollWorks",
-              "url": "https://www.rollworks.com"
-            },
-            {
-              "name": "HubSpot",
-              "url": "https://www.hubspot.com"
-            },
-            {
-              "name": "Ledge",
-              "url": "https://www.ledge.com"
-            }
-          ]
+          "toolbox": {
+            "high_priority": [
+              {
+                "name": "Demandbase",
+                "url": "https://www.demandbase.com"
+              },
+              {
+                "name": "Terminus",
+                "url": "https://terminus.com"
+              },
+              {
+                "name": "RollWorks",
+                "url": "https://www.rollworks.com"
+              },
+              {
+                "name": "HubSpot",
+                "url": "https://www.hubspot.com"
+              },
+              {
+                "name": "Ledge",
+                "url": "https://www.ledge.com"
+              }
+            ],
+            "low_priority": []
+          }
         },
         {
-          "id": "events-webinars",
           "title": "13) Events & Webinars",
           "goal": "Generate MQLs and accelerate deals with live education.",
+          "why": "",
           "how": [
             "Host monthly educational webinars.",
-            "Sponsor or attend 2–3 industry events per quarter.",
+            "Sponsor or attend 2\u20133 industry events per quarter.",
             "Collect leads, enter into CRM, start nurture sequences."
           ],
-          "deliverables": [],
           "kpis": [],
-          "toolbox": [
-            {
-              "name": "Zoom Webinar",
-              "url": "https://zoom.us/webinar"
-            },
-            {
-              "name": "Hopin",
-              "url": "https://hopin.com"
-            },
-            {
-              "name": "LinkedIn Events",
-              "url": "https://www.linkedin.com/events/"
-            },
-            {
-              "name": "Eventbrite",
-              "url": "https://www.eventbrite.com"
-            }
-          ]
+          "deliverables": [],
+          "toolbox": {
+            "high_priority": [
+              {
+                "name": "Zoom Webinar",
+                "url": "https://zoom.us/webinar"
+              },
+              {
+                "name": "Hopin",
+                "url": "https://hopin.com"
+              },
+              {
+                "name": "LinkedIn Events",
+                "url": "https://www.linkedin.com/events/"
+              },
+              {
+                "name": "Eventbrite",
+                "url": "https://www.eventbrite.com"
+              }
+            ],
+            "low_priority": []
+          }
         },
         {
-          "id": "cro",
           "title": "14) CRO (Conversion Rate Optimization)",
           "goal": "Increase demo and lead form conversions.",
+          "why": "",
           "how": [
             "Use heatmaps, form analytics, and user testing for demo/lead forms.",
             "A/B test form length, CTA wording, and social proof placement."
           ],
-          "deliverables": [],
           "kpis": [],
-          "toolbox": [
-            {
-              "name": "VWO",
-              "url": "https://vwo.com"
-            },
-            {
-              "name": "Optimizely",
-              "url": "https://www.optimizely.com"
-            },
-            {
-              "name": "Hotjar",
-              "url": "https://www.hotjar.com"
-            },
-            {
-              "name": "Microsoft Clarity",
-              "url": "https://clarity.microsoft.com"
-            }
-          ]
+          "deliverables": [],
+          "toolbox": {
+            "high_priority": [
+              {
+                "name": "VWO",
+                "url": "https://vwo.com"
+              },
+              {
+                "name": "Optimizely",
+                "url": "https://www.optimizely.com"
+              },
+              {
+                "name": "Hotjar",
+                "url": "https://www.hotjar.com"
+              },
+              {
+                "name": "Microsoft Clarity",
+                "url": "https://clarity.microsoft.com"
+              }
+            ],
+            "low_priority": []
+          }
         }
       ]
     }
