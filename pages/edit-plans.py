@@ -13,6 +13,7 @@ HEADERS = {
     "Accept": "application/vnd.github+json"
 }
 
+# --- GitHub functions ---
 def list_github_files():
     url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{GITHUB_PATH}?ref={GITHUB_BRANCH}"
     resp = requests.get(url, headers=HEADERS)
@@ -32,33 +33,30 @@ def save_plan_to_github(filename, data, commit_msg="Update plan via Streamlit"):
     content = json.dumps(data, indent=2)
     b64_content = base64.b64encode(content.encode()).decode()
     body = {"message": commit_msg, "content": b64_content, "branch": GITHUB_BRANCH}
-    # fetch SHA if file exists
     resp = requests.get(url, headers=HEADERS)
     if resp.status_code == 200:
         body["sha"] = resp.json()["sha"]
     r = requests.put(url, headers=HEADERS, json=body)
-    return r.status_code in [200,201]
+    return r.status_code in [200, 201]
 
 def parse_tools(text):
-    """Convert 'name - url' lines into list of {name,url} dicts"""
     tools = []
     for ln in text.splitlines():
         if not ln.strip():
             continue
         if " - " in ln:
-            name, url = ln.split(" - ",1)
+            name, url = ln.split(" - ", 1)
         else:
             name, url = ln, ln
         tools.append({"name": name.strip(), "url": url.strip()})
     return tools
 
 def format_tools(tools):
-    """Normalize tools into a list of 'name - url' strings for text_area"""
     if not tools:
         return []
-    if isinstance(tools, list):  # old format
+    if isinstance(tools, list):
         normed = tools
-    elif isinstance(tools, dict):  # new format
+    elif isinstance(tools, dict):
         normed = tools.get("high_priority", [])
     else:
         return []
@@ -80,80 +78,11 @@ if not files:
     st.error("No plans found in GitHub.")
     st.stop()
 
-# Load all plan data to map titles to filenames
-plans_data = {f: load_plan_from_github(f) for f in files}
-plan_titles = [plans_data[f].get("title", f) for f in files]
+# Map filenames to titles for selection
+file_title_map = {}
+for f in files:
+    plan_data = load_plan_from_github(f)
+    title = plan_data.get("title", f)
+    file_title_map[title] = f
 
-# Select plan by title
-selected_title = st.selectbox("Select a plan to edit", plan_titles)
-selected_file = files[plan_titles.index(selected_title)]
-plan = plans_data[selected_file]
-
-if not plan:
-    st.warning("Could not load this plan.")
-    st.stop()
-
-# Editable fields
-edit_title = st.text_input("Plan Title", value=plan.get("title",""))
-
-edit_stages = []
-for i, s in enumerate(plan.get("stages", [])):
-    with st.expander(f"📂 Stage {i+1}: {s.get('title','')}", expanded=False):
-        stage_title = st.text_input(f"Stage {i+1} Title", value=s["title"], key=f"stage_{i}")
-
-        step_tabs = st.tabs([f"Step {j+1}" for j in range(len(s.get("steps", [])))])
-
-        steps = []
-        for j, step in enumerate(s.get("steps", [])):
-            with step_tabs[j]:
-                step_title = st.text_input(f"Step {j+1} Title", value=step.get("title",""), key=f"step_title_{i}_{j}")
-                step_goal = st.text_area(f"Goal", value=step.get("goal",""), key=f"goal_{i}_{j}")
-                step_why = st.text_area(f"Why", value=step.get("why",""), key=f"why_{i}_{j}")
-                step_how = st.text_area(f"SOP / How", value="\n".join(step.get("how",[])), key=f"how_{i}_{j}")
-                step_kpis = st.text_area(f"KPIs", value="\n".join(step.get("kpis",[])), key=f"kpis_{i}_{j}")
-                step_deliverables = st.text_area(f"Deliverables", value="\n".join(step.get("deliverables",[])), key=f"deliv_{i}_{j}")
-
-                toolbox = step.get("toolbox", {})
-
-                tb_high = st.text_area(
-                    "High Priority Tools",
-                    value="\n".join(format_tools(toolbox)),
-                    key=f"tb_high_{i}_{j}"
-                )
-
-                tb_low = st.text_area(
-                    "Low Priority Tools",
-                    value="\n".join(format_tools(toolbox.get("low_priority", []))) if isinstance(toolbox, dict) else "",
-                    key=f"tb_low_{i}_{j}"
-                )
-
-                steps.append({
-                    "title": step_title,
-                    "goal": step_goal,
-                    "why": step_why,
-                    "how": [ln.strip() for ln in step_how.splitlines() if ln.strip()],
-                    "kpis": [ln.strip() for ln in step_kpis.splitlines() if ln.strip()],
-                    "deliverables": [ln.strip() for ln in step_deliverables.splitlines() if ln.strip()],
-                    "toolbox": {
-                        "high_priority": parse_tools(tb_high),
-                        "low_priority": parse_tools(tb_low)
-                    }
-                })
-        edit_stages.append({"title": stage_title, "steps": steps})
-
-# Save button
-save_clicked = st.button("💾 Save Changes")
-
-if save_clicked:
-    updated_plan = {"title": edit_title, "intro": plan.get("intro",""), "stages": edit_stages}
-    success = save_plan_to_github(selected_file, updated_plan, commit_msg=f"Updated {edit_title}")
-    if success:
-        st.success(f"✅ {edit_title} updated successfully!")
-        st.session_state["refresh"] = True  # set flag
-    else:
-        st.error("❌ Failed to save plan.")
-
-# Safe rerun to reflect updates
-if st.session_state.get("refresh", False):
-    st.session_state["refresh"] = False
-    st.experimental_rerun()
+select
